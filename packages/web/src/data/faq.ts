@@ -6,7 +6,7 @@ export interface FaqItem { q: string; a: string }
 // from the doc; English is a faithful translation.
 const FAQ_JA: FaqItem[] = [
   {
-    q: '一文でいうと、この論文は何の話？',
+    q: '一文でいうと、この研究は何の話？',
     a: '誰かが質問するたびに資料の意味を毎回考え直すのではなく、資料が入ってきた時に一度だけその作業をして、きれいに保存しておき、あとは引くだけにしよう、という話。',
   },
   {
