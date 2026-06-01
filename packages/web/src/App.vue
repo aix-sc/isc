@@ -9,7 +9,7 @@ import OverviewSection from '@/components/OverviewSection.vue'
 import CostModelSection from '@/components/CostModelSection.vue'
 import MaintenanceSection from '@/components/MaintenanceSection.vue'
 import NextRunSection from '@/components/NextRunSection.vue'
-import ChatSection from '@/components/ChatSection.vue'
+import ChatDock from '@/components/ChatDock.vue'
 
 const { experiments, summary, costRows } = useExperiments()
 const byId = (id: string): ExperimentMeta =>
@@ -22,14 +22,13 @@ const metaNext = computed(() => byId('NEXT'))
 <template>
   <v-app>
     <AppHeader />
-    <v-main>
+    <v-main class="shell">
       <HeroSection :summary="summary" />
       <v-container class="wrap">
         <OverviewSection />
         <CostModelSection :meta="metaA" />
         <MaintenanceSection :meta="metaC" :summary="summary" :cost-rows="costRows" />
         <NextRunSection :meta="metaNext" />
-        <ChatSection :experiments="experiments" :summary="summary" />
       </v-container>
       <footer class="foot">
         <div class="foot-inner">
@@ -46,10 +45,15 @@ const metaNext = computed(() => byId('NEXT'))
         <p class="foot-fine">Open source under the MIT license. Experiment figures are synthetic-data pilots of the harness; the real-corpus run is the next step.</p>
       </footer>
     </v-main>
+    <ChatDock :experiments="experiments" :summary="summary" />
   </v-app>
 </template>
 
 <style scoped lang="scss">
+/* Reserve room for the persistent chat rail (ChatDock) on desktop (>=960px). */
+@media (min-width: 960px) {
+  .shell { padding-right: 360px; }
+}
 .wrap { max-width: 1080px; }
 .foot { background: var(--navy); color: #fff; padding: 2.4rem clamp(1rem,4vw,3rem) 1.6rem; }
 .foot-inner { max-width: 1080px; margin: 0 auto; display: flex; justify-content: space-between; gap: 1.5rem; flex-wrap: wrap; }

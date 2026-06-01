@@ -2,7 +2,7 @@
 import { GITHUB_URL } from '@/data/experiments'
 const links = [
   { t: 'Overview', h: '#overview' }, { t: 'Cost model', h: '#expA' },
-  { t: 'Maintenance', h: '#expC' }, { t: 'Next run', h: '#next' }, { t: 'Ask the data', h: '#chat' },
+  { t: 'Maintenance', h: '#expC' }, { t: 'Next run', h: '#next' },
 ]
 </script>
 
