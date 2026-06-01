@@ -30,10 +30,6 @@ const FAQ_JA: FaqItem[] = [
     a: '準備作業（ISC）の方が、毎回やり直す（QSR）より安くなる『質問回数の分かれ目』。R*より少なければQSRが安く、多ければISCが勝つ。式は『準備総コスト÷1問あたりの節約』。',
   },
   {
-    q: 'なぜ1つでなく複数の学会に出すの？',
-    a: '成果を速く出し、適した読者に届けるため。3つの別々の論文を作る：手法の論文（IES）、コスト枠組み＋ツールの論文（ICAST）、全体統合の論文（CIDR）。どれも別個に完結した貢献で、同じ論文を二度出すのではない。',
-  },
-  {
     q: '転置インデックス／マテリアライズドビューの前例とは？',
     a: '転置インデックスは本の巻末索引のようなもので、一度作れば語を速く探せる。マテリアライズドビューは『質問への答え』を保存し最新に保つ仕組み。どちらも一度払って読みを安くする。ISCは同じことを意味に対して行う。',
   },
@@ -95,10 +91,6 @@ const FAQ_EN: FaqItem[] = [
   {
     q: 'What is R* (the break-even point)?',
     a: 'The number of questions at which the preparation work (ISC) becomes cheaper than redoing it each time (QSR). Below R*, QSR is cheaper; above it, ISC wins. The formula is total preparation cost ÷ savings per question.',
-  },
-  {
-    q: 'Why submit to several venues instead of one?',
-    a: 'To get results out fast and reach the right readers. We write three separate papers: a method paper (IES), a cost-framework + tool paper (ICAST), and an integrated paper (CIDR). Each is a self-contained contribution, not the same paper submitted twice.',
   },
   {
     q: 'What are the inverted-index / materialized-view precedents?',
