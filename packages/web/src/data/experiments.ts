@@ -1,7 +1,7 @@
 import type { ExperimentMeta } from '@/types/experiment'
 
-// Set this to your public OSS repository after pushing to GitHub:
-export const GITHUB_URL = 'https://github.com/YOUR_GH_USERNAME/ekiden-isc-experiments'
+// Public OSS repository:
+export const GITHUB_URL = 'https://github.com/aix-sc/ekiden-isc'
 
 // Local source of truth — also used as a fallback when Firestore is empty/offline.
 export const EXPERIMENTS: ExperimentMeta[] = [
