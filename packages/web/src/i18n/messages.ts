@@ -8,6 +8,7 @@ export const en = {
     cost: 'Cost model',
     maintenance: 'Maintenance',
     next: 'Next run',
+    faq: 'FAQ',
     github: 'GitHub ↗',
     brandTagline: 'Ingest-time Semantic Compilation · Experiments',
   },
@@ -96,6 +97,11 @@ export const en = {
     kicker: '05 · The next step',
     title: 'Real-corpus run — embedding APIs + Wikipedia revision history',
   },
+  faq: {
+    kicker: '06 · FAQ',
+    title: 'FAQ — in plain language',
+    lede: 'Every question this project raised, plus likely follow-ups, answered simply.',
+  },
   meta: { purpose: 'Purpose', data: 'Data source', evaluation: 'Evaluation' },
   chat: {
     kicker: 'Ask the data',
@@ -140,6 +146,7 @@ export const ja: typeof en = {
     cost: 'コストモデル',
     maintenance: '保守',
     next: '次の実験',
+    faq: 'FAQ',
     github: 'GitHub ↗',
     brandTagline: 'Ingest-time Semantic Compilation · 実験',
   },
@@ -227,6 +234,11 @@ export const ja: typeof en = {
   next: {
     kicker: '05 · 次のステップ',
     title: '実コーパス実行 — 埋め込みAPI + Wikipedia の改訂履歴',
+  },
+  faq: {
+    kicker: '06 · FAQ',
+    title: 'FAQ — やさしい言葉で',
+    lede: '本プロジェクトで出たすべての疑問と、想定される追加質問に、やさしく答えます。',
   },
   meta: { purpose: '目的', data: 'データソース', evaluation: '評価' },
   chat: {

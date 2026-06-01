@@ -9,6 +9,7 @@ import HeroSection from '@/components/HeroSection.vue'
 import OverviewSection from '@/components/OverviewSection.vue'
 import ExperimentsSection from '@/components/ExperimentsSection.vue'
 import NextRunSection from '@/components/NextRunSection.vue'
+import FaqSection from '@/components/FaqSection.vue'
 import ChatDock from '@/components/ChatDock.vue'
 
 const { t } = useI18n()
@@ -27,6 +28,7 @@ const metaNext = computed(() => byId('NEXT'))
         <OverviewSection />
         <ExperimentsSection :experiments="experiments" :summary="summary" :cost-rows="costRows" />
         <NextRunSection :meta="metaNext" />
+        <FaqSection />
       </v-container>
       <footer class="foot">
         <div class="foot-inner">
