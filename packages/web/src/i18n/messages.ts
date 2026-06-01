@@ -85,7 +85,7 @@ export const en = {
   },
   experiments: {
     kicker: 'The experiments',
-    title: 'Four experiments — switch between them',
+    title: 'Four experiments',
     tabs: { A: 'A · Cost model', B: 'B · Failure asymmetry', C: 'C · Maintenance', D: 'D · Non-economic' },
     status: { interactive: 'Interactive', completed: 'Completed', planned: 'Planned' },
     plannedNote: 'Planned experiment — description only. The summary, approach, and expected outcomes below outline what this run will deliver.',
@@ -125,6 +125,9 @@ export const en = {
     github: 'GitHub (OSS) ↗',
     cidr: 'CIDR 2027 ↗',
     backToTop: 'Back to top ↑',
+    muds: 'Musashino Data Science ↗',
+    aix: 'AIx ↗',
+    lab: 'Uraki–Takahashi Lab at MUDS ↗',
     fine:
       'Open source under the MIT license. Experiment figures are synthetic-data pilots of the harness; the real-corpus run is the next step.',
   },
@@ -214,7 +217,7 @@ export const ja: typeof en = {
   },
   experiments: {
     kicker: '実験',
-    title: '4つの実験 — タブで切り替え',
+    title: '4つの実験',
     tabs: { A: 'A · コストモデル', B: 'B · 失敗の非対称性', C: 'C · 保守', D: 'D · 非経済的' },
     status: { interactive: 'インタラクティブ', completed: '完了', planned: '計画中' },
     plannedNote: '計画中の実験 — 説明のみ。下記の概要・方針・得られる成果が、この実験で何を提供するかを示します。',
@@ -254,6 +257,9 @@ export const ja: typeof en = {
     github: 'GitHub (OSS) ↗',
     cidr: 'CIDR 2027 ↗',
     backToTop: 'トップへ戻る ↑',
+    muds: 'Musashino Data Science ↗',
+    aix: 'AIx ↗',
+    lab: 'Uraki–Takahashi Lab at MUDS ↗',
     fine:
       'MIT ライセンスのオープンソース。実験の図はハーネスの合成データによるパイロットであり、実コーパス実行が次のステップです。',
   },

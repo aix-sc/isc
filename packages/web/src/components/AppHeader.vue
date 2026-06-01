@@ -20,7 +20,8 @@ function toggleLocale() {
 <template>
   <v-app-bar flat height="58" class="nav" border>
     <a href="#top" class="brand">
-      <span class="bmk">ISC</span>
+      <img class="bmk" src="https://avatars.githubusercontent.com/u/289632491?s=400&u=99388cfe479cdadc79f93e0d846277f7eb18e490&v=4"
+           alt="AIx" width="32" height="32" />
       <span class="bmt d-none d-sm-inline">{{ t('nav.brandTagline') }}</span>
     </a>
     <v-spacer />
@@ -37,7 +38,7 @@ function toggleLocale() {
 <style scoped lang="scss">
 .nav { background: rgba(251,250,247,.86) !important; backdrop-filter: blur(10px); padding: 0 clamp(1rem,4vw,3rem); }
 .brand { display: flex; align-items: center; gap: .6rem; text-decoration: none; }
-.bmk { font-family: var(--serif); font-weight: 700; background: var(--navy); color: #fff; width: 32px; height: 32px; display: grid; place-items: center; border-radius: 8px; font-size: .9rem; }
+.bmk { width: 32px; height: 32px; border-radius: 8px; object-fit: cover; display: block; }
 .bmt { font-size: .8rem; color: var(--soft); font-weight: 500; }
 .nl { color: var(--soft); font-size: .82rem; text-decoration: none; margin: 0 .55rem; }
 .nl:hover { color: var(--teal); }

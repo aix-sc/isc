@@ -35,6 +35,9 @@ const metaNext = computed(() => byId('NEXT'))
             <p class="foot-sub">{{ t('footer.authors') }}<span class="mono">{{ t('footer.motto') }}</span></p>
           </div>
           <div class="foot-links">
+            <a href="https://muds.ac" target="_blank" rel="noopener">{{ t('footer.muds') }}</a>
+            <a href="https://github.com/aix-sc" target="_blank" rel="noopener">{{ t('footer.aix') }}</a>
+            <a href="#" rel="noopener">{{ t('footer.lab') }}</a>
             <a :href="GITHUB_URL" target="_blank" rel="noopener">{{ t('footer.github') }}</a>
             <a href="https://www.cidrdb.org/cidr2027/" target="_blank" rel="noopener">{{ t('footer.cidr') }}</a>
             <a href="#top">{{ t('footer.backToTop') }}</a>
