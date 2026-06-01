@@ -18,6 +18,19 @@ const EXPERIMENTS_EN: ExperimentMeta[] = [
       'Read off the crossing point of the two cost curves as R*, and ISC’s amortised per-query cost as reads grow (it tends to the traversal cost c_r, while QSR stays fixed at c_q).',
   },
   {
+    id: 'B',
+    name: 'Experiment B — failure asymmetry & run-to-run stability',
+    status: 'planned (description only)',
+    purpose:
+      'Test H3: ISC and QSR fail differently. QSR re-derives meaning per query, so identical questions can drift run-to-run; ISC reads from a fixed compiled substrate, so its answers should be more stable and its failures more systematic (and thus debuggable). Quantify that asymmetry.',
+    data:
+      'Approach: replay a fixed question set many times against both pipelines on the same corpus snapshot; hold the model/temperature fixed and vary only the seed/run. Compare against the real-corpus run from Experiment C.',
+    evaluation:
+      'Run-to-run variance of answers (semantic + lexical), contradiction rate across repeats, and a taxonomy of failure modes (random vs. systematic). Stability under small corpus edits.',
+    outcomes:
+      'A measured stability gap (e.g. ISC variance ≪ QSR variance) and a failure-mode taxonomy showing ISC errors are reproducible and localizable — the empirical basis for the “debuggable retrieval” claim in the paper.',
+  },
+  {
     id: 'C',
     name: 'Experiment C — incremental maintenance vs. full re-SVD (+ virtual axis update)',
     status: 'completed (synthetic pilot)',
@@ -27,6 +40,19 @@ const EXPERIMENTS_EN: ExperimentMeta[] = [
       'Synthetic pilot data: a low-rank evolving corpus, D=256, substrate rank k=32, grown from 3,000 to 9,000 documents over 50 update events. All numbers shown are real measurements. Next step: the real-corpus run (embedding APIs + Wikipedia revision history).',
     evaluation:
       'Per-update wall-clock (full re-SVD O(nd²) vs. incremental). Subspace agreement via maximum principal angle. Retrieval quality via recall@10 vs. the full-recompute neighbours. For the virtual axis update, an orthogonal Procrustes map from a small anchor set, scored by mean cosine to truly re-embedded vectors vs. fraction re-embedded.',
+  },
+  {
+    id: 'D',
+    name: 'Experiment D — non-economic benefits (provenance, attribution, governance)',
+    status: 'planned (description only)',
+    purpose:
+      'Test H4: compiling meaning once yields benefits beyond cost. A typed, persistent substrate carries explicit provenance, makes attribution checkable, and supports governance (access control, deletion, audit) that per-query reconstruction cannot easily offer.',
+    data:
+      'Approach: annotate the compiled substrate with source/edit provenance; run attribution and right-to-be-forgotten / deletion-propagation tasks on the real corpus, comparing ISC against a QSR/RAG baseline.',
+    evaluation:
+      'D1: provenance/attribution accuracy (can each answer be traced to correct sources?). Deletion-propagation correctness and latency. Auditability of answers over time.',
+    outcomes:
+      'Evidence that ISC offers materially better attribution accuracy and verifiable deletion/governance than QSR — the “non-economic” column of the value case, supporting adoption arguments where compliance, not just cost, matters.',
   },
   {
     id: 'NEXT',
@@ -54,6 +80,19 @@ const EXPERIMENTS_JA: ExperimentMeta[] = [
       '2本のコスト曲線の交点を R* として読み取り、読み取りが増えるにつれての ISC の償却後クエリ単価を確認します（走査コスト c_r に近づく一方、QSR は c_q で一定のままです）。',
   },
   {
+    id: 'B',
+    name: '実験B — 失敗の非対称性と実行間の安定性',
+    status: '計画中（説明のみ）',
+    purpose:
+      '仮説H3の検証: ISC と QSR は失敗の仕方が異なります。QSR はクエリごとに意味を再導出するため、同じ質問でも実行ごとに揺らぎ得ます。ISC は固定済みのコンパイル基盤から読み出すため、回答はより安定し、失敗もより体系的（=デバッグ可能）になるはずです。この非対称性を定量化します。',
+    data:
+      '方針: 固定した質問セットを、同一のコーパススナップショットに対して両パイプラインで多数回再生します。モデル/温度は固定し、シード/実行のみを変化させます。実験C の実コーパス実行と比較します。',
+    evaluation:
+      '回答の実行間ばらつき（意味的・字句的）、繰り返し間の矛盾率、失敗モードの分類（ランダム vs. 体系的）。小さなコーパス編集に対する安定性。',
+    outcomes:
+      '測定された安定性の差（例: ISC の分散 ≪ QSR の分散）と、ISC の誤りが再現可能で局在化できることを示す失敗モード分類。論文の「デバッグ可能な検索」という主張の実証的根拠になります。',
+  },
+  {
     id: 'C',
     name: '実験C — 増分保守 vs. 完全な再SVD（+ 仮想軸更新）',
     status: '完了（合成データによるパイロット）',
@@ -63,6 +102,19 @@ const EXPERIMENTS_JA: ExperimentMeta[] = [
       '合成パイロットデータ: 低ランクで時間発展するコーパス、D=256、基盤ランク k=32、50回の更新イベントで 3,000 から 9,000 文書へ成長。表示される数値はすべて実測値です。次のステップは実コーパス実行（埋め込みAPI + Wikipedia の改訂履歴）です。',
     evaluation:
       '更新ごとの実時間（完全再SVD O(nd²) vs. 増分）。最大主角による部分空間の一致度。完全再計算の近傍に対する recall@10 による検索品質。仮想軸更新については、小さなアンカー集合からの直交 Procrustes 写像を、真に再埋め込みしたベクトルとの平均コサインを再埋め込み割合に対して評価します。',
+  },
+  {
+    id: 'D',
+    name: '実験D — 非経済的な利点（来歴・帰属・ガバナンス）',
+    status: '計画中（説明のみ）',
+    purpose:
+      '仮説H4の検証: 意味を一度コンパイルすることで、コスト以外の利点が得られます。型付きで永続的な基盤は明示的な来歴を持ち、帰属を検証可能にし、クエリごとの再構築では容易に提供できないガバナンス（アクセス制御・削除・監査）を支えます。',
+    data:
+      '方針: コンパイル基盤に出典/編集の来歴を付与し、実コーパス上で帰属タスクと忘れられる権利/削除伝播タスクを実行して、ISC を QSR/RAG ベースラインと比較します。',
+    evaluation:
+      'D1: 来歴/帰属の精度（各回答を正しい出典までたどれるか?）。削除伝播の正確さとレイテンシ。時間経過にわたる回答の監査可能性。',
+    outcomes:
+      'ISC が QSR よりも明確に高い帰属精度と検証可能な削除/ガバナンスを提供するという証拠。価値提案の「非経済的」な側面であり、コストだけでなくコンプライアンスが重要な場面での採用論拠を支えます。',
   },
   {
     id: 'NEXT',

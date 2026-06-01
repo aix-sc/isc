@@ -4,7 +4,7 @@ import { Chart, registerables, type ChartConfiguration } from 'chart.js'
 
 Chart.register(...registerables)
 
-const props = defineProps<{ config: ChartConfiguration; height?: number }>()
+const props = defineProps<{ config: ChartConfiguration<'line'>; height?: number }>()
 const canvas = ref<HTMLCanvasElement | null>(null)
 let chart: Chart | null = null
 

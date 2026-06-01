@@ -5,7 +5,7 @@ import { getExperiments } from '@/data/experiments'
 import { useLocale } from '@/composables/useLocale'
 import type { ExperimentMeta, ExpCSummary, CostRow } from '@/types/experiment'
 
-const ORDER = ['A', 'C', 'NEXT']
+const ORDER = ['A', 'B', 'C', 'D', 'NEXT']
 
 export function useExperiments() {
   const { current } = useLocale()

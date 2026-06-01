@@ -8,8 +8,8 @@ const { t } = useI18n()
 const { current, change } = useLocale()
 
 const links = computed(() => [
-  { t: t('nav.overview'), h: '#overview' }, { t: t('nav.cost'), h: '#expA' },
-  { t: t('nav.maintenance'), h: '#expC' }, { t: t('nav.next'), h: '#next' },
+  { t: t('nav.overview'), h: '#overview' }, { t: t('nav.experiments'), h: '#experiments' },
+  { t: t('nav.next'), h: '#next' },
 ])
 
 function toggleLocale() {

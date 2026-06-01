@@ -7,8 +7,7 @@ import type { ExperimentMeta } from '@/types/experiment'
 import AppHeader from '@/components/AppHeader.vue'
 import HeroSection from '@/components/HeroSection.vue'
 import OverviewSection from '@/components/OverviewSection.vue'
-import CostModelSection from '@/components/CostModelSection.vue'
-import MaintenanceSection from '@/components/MaintenanceSection.vue'
+import ExperimentsSection from '@/components/ExperimentsSection.vue'
 import NextRunSection from '@/components/NextRunSection.vue'
 import ChatDock from '@/components/ChatDock.vue'
 
@@ -16,8 +15,6 @@ const { t } = useI18n()
 const { experiments, summary, costRows } = useExperiments()
 const byId = (id: string): ExperimentMeta =>
   experiments.value.find((e) => e.id === id) ?? experiments.value[0]
-const metaA = computed(() => byId('A'))
-const metaC = computed(() => byId('C'))
 const metaNext = computed(() => byId('NEXT'))
 </script>
 
@@ -28,8 +25,7 @@ const metaNext = computed(() => byId('NEXT'))
       <HeroSection :summary="summary" />
       <v-container class="wrap">
         <OverviewSection />
-        <CostModelSection :meta="metaA" />
-        <MaintenanceSection :meta="metaC" :summary="summary" :cost-rows="costRows" />
+        <ExperimentsSection :experiments="experiments" :summary="summary" :cost-rows="costRows" />
         <NextRunSection :meta="metaNext" />
       </v-container>
       <footer class="foot">

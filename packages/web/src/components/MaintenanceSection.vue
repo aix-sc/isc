@@ -20,7 +20,7 @@ const band = computed(() => {
   ]
 })
 
-const costConfig = computed<ChartConfiguration>(() => ({
+const costConfig = computed<ChartConfiguration<'line'>>(() =>({
   type: 'line',
   data: {
     labels: props.costRows.map((r) => r.n),
@@ -32,7 +32,7 @@ const costConfig = computed<ChartConfiguration>(() => ({
   options: baseOptions(t('maintenance.axes.costX'), t('maintenance.axes.costY')),
 }))
 
-const procConfig = computed<ChartConfiguration>(() => {
+const procConfig = computed<ChartConfiguration<'line'>>(() =>{
   const p = props.summary?.procrustes_virtual_axis_update ?? []
   return {
     type: 'line',

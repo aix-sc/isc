@@ -35,7 +35,7 @@ const fmtSci = (x: number) => x.toExponential(1)
 const fmtInt = (x: number) =>
   isFinite(x) && x > 0 ? Math.round(x).toLocaleString() : '—'
 
-const chartConfig = computed<ChartConfiguration>(() => ({
+const chartConfig = computed<ChartConfiguration<'line'>>(() => ({
   type: 'line',
   data: {
     labels: curves.value.labels,

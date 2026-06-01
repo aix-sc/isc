@@ -4,6 +4,7 @@
 export const en = {
   nav: {
     overview: 'Overview',
+    experiments: 'Experiments',
     cost: 'Cost model',
     maintenance: 'Maintenance',
     next: 'Next run',
@@ -82,8 +83,17 @@ export const en = {
     },
     downloads: { code: 'Experiment code', measurements: 'Per-event measurements', summary: 'Summary', figure: 'Figure' },
   },
+  experiments: {
+    kicker: 'The experiments',
+    title: 'Four experiments — switch between them',
+    tabs: { A: 'A · Cost model', B: 'B · Failure asymmetry', C: 'C · Maintenance', D: 'D · Non-economic' },
+    status: { interactive: 'Interactive', completed: 'Completed', planned: 'Planned' },
+    plannedNote: 'Planned experiment — description only. The summary, approach, and expected outcomes below outline what this run will deliver.',
+    approach: 'Approach',
+    outcomes: 'Expected outcomes',
+  },
   next: {
-    kicker: '04 · The next step',
+    kicker: '05 · The next step',
     title: 'Real-corpus run — embedding APIs + Wikipedia revision history',
   },
   meta: { purpose: 'Purpose', data: 'Data source', evaluation: 'Evaluation' },
@@ -123,6 +133,7 @@ export const en = {
 export const ja: typeof en = {
   nav: {
     overview: '概要',
+    experiments: '実験',
     cost: 'コストモデル',
     maintenance: '保守',
     next: '次の実験',
@@ -201,8 +212,17 @@ export const ja: typeof en = {
     },
     downloads: { code: '実験コード', measurements: 'イベント別の測定値', summary: 'サマリ', figure: '図' },
   },
+  experiments: {
+    kicker: '実験',
+    title: '4つの実験 — タブで切り替え',
+    tabs: { A: 'A · コストモデル', B: 'B · 失敗の非対称性', C: 'C · 保守', D: 'D · 非経済的' },
+    status: { interactive: 'インタラクティブ', completed: '完了', planned: '計画中' },
+    plannedNote: '計画中の実験 — 説明のみ。下記の概要・方針・得られる成果が、この実験で何を提供するかを示します。',
+    approach: '方針',
+    outcomes: '得られる成果',
+  },
   next: {
-    kicker: '04 · 次のステップ',
+    kicker: '05 · 次のステップ',
     title: '実コーパス実行 — 埋め込みAPI + Wikipedia の改訂履歴',
   },
   meta: { purpose: '目的', data: 'データソース', evaluation: '評価' },

@@ -5,6 +5,8 @@ export interface ExperimentMeta {
   purpose: string
   data: string
   evaluation: string
+  // Expected outcomes — used by planned experiments (B, D) shown as description-only tabs.
+  outcomes?: string
 }
 
 export interface ProcrustesPoint { anchors: number; frac_reembedded: number; mean_cosine_to_true: number }
