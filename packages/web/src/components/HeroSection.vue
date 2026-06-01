@@ -8,11 +8,9 @@ import MetricChip from './MetricChip.vue'
 const props = defineProps<{ summary: ExpCSummary | null }>()
 const { t } = useI18n()
 
-// Experiment C lives behind a tab in ExperimentsSection, so its #expC anchor only
-// exists when that tab is active. Ask the section to activate tab C and scroll —
-// reliable from any starting tab, and on repeat clicks.
+// Scroll to the Experiments section, keeping whatever tab is active (default A).
 function seeResults() {
-  window.dispatchEvent(new CustomEvent('isc:select-experiment', { detail: 'C' }))
+  document.getElementById('experiments')?.scrollIntoView({ behavior: 'smooth', block: 'start' })
 }
 
 const chips = computed(() => {

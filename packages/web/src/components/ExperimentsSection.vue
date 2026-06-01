@@ -32,27 +32,11 @@ function syncFromHash() {
   }
 }
 
-// Direct request (hero "See results" button) — works even when the hash is
-// already #expC, where no hashchange would fire.
-function onSelectTab(e: Event) {
-  const id = (e as CustomEvent<TabId>).detail
-  if (TABS.includes(id)) {
-    tab.value = id
-    void nextTick(() => {
-      document.getElementById('experiments')?.scrollIntoView({ behavior: 'smooth', block: 'start' })
-    })
-  }
-}
-
 onMounted(() => {
   syncFromHash()
   window.addEventListener('hashchange', syncFromHash)
-  window.addEventListener('isc:select-experiment', onSelectTab as EventListener)
 })
-onBeforeUnmount(() => {
-  window.removeEventListener('hashchange', syncFromHash)
-  window.removeEventListener('isc:select-experiment', onSelectTab as EventListener)
-})
+onBeforeUnmount(() => window.removeEventListener('hashchange', syncFromHash))
 
 const byId = (id: string): ExperimentMeta =>
   props.experiments.find((e) => e.id === id) ?? props.experiments[0]
