@@ -10,11 +10,11 @@ export const en = {
     next: 'Next run',
     faq: 'FAQ',
     github: 'GitHub ↗',
-    brandTagline: 'Ingest-time Semantic Compilation · Experiments',
+    brandTagline: 'Ingest-time Semantic Compilation',
   },
   lang: { label: 'Language', en: 'English', ja: '日本語' },
   hero: {
-    kicker: 'Reproducible research · Wild–Takahashi · target venue CIDR 2027',
+    kicker: 'Reproducible research · Wild–Takahashi',
     titleHtml: 'Pay semantic labour <em>once.</em><br />Then just look it up.',
     lede:
       'An interactive companion to the ISC paper. Re-run the cost model, explore the incremental-maintenance results, inspect the data behind every number, and ask questions in plain language. Everything here is open source.',
@@ -86,8 +86,9 @@ export const en = {
   },
   experiments: {
     kicker: 'The experiments',
-    title: 'Four experiments',
-    tabs: { A: 'A · Cost model', B: 'B · Failure asymmetry', C: 'C · Maintenance', D: 'D · Non-economic' },
+    title: 'Seven experiments',
+    choose: 'Select an experiment',
+    tabs: { A: 'A · Cost model', Aprime: 'A′ · Measured R* (real corpus)', B: 'B · Failure asymmetry', C: 'C · Maintenance', D: 'D · Non-economic', E: 'E · Virtual axis update (i)', F: 'F · Virtual axis update (ii)' },
     status: { interactive: 'Interactive', completed: 'Completed', planned: 'Planned' },
     plannedNote: 'Planned experiment — description only. The summary, approach, and expected outcomes below outline what this run will deliver.',
     approach: 'Approach',
@@ -153,11 +154,11 @@ export const ja: typeof en = {
     next: '次の実験',
     faq: 'FAQ',
     github: 'GitHub ↗',
-    brandTagline: '取込時意味コンパイル · 実験',
+    brandTagline: '取込時意味コンパイル',
   },
   lang: { label: '言語', en: 'English', ja: '日本語' },
   hero: {
-    kicker: '再現可能な研究 · Wild–Takahashi · 投稿先 CIDR 2027',
+    kicker: '再現可能な研究 · Wild–Takahashi',
     titleHtml: '意味の労働は<em>一度だけ。</em><br />あとは引くだけ。',
     lede:
       'ISC 論文のインタラクティブな副読本です。コストモデルを再実行し、増分保守の結果を探り、すべての数値の裏にあるデータを確認し、平易な言葉で質問できます。すべてオープンソースです。',
@@ -229,8 +230,9 @@ export const ja: typeof en = {
   },
   experiments: {
     kicker: '実験',
-    title: '4つの実験',
-    tabs: { A: 'A · コストモデル', B: 'B · 失敗の非対称性', C: 'C · 保守', D: 'D · 非経済的' },
+    title: '7つの実験',
+    choose: '実験を選択',
+    tabs: { A: 'A · コストモデル', Aprime: 'A′ · 実コーパスで測定した R*', B: 'B · 失敗の非対称性', C: 'C · 保守', D: 'D · 非経済的', E: 'E · 仮想軸更新 (i)', F: 'F · 仮想軸更新 (ii)' },
     status: { interactive: 'インタラクティブ', completed: '完了', planned: '計画中' },
     plannedNote: '計画中の実験 — 説明のみ。下記の概要・方針・得られる成果が、この実験で何を提供するかを示します。',
     approach: '方針',
