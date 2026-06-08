@@ -129,7 +129,7 @@ export const en = {
     team: 'Project Team',
     kyleRole: 'CTO, Endgame Labs, Inc.',
     kyleBio:
-      'Originator of Ingest-time Semantic Compilation (ISC). Co-founder and former CEO of Keen IO (cloud event-data analytics), launched in 2012 in the first Techstars Cloud class, where he sits on the board; CTO at Endgame. Earlier roles spanned product management, software engineering, game design, and distributed-systems scalability. An angel investor and startup advisor, he holds a BS in General Engineering from the University of Illinois at Urbana-Champaign.',
+      'Originator of Ingest-time Semantic Compilation (ISC). Co-founder and former CEO of Keen IO (cloud event-data analytics), launched in 2012 in the first Techstars Cloud class, where he sits on the board; CTO at Endgame. An early member of the Google Analytics team, he went on to roles in product management, software engineering, game design, and distributed-systems scalability. An angel investor and startup advisor, he holds a BS in General Engineering from the University of Illinois at Urbana-Champaign.',
     yusukeRole: 'Associate Professor, Musashino University; Researcher, Asia AI Institute; Co-founder, AIx{\'{}\'}',
     yusukeBio:
       'Associate Professor, Faculty of Data Science, Musashino University (Kiyoki Lab, in the Mathematical Model of Meaning / MMM lineage), and co-founder of AIx{\'{}\'}. He works on adaptive semantic substrates and knowledge bases built on orthogonalized semantic spaces. Earlier he founded software startups in Silicon Valley and Tokyo, with experience across product design, growth, and customer development. He holds a PhD in Media and Governance from Keio University.',
@@ -153,7 +153,7 @@ export const ja: typeof en = {
     next: '次の実験',
     faq: 'FAQ',
     github: 'GitHub ↗',
-    brandTagline: 'Ingest-time Semantic Compilation · 実験',
+    brandTagline: '取込時意味コンパイル · 実験',
   },
   lang: { label: '言語', en: 'English', ja: '日本語' },
   hero: {
@@ -272,7 +272,7 @@ export const ja: typeof en = {
     team: 'プロジェクトチーム',
     kyleRole: 'CTO, Endgame Labs, Inc.',
     kyleBio:
-      '取込時意味コンパイル（ISC）の提唱者。2012年に Techstars Cloud 第一期として共同創業したイベントデータ基盤 Keen IO の元 CEO・現取締役で、Endgame CTO。初期キャリアではプロダクトマネジメント、ソフトウェアエンジニアリング、ゲームデザイン、分散システムのスケーラビリティに従事。エンジェル投資家／スタートアップアドバイザーでもあり、イリノイ大学アーバナ・シャンペーン校で General Engineering の学士号を取得。',
+      '取込時意味コンパイル（ISC）の提唱者。2012年に Techstars Cloud 第一期として共同創業したイベントデータ基盤 Keen IO の元 CEO・現取締役で、Endgame CTO。Google Analytics チームの初期メンバーとして開発に携わり、その後プロダクトマネジメント、ソフトウェアエンジニアリング、ゲームデザイン、分散システムのスケーラビリティに従事。エンジェル投資家／スタートアップアドバイザーでもあり、イリノイ大学アーバナ・シャンペーン校で General Engineering の学士号を取得。',
     yusukeRole: '武蔵野大学データサイエンス学部 准教授; アジアAI研究所研究員; AIx{\'{}\'}共同創業者',
     yusukeBio:
       '武蔵野大学データサイエンス学部 准教授（清木研究室・意味の数学モデル／MMM の系譜）、AIx{\'{}\'} 共同創業者。直交化された意味空間を基盤に、適応的セマンティック基底と知識ベースを研究。以前はシリコンバレーと東京でソフトウェアスタートアップを創業し、プロダクトデザイン・グロース・顧客開発に従事。博士（政策・メディア、慶應義塾大学）。',
