@@ -31,6 +31,7 @@ const metaNext = computed(() => byId('NEXT'))
         <FaqSection />
       </v-container>
       <footer class="foot">
+        <p class="foot-brand serif">{{ t('footer.title') }}</p>
         <div class="foot-team">
           <p class="foot-team-label">{{ t('footer.team') }}</p>
           <div class="foot-team-grid">
@@ -53,7 +54,6 @@ const metaNext = computed(() => byId('NEXT'))
           </div>
         </div>
         <div class="foot-inner">
-          <p class="foot-title serif">{{ t('footer.title') }}</p>
           <div class="foot-links">
             <a href="https://muds.ac" target="_blank" rel="noopener">{{ t('footer.muds') }}</a>
             <a href="https://github.com/aix-sc" target="_blank" rel="noopener">{{ t('footer.aix') }}</a>
@@ -77,6 +77,8 @@ const metaNext = computed(() => byId('NEXT'))
 }
 .wrap { max-width: 1080px; }
 .foot { background: var(--navy); color: #fff; padding: 2.4rem clamp(1rem,4vw,3rem) 1.6rem; }
+.foot-brand { max-width: 1080px; margin: 0 auto 1.8rem; font-size: 1.5rem; font-weight: 600; color: #fff;
+  letter-spacing: -.01em; padding-bottom: 1.1rem; border-bottom: 1px solid #2C496E; }
 .foot-inner { max-width: 1080px; margin: 0 auto; display: flex; justify-content: space-between; gap: 1.5rem; flex-wrap: wrap; }
 .foot-title { font-size: 1.3rem; font-weight: 600; }
 .foot-links { display: flex; flex-direction: column; gap: .45rem; font-size: .88rem;
