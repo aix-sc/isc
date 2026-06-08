@@ -43,3 +43,36 @@ export async function askGemini(
   const res = await callable({ context, history, question })
   return res.data.text
 }
+
+// --- Dynamic follow-up suggestions ----------------------------------------
+// Reuses the deployed `geminiChat` function (frontend-only; no Functions change).
+// Asks the model, given the conversation so far, for ~6 short follow-up questions.
+const SUGGEST_INSTRUCTION: Record<Locale, string> = {
+  en: 'Based on the conversation so far, propose 6 short follow-up questions the user is likely to ask next about these ISC experiments. Each under ~12 words, specific and varied. Output ONLY a JSON array of exactly 6 strings — no preamble, numbering, or markdown.',
+  ja: 'これまでの会話を踏まえ、ユーザーが次に尋ねそうな短い質問を6個、日本語で提案してください。各質問は約12語以内で、具体的かつ多様に。出力は6要素のJSON配列の文字列のみ（前置き・番号・記号・マークダウンは不要）。',
+}
+
+function parseSuggestions(raw: string): string[] {
+  const cleaned = raw.replace(/```json/gi, '').replace(/```/g, '').trim()
+  let arr: string[] = []
+  try {
+    const j = JSON.parse(cleaned)
+    if (Array.isArray(j)) arr = j.map((x) => String(x))
+  } catch {
+    arr = cleaned
+      .split('\n')
+      .map((l) => l.replace(/^[\s\-*•\d.,、・)）]+/, '').trim())
+      .filter(Boolean)
+  }
+  return arr.map((s) => s.trim()).filter(Boolean).slice(0, 6)
+}
+
+export async function suggestQuestions(
+  context: string,
+  history: ChatTurn[],
+  locale: Locale = 'en',
+): Promise<string[]> {
+  if (!firebaseEnabled || !functions) return []
+  const raw = await askGemini(context, history, SUGGEST_INSTRUCTION[locale])
+  return parseSuggestions(raw)
+}
