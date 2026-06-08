@@ -127,9 +127,9 @@ export const en = {
   footer: {
     title: 'Ingest-time Semantic Compilation',
     team: 'Project Team',
-    kyleRole: 'Researcher, Asia AI Institute',
+    kyleRole: 'CTO, Endgame Labs, Inc.',
     kyleBio:
-      'Originator of Ingest-time Semantic Compilation (ISC). Founder & former CEO of Keen (cloud event-data analytics) and CTO at Endgame; a student of distributed and incentive systems.',
+      'Originator of Ingest-time Semantic Compilation (ISC). Founder & former CEO of Keen (cloud event-data analytics); a student of distributed and incentive systems.',
     yusukeRole: 'Researcher, Asia AI Institute · Musashino University',
     yusukeBio:
       'Associate Professor, Faculty of Data Science, Musashino University (Kiyoki Lab, MMM lineage); co-founder of EKIDEN.AI. PhD, Keio University. Works on adaptive semantic substrates and knowledge bases.',
@@ -270,9 +270,9 @@ export const ja: typeof en = {
   footer: {
     title: 'Ingest-time Semantic Compilation',
     team: 'プロジェクトチーム',
-    kyleRole: 'Researcher, Asia AI Institute',
+    kyleRole: 'CTO, Endgame Labs, Inc.',
     kyleBio:
-      '取込時意味コンパイル（ISC）の提唱者。イベントデータ基盤 Keen の創業者・元 CEO、Endgame CTO。分散システムとインセンティブ設計を専門とする。',
+      '取込時意味コンパイル（ISC）の提唱者。イベントデータ基盤 Keen の創業者・元 CEO。分散システムとインセンティブ設計を専門とする。',
     yusukeRole: 'Researcher, Asia AI Institute・武蔵野大学',
     yusukeBio:
       '武蔵野大学データサイエンス学部 准教授（清木研究室・MMM 系列）、EKIDEN.AI 共同創業者。博士（政策・メディア、慶應義塾大学）。適応的セマンティック基底と知識ベースを研究。',

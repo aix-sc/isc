@@ -1,4 +1,6 @@
-# ISC Experiments — EKIDEN.ai-aligned web app
+# [Ingest-time Semantic Compilation](https://isc-research.web.app/#top)
+
+**Live:** <https://isc-research.web.app/#top>
 
 An open-source, reproducible companion to the **Ingest-time Semantic Compilation (ISC)**
 paper (Wild–Takahashi, target venue **CIDR 2027**), built on the **EKIDEN.ai stack** so it
@@ -27,16 +29,16 @@ drops straight into the internal monorepo and tooling.
 ## Monorepo layout
 
 ```
-ekiden-isc-experiments/
+isc/
 ├── package.json                # Yarn workspaces root
 ├── firebase.json               # Hosting + Functions + Firestore + Storage + emulators
 ├── firestore.rules  storage.rules
-├── packages/web/               # @ekiden/isc-web — Vue 3 + Vuetify + Vite app
+├── packages/web/               # @isc/web — Vue 3 + Vuetify + Vite app
 │   ├── src/{components,composables,services,plugins,styles,data,types}
 │   ├── src/__tests__/          # Vitest unit tests
 │   ├── cypress/e2e/            # Cypress e2e tests
 │   └── public/data/            # real experiment artifacts (downloadable + charted)
-└── functions/                  # @ekiden/isc-functions — Cloud Functions (geminiChat)
+└── functions/                  # @isc/functions — Cloud Functions (geminiChat)
 ```
 
 ## Prerequisites
@@ -108,7 +110,7 @@ Cloud Storage instead, upload `packages/web/public/data/*` under `experiments/` 
 
 ```bash
 git init && git add . && git commit -m "ISC experiments (EKIDEN stack)"
-git remote add origin https://github.com/YOUR_GH_USERNAME/ekiden-isc-experiments.git
+git remote add origin https://github.com/aix-sc/isc.git
 git push -u origin main
 ```
 
