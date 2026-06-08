@@ -49,7 +49,7 @@ const metaNext = computed(() => byId('NEXT'))
             <article class="foot-person">
               <img class="foot-avatar" src="/team/yusuke.jpg" alt="Yusuke Takahashi" width="76" height="76" loading="lazy" />
               <div class="foot-person-meta">
-                <p class="foot-person-name serif">Yusuke Takahashi</p>
+                <p class="foot-person-name serif">Yusuke Takahashi, PhD</p>
                 <p class="foot-person-role">{{ t('footer.yusukeRole') }}</p>
                 <p class="foot-person-bio">{{ t('footer.yusukeBio') }}</p>
                 <p class="foot-person-links">
