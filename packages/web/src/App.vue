@@ -41,6 +41,9 @@ const metaNext = computed(() => byId('NEXT'))
                 <p class="foot-person-name serif">Kyle Wild</p>
                 <p class="foot-person-role">{{ t('footer.kyleRole') }}</p>
                 <p class="foot-person-bio">{{ t('footer.kyleBio') }}</p>
+                <p class="foot-person-links">
+                  <a href="https://www.linkedin.com/in/kylewild/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+                </p>
               </div>
             </article>
             <article class="foot-person">
@@ -49,6 +52,10 @@ const metaNext = computed(() => byId('NEXT'))
                 <p class="foot-person-name serif">Yusuke Takahashi</p>
                 <p class="foot-person-role">{{ t('footer.yusukeRole') }}</p>
                 <p class="foot-person-bio">{{ t('footer.yusukeBio') }}</p>
+                <p class="foot-person-links">
+                  <a href="https://www.linkedin.com/in/yusuketakahashiphd/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+                  <a href="https://orcid.org/0009-0006-8351-2280" target="_blank" rel="noopener noreferrer">ORCID</a>
+                </p>
               </div>
             </article>
           </div>
@@ -103,5 +110,7 @@ const metaNext = computed(() => byId('NEXT'))
   color: #5BC2B5; margin: .2rem 0 0;
 }
 .foot-person-bio { font-size: .8rem; line-height: 1.55; color: #B9CAE0; margin: .45rem 0 0; }
+.foot-person-links { display: flex; flex-wrap: wrap; gap: .8rem; margin: .55rem 0 0; font-size: .78rem;
+  a { color: #CFE0F2; text-decoration: none; } a:hover { color: #5BC2B5; } }
 @media (max-width: 640px) { .foot-team-grid { grid-template-columns: 1fr; } }
 </style>
