@@ -1,22 +1,16 @@
 <script setup lang="ts">
-import { computed } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { useExperiments } from '@/composables/useExperiments'
 import { GITHUB_URL } from '@/data/experiments'
-import type { ExperimentMeta } from '@/types/experiment'
 import AppHeader from '@/components/AppHeader.vue'
 import HeroSection from '@/components/HeroSection.vue'
 import OverviewSection from '@/components/OverviewSection.vue'
 import ExperimentsSection from '@/components/ExperimentsSection.vue'
-import NextRunSection from '@/components/NextRunSection.vue'
 import FaqSection from '@/components/FaqSection.vue'
 import ChatDock from '@/components/ChatDock.vue'
 
 const { t } = useI18n()
 const { experiments, summary, costRows } = useExperiments()
-const byId = (id: string): ExperimentMeta =>
-  experiments.value.find((e) => e.id === id) ?? experiments.value[0]
-const metaNext = computed(() => byId('NEXT'))
 </script>
 
 <template>
@@ -27,7 +21,6 @@ const metaNext = computed(() => byId('NEXT'))
       <v-container class="wrap">
         <OverviewSection />
         <ExperimentsSection :experiments="experiments" :summary="summary" :cost-rows="costRows" />
-        <NextRunSection :meta="metaNext" />
         <FaqSection />
       </v-container>
       <footer class="foot">
@@ -79,7 +72,7 @@ const metaNext = computed(() => byId('NEXT'))
 <style scoped lang="scss">
 /* Reserve room for the persistent chat rail (ChatDock) on desktop (>=960px). */
 @media (min-width: 960px) {
-  .shell { padding-right: 360px; }
+  :global(html.chat-rail-open) .shell { padding-right: 360px; }
 }
 .wrap { max-width: 1080px; }
 .foot { background: var(--navy); color: #fff; padding: 2.4rem clamp(1rem,4vw,3rem) 1.6rem; }

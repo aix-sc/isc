@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref } from 'vue'
+import { ref, watchEffect, onBeforeUnmount } from 'vue'
 import { useDisplay } from 'vuetify'
 import { useI18n } from 'vue-i18n'
 import type { ExperimentMeta, ExpCSummary } from '@/types/experiment'
@@ -12,17 +12,39 @@ const { t } = useI18n()
 // mdAndUp (>=960px) → persistent right rail; below → FAB + popup dialog.
 // Matches the right-padding media query reserved on <v-main> in App.vue.
 const { mdAndUp } = useDisplay()
-const open = ref(false)
+
+const open = ref(false) // mobile/tablet popup
+const railOpen = ref(true) // desktop rail (now dismissible)
+
+// Reflect the desktop rail state on <html> so App.vue can reserve the right
+// padding only while the rail is actually shown (and reclaim it when closed).
+watchEffect(() => {
+  if (typeof document === 'undefined') return
+  document.documentElement.classList.toggle('chat-rail-open', mdAndUp.value && railOpen.value)
+})
+onBeforeUnmount(() => {
+  if (typeof document !== 'undefined') document.documentElement.classList.remove('chat-rail-open')
+})
 </script>
 
 <template>
-  <!-- Desktop: persistent right-side rail -->
-  <aside v-if="mdAndUp" class="rail">
-    <ChatPanel :experiments="experiments" :summary="summary" @close="() => {}" />
+  <!-- Desktop: dismissible right-side rail -->
+  <aside v-if="mdAndUp && railOpen" class="rail">
+    <ChatPanel :experiments="experiments" :summary="summary" @close="railOpen = false" />
   </aside>
 
+  <!-- Desktop: launcher shown after the rail is closed -->
+  <button
+    v-if="mdAndUp && !railOpen"
+    class="fab"
+    :aria-label="t('chat.open')"
+    @click="railOpen = true"
+  >
+    <span class="fab-star"><GeminiStar /></span>
+  </button>
+
   <!-- Mobile/tablet: floating Gemini-star button that opens a popup -->
-  <template v-else>
+  <template v-if="!mdAndUp">
     <button v-show="!open" class="fab" :aria-label="t('chat.open')" @click="open = true">
       <span class="fab-star"><GeminiStar /></span>
     </button>
@@ -51,7 +73,7 @@ $rail-w: 360px;
   box-shadow: -8px 0 24px -18px rgba(15, 30, 50, .35);
 }
 
-/* Floating action button (mobile). */
+/* Floating action button (mobile launcher, and desktop re-open launcher). */
 .fab {
   position: fixed;
   right: 18px;
