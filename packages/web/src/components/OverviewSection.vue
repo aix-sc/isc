@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { useI18n } from 'vue-i18n'
+import QsrIscDiagram from '@/components/QsrIscDiagram.vue'
 const { t } = useI18n()
 </script>
 
@@ -23,6 +24,9 @@ const { t } = useI18n()
         </v-card>
       </v-col>
     </v-row>
+
+    <QsrIscDiagram class="diagram" />
+
     <div class="eqbar">
       <span class="eql">{{ t('overview.eqLabel') }}</span>
       <span class="eqf">R* = ( N·c<sub>c</sub> + W·c<sub>m</sub> ) / ( c<sub>q</sub> − c<sub>r</sub> )</span>
@@ -39,6 +43,7 @@ const { t } = useI18n()
 .pole-qsr { border-top-color: var(--red); h3 { color: var(--red); } }
 .pole-isc { border-top-color: var(--teal); h3 { color: var(--teal); } }
 .note { font-family: var(--mono); font-size: .8rem; color: var(--mute) !important; margin-top: .7rem; padding-top: .6rem; border-top: 1px dashed var(--line); }
+.diagram { margin-top: 1.4rem; --isc-qsr: var(--red); --isc-teal: var(--teal); --isc-ink: var(--navy); }
 .eqbar { margin-top: 1.2rem; background: var(--navy); color: #fff; border-radius: 12px; padding: 1rem 1.3rem; display: flex; flex-wrap: wrap; align-items: center; gap: .4rem 1rem; }
 .eql { font-family: var(--mono); font-size: .7rem; text-transform: uppercase; letter-spacing: .1em; color: #9DB8D6; }
 .eqf { font-family: var(--mono); font-size: clamp(1rem,2.4vw,1.3rem); font-weight: 700; }
