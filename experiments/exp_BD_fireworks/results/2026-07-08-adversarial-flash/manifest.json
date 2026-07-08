@@ -1,0 +1,13 @@
+{
+  "date": "2026-07-08",
+  "experiment": "B/D Fireworks adversarial Flash gap",
+  "command": "uv run python experiments/exp_BD_fireworks/run.py --config experiments/exp_BD_fireworks/configs/adversarial_flash.json",
+  "question_set": "adversarial",
+  "limit": 6,
+  "context_docs": 64,
+  "models": ["accounts/fireworks/models/deepseek-v4-flash"],
+  "modes": ["qsr", "isc"],
+  "credential_source": "FIREWORKS_API_KEY or op://cerebro-local-dev/llm_gateway/FIREWORKS_API_KEY",
+  "pricing_source": "experiments/exp_BD_fireworks/run.py PRICES_PER_MILLION, copied from cerebro llm-gateway prices.yaml",
+  "primary_result": "Flash exact answer+source+revision: QSR 0/6, ISC 6/6"
+}

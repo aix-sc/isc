@@ -1,0 +1,13 @@
+question_index,question_id,category,mode,entity,slot,model_name,model_id,expected_value,expected_source,expected_revision,expected_deleted,model_value,model_source,model_revision,model_rationale,answer_correct,source_correct,revision_correct,latency_ms,prompt_tokens,completion_tokens,total_tokens,estimated_cost_usd,raw_content
+1,project_000:launch_region,corrected,qsr,project_000,launch_region,deepseek-v4-pro,accounts/fireworks/models/deepseek-v4-pro,launch_region_corrected_project_000,src/project_000/launch_region/rev-5.md,5,False,launch_region_corrected_project_000,src/project_000/launch_region/rev-5.md,5,The highest revision for entity project_000 and slot launch_region with current_flag true and not deleted is revision 5.,True,True,True,35450.2,9412,688,10100,0.01877112,"{
+""value"": ""launch_region_corrected_project_000"",
+""source"": ""src/project_000/launch_region/rev-5.md"",
+""revision"": 5,
+""rationale"": ""The highest revision for entity project_000 and slot launch_region with current_flag true and not deleted is revision 5.""
+}"
+2,project_013:launch_region,deleted,qsr,project_013,launch_region,deepseek-v4-pro,accounts/fireworks/models/deepseek-v4-pro,UNKNOWN,src/project_013/launch_region/delete.md,5,True,UNKNOWN,src/project_013/launch_region/delete.md,5,"The highest revision (5) for slot launch_region of entity project_013 is a deletion tombstone, indicating the value has been deleted.",True,True,True,32290.0,9377,552,9929,0.01823694,"{
+""value"": ""UNKNOWN"",
+""source"": ""src/project_013/launch_region/delete.md"",
+""revision"": 5,
+""rationale"": ""The highest revision (5) for slot launch_region of entity project_013 is a deletion tombstone, indicating the value has been deleted.""
+}"

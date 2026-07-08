@@ -1,0 +1,13 @@
+{
+  "date": "2026-07-08",
+  "experiment": "B/D Fireworks revision-task cost sweep",
+  "commands": [
+    "uv run python experiments/exp_BD_fireworks/run.py --config experiments/exp_BD_fireworks/configs/cost_flash_qsr_isc.json",
+    "uv run python experiments/exp_BD_fireworks/run.py --config experiments/exp_BD_fireworks/configs/cost_flash_qsr_context128.json",
+    "uv run python experiments/exp_BD_fireworks/run.py --config experiments/exp_BD_fireworks/configs/cost_pro_qsr_context128_sample.json"
+  ],
+  "question_set": "revision",
+  "credential_source": "FIREWORKS_API_KEY or op://cerebro-local-dev/llm_gateway/FIREWORKS_API_KEY",
+  "pricing_source": "experiments/exp_BD_fireworks/run.py PRICES_PER_MILLION, copied from cerebro llm-gateway prices.yaml",
+  "primary_result": "At equal accuracy, Flash QSR context128 costs 14.36x Flash ISC; Pro QSR context128 sample costs 187.89x Flash ISC per question"
+}

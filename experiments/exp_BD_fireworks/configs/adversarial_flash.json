@@ -1,0 +1,10 @@
+{
+  "question_set": "adversarial",
+  "limit": 6,
+  "context_docs": 64,
+  "models": ["deepseek-v4-flash"],
+  "modes": ["qsr", "isc"],
+  "csv_out": "experiments/exp_BD_fireworks/out/adversarial_flash_scores.csv",
+  "jsonl_out": "experiments/exp_BD_fireworks/out/adversarial_flash_answers.jsonl",
+  "summary_out": "experiments/exp_BD_fireworks/out/adversarial_flash_summary.json"
+}
