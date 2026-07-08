@@ -15,9 +15,10 @@ The runner resolves Fireworks credentials in this order:
 
 1. `FIREWORKS_API_KEY`
 2. `LLM_GATEWAY_DEFAULT_FIREWORKS_API_KEY`
-3. `op read op://cerebro-local-dev/llm_gateway/FIREWORKS_API_KEY`
+3. Optional: `op read <value passed via --op-ref>`
 
-The default 1Password account is `endgamelabs.1password.com`.
+If you use 1Password, pass your own secret reference with `--op-ref`. No
+repository-specific 1Password item is required.
 
 ## Re-run Key Results
 

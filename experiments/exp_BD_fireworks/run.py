@@ -16,7 +16,7 @@ current answer and cite the supporting source.
 Secrets are resolved in this order:
 1. FIREWORKS_API_KEY
 2. LLM_GATEWAY_DEFAULT_FIREWORKS_API_KEY
-3. op read op://cerebro-local-dev/llm_gateway/FIREWORKS_API_KEY
+3. optional: op read <value passed via --op-ref>
 
 Example:
   uv run python experiments/exp_BD_fireworks/run.py --limit 6
@@ -49,8 +49,7 @@ from synthetic_revision import (
 
 OUT_DIR = Path(__file__).resolve().parent
 FIREWORKS_CHAT_URL = "https://api.fireworks.ai/inference/v1/chat/completions"
-DEFAULT_OP_REF = "op://cerebro-local-dev/llm_gateway/FIREWORKS_API_KEY"
-DEFAULT_OP_ACCOUNT = "endgamelabs.1password.com"
+DEFAULT_OP_REF = ""
 
 MODELS = {
     "deepseek-v4-flash": "accounts/fireworks/models/deepseek-v4-flash",
@@ -81,14 +80,20 @@ class Question:
     qsr_context_text: str | None = None
 
 
-def resolve_fireworks_api_key(op_ref: str, op_account: str | None) -> str:
+def resolve_fireworks_api_key(op_ref: str | None, op_account: str | None) -> str:
     for env_name in ("FIREWORKS_API_KEY", "LLM_GATEWAY_DEFAULT_FIREWORKS_API_KEY"):
         value = os.environ.get(env_name, "").strip()
         if value:
             return value
 
+    if not op_ref:
+        raise RuntimeError(
+            "Set FIREWORKS_API_KEY or LLM_GATEWAY_DEFAULT_FIREWORKS_API_KEY. "
+            "Alternatively pass --op-ref with your own 1Password secret reference."
+        )
+
     cmd = ["op", "read", op_ref]
-    account = op_account or os.environ.get("CEREBRO_DEV_OP_ACCOUNT") or DEFAULT_OP_ACCOUNT
+    account = op_account
     if account:
         cmd.extend(["--account", account])
 
@@ -796,7 +801,7 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--temperature", type=float, default=0.1)
     parser.add_argument("--timeout", type=float, default=90.0)
     parser.add_argument("--op-ref", default=DEFAULT_OP_REF)
-    parser.add_argument("--op-account", default=os.environ.get("CEREBRO_DEV_OP_ACCOUNT", DEFAULT_OP_ACCOUNT))
+    parser.add_argument("--op-account", default=None)
     parser.add_argument("--csv-out", type=Path, default=OUT_DIR / "exp_BD_fireworks_answers.csv")
     parser.add_argument("--jsonl-out", type=Path, default=OUT_DIR / "exp_BD_fireworks_answers.jsonl")
     parser.add_argument("--summary-out", type=Path, default=OUT_DIR / "exp_BD_fireworks_summary.json")
