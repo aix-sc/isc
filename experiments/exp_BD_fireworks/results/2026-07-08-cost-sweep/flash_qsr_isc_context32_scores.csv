@@ -1,0 +1,109 @@
+question_index,question_id,category,mode,entity,slot,model_name,model_id,expected_value,expected_source,expected_revision,expected_deleted,model_value,model_source,model_revision,model_rationale,answer_correct,source_correct,revision_correct,latency_ms,prompt_tokens,completion_tokens,total_tokens,estimated_cost_usd,raw_content
+1,project_000:launch_region,corrected,qsr,project_000,launch_region,deepseek-v4-flash,accounts/fireworks/models/deepseek-v4-flash,launch_region_corrected_project_000,src/project_000/launch_region/rev-5.md,5,False,launch_region_corrected_project_000,src/project_000/launch_region/rev-5.md,5,"The only entry for project_000 and launch_region with current_flag=true is revision 5, which has the value 'launch_region_corrected_project_000'.",True,True,True,3695.9,2458,260,2718,0.00041692,"{
+""value"": ""launch_region_corrected_project_000"",
+""source"": ""src/project_000/launch_region/rev-5.md"",
+""revision"": 5,
+""rationale"": ""The only entry for project_000 and launch_region with current_flag=true is revision 5, which has the value 'launch_region_corrected_project_000'.""
+}"
+1,project_000:launch_region,corrected,isc,project_000,launch_region,deepseek-v4-flash,accounts/fireworks/models/deepseek-v4-flash,launch_region_corrected_project_000,src/project_000/launch_region/rev-5.md,5,False,launch_region_corrected_project_000,src/project_000/launch_region/rev-5.md,5,The compiled record indicates the slot is not deleted and has a value.,True,True,True,2997.6,197,257,454,9.954e-05,"{
+""value"": ""launch_region_corrected_project_000"",
+""source"": ""src/project_000/launch_region/rev-5.md"",
+""revision"": 5,
+""rationale"": ""The compiled record indicates the slot is not deleted and has a value.""
+}"
+2,project_013:launch_region,deleted,qsr,project_013,launch_region,deepseek-v4-flash,accounts/fireworks/models/deepseek-v4-flash,UNKNOWN,src/project_013/launch_region/delete.md,5,True,UNKNOWN,src/project_013/launch_region/delete.md,5,"The deletion tombstone (revision 5, current_flag true) for project_013 launch_region indicates the slot has been deleted, so the answer is UNKNOWN.",True,True,True,5055.2,2440,253,2693,0.00041244,"{
+""value"": ""UNKNOWN"",
+""source"": ""src/project_013/launch_region/delete.md"",
+""revision"": 5,
+""rationale"": ""The deletion tombstone (revision 5, current_flag true) for project_013 launch_region indicates the slot has been deleted, so the answer is UNKNOWN.""
+}"
+2,project_013:launch_region,deleted,isc,project_013,launch_region,deepseek-v4-flash,accounts/fireworks/models/deepseek-v4-flash,UNKNOWN,src/project_013/launch_region/delete.md,5,True,UNKNOWN,src/project_013/launch_region/delete.md,5,The slot 'launch_region' for entity 'project_013' has been deleted as per the deletion record.,True,True,True,2802.9,188,393,581,0.00013636,"{
+""value"": ""UNKNOWN"",
+""source"": ""src/project_013/launch_region/delete.md"",
+""revision"": 5,
+""rationale"": ""The slot 'launch_region' for entity 'project_013' has been deleted as per the deletion record.""
+}"
+3,project_027:capital_plan,ordinary,qsr,project_027,capital_plan,deepseek-v4-flash,accounts/fireworks/models/deepseek-v4-flash,capital_plan_v4_1583,src/project_027/capital_plan/rev-4.md,4,False,capital_plan_v4_1583,src/project_027/capital_plan/rev-4.md,4,"Among all entries for entity 'project_027' and slot 'capital_plan', only revision 4 has current_flag: true, indicating it is the current value.",True,True,True,6757.3,2435,217,2652,0.00040166,"{
+""value"": ""capital_plan_v4_1583"",
+""source"": ""src/project_027/capital_plan/rev-4.md"",
+""revision"": 4,
+""rationale"": ""Among all entries for entity 'project_027' and slot 'capital_plan', only revision 4 has current_flag: true, indicating it is the current value.""
+}"
+3,project_027:capital_plan,ordinary,isc,project_027,capital_plan,deepseek-v4-flash,accounts/fireworks/models/deepseek-v4-flash,capital_plan_v4_1583,src/project_027/capital_plan/rev-4.md,4,False,capital_plan_v4_1583,src/project_027/capital_plan/rev-4.md,4,"The compiled record for entity 'project_027' slot 'capital_plan' is not deleted (deleted: false), so the current value is taken directly from the record.",True,True,True,9144.6,194,192,386,8.092e-05,"{
+""value"": ""capital_plan_v4_1583"",
+""source"": ""src/project_027/capital_plan/rev-4.md"",
+""revision"": 4,
+""rationale"": ""The compiled record for entity 'project_027' slot 'capital_plan' is not deleted (deleted: false), so the current value is taken directly from the record.""
+}"
+4,project_003:launch_region,corrected,qsr,project_003,launch_region,deepseek-v4-flash,accounts/fireworks/models/deepseek-v4-flash,launch_region_corrected_project_003,src/project_003/launch_region/rev-4.md,4,False,launch_region_corrected_project_003,src/project_003/launch_region/rev-4.md,4,"Both revision 3 and revision 4 for project_003 launch_region have current_flag true, but revision 4 is higher and thus the current answer.",True,True,True,4843.6,2446,311,2757,0.00042952,"{
+""value"": ""launch_region_corrected_project_003"",
+""source"": ""src/project_003/launch_region/rev-4.md"",
+""revision"": 4,
+""rationale"": ""Both revision 3 and revision 4 for project_003 launch_region have current_flag true, but revision 4 is higher and thus the current answer.""
+}"
+4,project_003:launch_region,corrected,isc,project_003,launch_region,deepseek-v4-flash,accounts/fireworks/models/deepseek-v4-flash,launch_region_corrected_project_003,src/project_003/launch_region/rev-4.md,4,False,launch_region_corrected_project_003,src/project_003/launch_region/rev-4.md,4,Compiled record indicates value is not deleted; using the provided value.,True,True,True,2286.9,197,248,445,9.702e-05,"{
+""value"": ""launch_region_corrected_project_003"",
+""source"": ""src/project_003/launch_region/rev-4.md"",
+""revision"": 4,
+""rationale"": ""Compiled record indicates value is not deleted; using the provided value.""
+}"
+5,project_008:launch_region,deleted,qsr,project_008,launch_region,deepseek-v4-flash,accounts/fireworks/models/deepseek-v4-flash,UNKNOWN,src/project_008/launch_region/delete.md,3,True,UNKNOWN,src/project_008/launch_region/delete.md,3,"The deletion tombstone for project_008 launch_region at revision 3 has current_flag true and deleted true, indicating the value is unknown.",True,True,True,2667.3,2418,266,2684,0.000413,"{
+""value"": ""UNKNOWN"",
+""source"": ""src/project_008/launch_region/delete.md"",
+""revision"": 3,
+""rationale"": ""The deletion tombstone for project_008 launch_region at revision 3 has current_flag true and deleted true, indicating the value is unknown.""
+}"
+5,project_008:launch_region,deleted,isc,project_008,launch_region,deepseek-v4-flash,accounts/fireworks/models/deepseek-v4-flash,UNKNOWN,src/project_008/launch_region/delete.md,3,True,UNKNOWN,src/project_008/launch_region/delete.md,3,"The compiled record indicates deletion (deleted: true), so the value is set to UNKNOWN per instructions.",True,True,True,9358.7,188,266,454,0.0001008,"{
+""value"": ""UNKNOWN"",
+""source"": ""src/project_008/launch_region/delete.md"",
+""revision"": 3,
+""rationale"": ""The compiled record indicates deletion (deleted: true), so the value is set to UNKNOWN per instructions.""
+}"
+6,project_035:capital_plan,ordinary,qsr,project_035,capital_plan,deepseek-v4-flash,accounts/fireworks/models/deepseek-v4-flash,capital_plan_v3_2811,src/project_035/capital_plan/rev-3.md,3,False,capital_plan_v3_2811,src/project_035/capital_plan/rev-3.md,3,"The context contains multiple entries for project_035 capital_plan. The entry with revision 3 (doc_id project_035_capital_plan_r3) has current_flag true and is not deleted, making it the current answer.",True,True,True,3668.2,2436,211,2647,0.00040012,"{
+""value"": ""capital_plan_v3_2811"",
+""source"": ""src/project_035/capital_plan/rev-3.md"",
+""revision"": 3,
+""rationale"": ""The context contains multiple entries for project_035 capital_plan. The entry with revision 3 (doc_id project_035_capital_plan_r3) has current_flag true and is not deleted, making it the current answer.""
+}"
+6,project_035:capital_plan,ordinary,isc,project_035,capital_plan,deepseek-v4-flash,accounts/fireworks/models/deepseek-v4-flash,capital_plan_v3_2811,src/project_035/capital_plan/rev-3.md,3,False,capital_plan_v3_2811,src/project_035/capital_plan/rev-3.md,3,"The compiled record for entity 'project_035' slot 'capital_plan' is not deleted (deleted: false), so the current value is taken directly from the record.",True,True,True,2539.4,194,194,388,8.148e-05,"{
+""value"": ""capital_plan_v3_2811"",
+""source"": ""src/project_035/capital_plan/rev-3.md"",
+""revision"": 3,
+""rationale"": ""The compiled record for entity 'project_035' slot 'capital_plan' is not deleted (deleted: false), so the current value is taken directly from the record.""
+}"
+7,project_003:risk_owner,corrected,qsr,project_003,risk_owner,deepseek-v4-flash,accounts/fireworks/models/deepseek-v4-flash,risk_owner_corrected_project_003,src/project_003/risk_owner/rev-4.md,4,False,risk_owner_corrected_project_003,src/project_003/risk_owner/rev-4.md,4,"The context contains multiple entries for project_003 risk_owner. The highest revision with current_flag true is revision 4 (doc_id project_003_risk_owner_r4), which has value risk_owner_corrected_project_003. No deletion tombstone exists for this entity-slot combination.",True,True,True,2537.1,2437,330,2767,0.00043358,"{
+""value"": ""risk_owner_corrected_project_003"",
+""source"": ""src/project_003/risk_owner/rev-4.md"",
+""revision"": 4,
+""rationale"": ""The context contains multiple entries for project_003 risk_owner. The highest revision with current_flag true is revision 4 (doc_id project_003_risk_owner_r4), which has value risk_owner_corrected_project_003. No deletion tombstone exists for this entity-slot combination.""
+}"
+7,project_003:risk_owner,corrected,isc,project_003,risk_owner,deepseek-v4-flash,accounts/fireworks/models/deepseek-v4-flash,risk_owner_corrected_project_003,src/project_003/risk_owner/rev-4.md,4,False,risk_owner_corrected_project_003,src/project_003/risk_owner/rev-4.md,4,"The compiled record for entity 'project_003' slot 'risk_owner' indicates value 'risk_owner_corrected_project_003' at revision 4, not deleted.",True,True,True,2276.6,195,285,480,0.0001071,"{
+""value"": ""risk_owner_corrected_project_003"",
+""source"": ""src/project_003/risk_owner/rev-4.md"",
+""revision"": 4,
+""rationale"": ""The compiled record for entity 'project_003' slot 'risk_owner' indicates value 'risk_owner_corrected_project_003' at revision 4, not deleted.""
+}"
+8,project_012:launch_region,deleted,qsr,project_012,launch_region,deepseek-v4-flash,accounts/fireworks/models/deepseek-v4-flash,UNKNOWN,src/project_012/launch_region/delete.md,5,True,UNKNOWN,src/project_012/launch_region/delete.md,5,"Higher revision (5) is a deletion tombstone, so answer is UNKNOWN.",True,True,True,7882.0,2435,441,2876,0.00046438,"{
+""value"": ""UNKNOWN"",
+""source"": ""src/project_012/launch_region/delete.md"",
+""revision"": 5,
+""rationale"": ""Higher revision (5) is a deletion tombstone, so answer is UNKNOWN.""
+}"
+8,project_012:launch_region,deleted,isc,project_012,launch_region,deepseek-v4-flash,accounts/fireworks/models/deepseek-v4-flash,UNKNOWN,src/project_012/launch_region/delete.md,5,True,UNKNOWN,src/project_012/launch_region/delete.md,5,"The compiled record indicates deletion (deleted: true), so the value is set to UNKNOWN per instructions.",True,True,True,5528.1,188,241,429,9.38e-05,"{
+""value"": ""UNKNOWN"",
+""source"": ""src/project_012/launch_region/delete.md"",
+""revision"": 5,
+""rationale"": ""The compiled record indicates deletion (deleted: true), so the value is set to UNKNOWN per instructions.""
+}"
+9,project_031:risk_owner,ordinary,qsr,project_031,risk_owner,deepseek-v4-flash,accounts/fireworks/models/deepseek-v4-flash,risk_owner_v4_6193,src/project_031/risk_owner/rev-4.md,4,False,risk_owner_v4_6193,src/project_031/risk_owner/rev-4.md,4,"The entry for project_031 risk_owner with revision 4 has current_flag true, indicating it is the current value.",True,True,True,7271.1,2450,209,2659,0.00040152,"{
+""value"": ""risk_owner_v4_6193"",
+""source"": ""src/project_031/risk_owner/rev-4.md"",
+""revision"": 4,
+""rationale"": ""The entry for project_031 risk_owner with revision 4 has current_flag true, indicating it is the current value.""
+}"
+9,project_031:risk_owner,ordinary,isc,project_031,risk_owner,deepseek-v4-flash,accounts/fireworks/models/deepseek-v4-flash,risk_owner_v4_6193,src/project_031/risk_owner/rev-4.md,4,False,risk_owner_v4_6193,src/project_031/risk_owner/rev-4.md,4,The compiled record indicates the slot is not deleted and has value risk_owner_v4_6193 at revision 4.,True,True,True,6049.7,194,222,416,8.932e-05,"{
+""value"": ""risk_owner_v4_6193"",
+""source"": ""src/project_031/risk_owner/rev-4.md"",
+""revision"": 4,
+""rationale"": ""The compiled record indicates the slot is not deleted and has value risk_owner_v4_6193 at revision 4.""
+}"

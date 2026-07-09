@@ -1,0 +1,11 @@
+{
+  "question_set": "adversarial",
+  "limit": 3,
+  "context_docs": 64,
+  "models": ["kimi-k2p7-code", "glm-5p2"],
+  "modes": ["qsr"],
+  "timeout": 150,
+  "csv_out": "experiments/exp_BD_fireworks/out/adversarial_heavy_qsr_scores.csv",
+  "jsonl_out": "experiments/exp_BD_fireworks/out/adversarial_heavy_qsr_answers.jsonl",
+  "summary_out": "experiments/exp_BD_fireworks/out/adversarial_heavy_qsr_summary.json"
+}
