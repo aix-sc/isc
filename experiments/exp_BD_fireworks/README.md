@@ -11,14 +11,7 @@ The experiment compares:
 
 ## Credentials
 
-The runner resolves Fireworks credentials in this order:
-
-1. `FIREWORKS_API_KEY`
-2. `LLM_GATEWAY_DEFAULT_FIREWORKS_API_KEY`
-3. Optional: `op read <value passed via --op-ref>`
-
-If you use 1Password, pass your own secret reference with `--op-ref`. No
-repository-specific 1Password item is required.
+The runner resolves Fireworks credentials from `FIREWORKS_API_KEY`.
 
 ## Re-run Key Results
 

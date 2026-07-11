@@ -1,0 +1,8 @@
+question_index,question_id,category,mode,entity,slot,model_name,model_id,expected_value,expected_source,expected_revision,expected_deleted,model_value,model_source,model_revision,model_rationale,answer_correct,source_correct,revision_correct,latency_ms,prompt_tokens,completion_tokens,total_tokens,estimated_cost_usd,raw_content
+1,project_001:launch_region,corrected,qsr,project_001,launch_region,deepseek-v4-pro,accounts/fireworks/models/deepseek-v4-pro,launch_region_corrected_project_001,src/project_001/launch_region/rev-5.md,5,False,launch_region_corrected_project_001,src/project_001/launch_region/rev-5.md,5,"Revision 5 is the highest revision for project_001/launch_region with current_flag=true and not deleted, so it is the current value.",True,True,True,7339.4,9410,612,10022,0.01850316,"{
+""value"": ""launch_region_corrected_project_001"",
+""source"": ""src/project_001/launch_region/rev-5.md"",
+""revision"": 5,
+""rationale"": ""Revision 5 is the highest revision for project_001/launch_region with current_flag=true and not deleted, so it is the current value.""
+}"
+2,project_012:capital_plan,deleted,qsr,project_012,capital_plan,deepseek-v4-pro,accounts/fireworks/models/deepseek-v4-pro,UNKNOWN,src/project_012/capital_plan/delete.md,5,True,UNKNOWN,src/project_012/capital_plan/delete.md,5,"The highest revision for project_012 capital_plan is 5, which is a deletion tombstone (deleted: true). Therefore, the current value is UNKNOWN.",True,True,True,8954.7,9392,523,9915,0.01816212,"{""value"": ""UNKNOWN"", ""source"": ""src/project_012/capital_plan/delete.md"", ""revision"": 5, ""rationale"": ""The highest revision for project_012 capital_plan is 5, which is a deletion tombstone (deleted: true). Therefore, the current value is UNKNOWN.""}"

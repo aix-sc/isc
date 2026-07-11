@@ -1,0 +1,23 @@
+{
+  "rows": 12,
+  "model_modes": {
+    "deepseek-v4-flash/qsr": {
+      "questions": 6,
+      "answer_accuracy": 0.1667,
+      "source_accuracy": 0.0,
+      "revision_accuracy": 0.0,
+      "mean_latency_ms": 7163.5,
+      "total_tokens": 49963,
+      "estimated_cost_usd": 0.00785498
+    },
+    "deepseek-v4-flash/isc": {
+      "questions": 6,
+      "answer_accuracy": 1.0,
+      "source_accuracy": 1.0,
+      "revision_accuracy": 1.0,
+      "mean_latency_ms": 2754.2,
+      "total_tokens": 2929,
+      "estimated_cost_usd": 0.00065058
+    }
+  }
+}

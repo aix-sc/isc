@@ -1,0 +1,14 @@
+{
+  "rows": 2,
+  "model_modes": {
+    "deepseek-v4-pro/qsr": {
+      "questions": 2,
+      "answer_accuracy": 1.0,
+      "source_accuracy": 1.0,
+      "revision_accuracy": 1.0,
+      "mean_latency_ms": 8235.6,
+      "total_tokens": 20268,
+      "estimated_cost_usd": 0.03782412
+    }
+  }
+}

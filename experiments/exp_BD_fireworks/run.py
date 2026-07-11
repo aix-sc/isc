@@ -13,10 +13,7 @@ Each model receives a shuffled retrieved context with current facts, stale
 revisions, deletion tombstones, and distractors. The model must reconstruct the
 current answer and cite the supporting source.
 
-Secrets are resolved in this order:
-1. FIREWORKS_API_KEY
-2. LLM_GATEWAY_DEFAULT_FIREWORKS_API_KEY
-3. optional: op read <value passed via --op-ref>
+Secrets are resolved from FIREWORKS_API_KEY.
 
 Example:
   uv run python experiments/exp_BD_fireworks/run.py --limit 6
@@ -49,8 +46,6 @@ from synthetic_revision import (
 
 OUT_DIR = Path(__file__).resolve().parent
 FIREWORKS_CHAT_URL = "https://api.fireworks.ai/inference/v1/chat/completions"
-DEFAULT_OP_REF = ""
-
 MODELS = {
     "deepseek-v4-flash": "accounts/fireworks/models/deepseek-v4-flash",
     "deepseek-v4-pro": "accounts/fireworks/models/deepseek-v4-pro",
@@ -80,39 +75,10 @@ class Question:
     qsr_context_text: str | None = None
 
 
-def resolve_fireworks_api_key(op_ref: str | None, op_account: str | None) -> str:
-    for env_name in ("FIREWORKS_API_KEY", "LLM_GATEWAY_DEFAULT_FIREWORKS_API_KEY"):
-        value = os.environ.get(env_name, "").strip()
-        if value:
-            return value
-
-    if not op_ref:
-        raise RuntimeError(
-            "Set FIREWORKS_API_KEY or LLM_GATEWAY_DEFAULT_FIREWORKS_API_KEY. "
-            "Alternatively pass --op-ref with your own 1Password secret reference."
-        )
-
-    cmd = ["op", "read", op_ref]
-    account = op_account
-    if account:
-        cmd.extend(["--account", account])
-
-    try:
-        result = subprocess.run(cmd, check=True, capture_output=True, text=True)
-    except FileNotFoundError as exc:
-        raise RuntimeError(
-            "1Password CLI `op` is not installed and FIREWORKS_API_KEY is not set."
-        ) from exc
-    except subprocess.CalledProcessError as exc:
-        stderr = exc.stderr.strip()
-        raise RuntimeError(
-            f"Could not read Fireworks API key from 1Password ref {op_ref!r}. "
-            f"Set FIREWORKS_API_KEY or sign in to 1Password. op stderr: {stderr}"
-        ) from exc
-
-    key = result.stdout.strip()
+def resolve_fireworks_api_key() -> str:
+    key = os.environ.get("FIREWORKS_API_KEY", "").strip()
     if not key:
-        raise RuntimeError(f"1Password ref {op_ref!r} resolved to an empty value.")
+        raise RuntimeError("Set FIREWORKS_API_KEY.")
     return key
 
 
@@ -672,7 +638,7 @@ def run(args: argparse.Namespace) -> list[dict[str, Any]]:
                 print(build_messages(question, mode)[1]["content"])
         return []
 
-    api_key = resolve_fireworks_api_key(args.op_ref, args.op_account)
+    api_key = resolve_fireworks_api_key()
     rows: list[dict[str, Any]] = []
 
     for q_ix, question in enumerate(questions, start=1):
@@ -800,8 +766,6 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--max-tokens", type=int, default=1024)
     parser.add_argument("--temperature", type=float, default=0.1)
     parser.add_argument("--timeout", type=float, default=90.0)
-    parser.add_argument("--op-ref", default=DEFAULT_OP_REF)
-    parser.add_argument("--op-account", default=None)
     parser.add_argument("--csv-out", type=Path, default=OUT_DIR / "exp_BD_fireworks_answers.csv")
     parser.add_argument("--jsonl-out", type=Path, default=OUT_DIR / "exp_BD_fireworks_answers.jsonl")
     parser.add_argument("--summary-out", type=Path, default=OUT_DIR / "exp_BD_fireworks_summary.json")
@@ -814,7 +778,7 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--random-questions", action="store_true", help="Sample questions uniformly at random.")
     parser.set_defaults(**config_defaults)
     args = parser.parse_args()
-    for field in ("csv_out", "jsonl_out", "summary_out", "op_ref", "op_account", "config"):
+    for field in ("csv_out", "jsonl_out", "summary_out", "config"):
         value = getattr(args, field, None)
         if field.endswith("_out") or field == "config":
             if isinstance(value, str):

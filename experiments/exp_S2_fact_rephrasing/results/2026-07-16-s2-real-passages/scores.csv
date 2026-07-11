@@ -1,0 +1,31 @@
+passage_id,title,source_url,original_tokens,fact_tokens,compression_ratio,fact_count,entailed_fact_count,unsupported_fact_count,missing_major_claim_count,qa_fidelity_pass,rephrase_latency_ms,judge_latency_ms
+Materialized_view:1,Materialized view,https://en.wikipedia.org/wiki/Materialized_view,144,159,1.1042,9,9,0,0,True,14364.0,5586.9
+Materialized_view:2,Materialized view,https://en.wikipedia.org/wiki/Materialized_view,107,101,0.9439,7,7,0,0,True,4724.2,3233.3
+Inverted_index:1,Inverted index,https://en.wikipedia.org/wiki/Inverted_index,173,177,1.0231,10,10,0,0,True,8420.1,5512.8
+Inverted_index:2,Inverted index,https://en.wikipedia.org/wiki/Inverted_index,82,100,1.2195,7,7,0,0,True,2681.5,3650.2
+Inverted_index:3,Inverted index,https://en.wikipedia.org/wiki/Inverted_index,133,118,0.8872,8,8,0,0,True,8284.5,9646.4
+Inverted_index:4,Inverted index,https://en.wikipedia.org/wiki/Inverted_index,161,138,0.8571,8,8,0,0,True,5740.2,14418.8
+Vector_space_model:1,Vector space model,https://en.wikipedia.org/wiki/Vector_space_model,114,166,1.4561,7,7,0,0,True,13678.6,7069.8
+Latent_semantic_analysis:1,Latent semantic analysis,https://en.wikipedia.org/wiki/Latent_semantic_analysis,158,169,1.0696,13,13,0,0,True,5061.2,10108.4
+Latent_semantic_analysis:2,Latent semantic analysis,https://en.wikipedia.org/wiki/Latent_semantic_analysis,92,109,1.1848,9,9,0,0,True,16753.4,3533.1
+Latent_semantic_analysis:3,Latent semantic analysis,https://en.wikipedia.org/wiki/Latent_semantic_analysis,102,90,0.8824,5,5,0,0,True,9932.4,4148.0
+Latent_semantic_analysis:4,Latent semantic analysis,https://en.wikipedia.org/wiki/Latent_semantic_analysis,107,102,0.9533,5,5,0,0,True,3657.1,6625.5
+Latent_semantic_analysis:5,Latent semantic analysis,https://en.wikipedia.org/wiki/Latent_semantic_analysis,124,132,1.0645,9,0,0,0,False,7690.0,14510.8
+Latent_semantic_analysis:6,Latent semantic analysis,https://en.wikipedia.org/wiki/Latent_semantic_analysis,139,125,0.8993,8,8,0,0,True,7439.0,4716.5
+Latent_semantic_analysis:7,Latent semantic analysis,https://en.wikipedia.org/wiki/Latent_semantic_analysis,103,102,0.9903,5,5,0,0,True,10194.5,9729.0
+Latent_semantic_analysis:8,Latent semantic analysis,https://en.wikipedia.org/wiki/Latent_semantic_analysis,100,104,1.04,6,6,0,0,True,10820.0,6917.0
+Latent_semantic_analysis:9,Latent semantic analysis,https://en.wikipedia.org/wiki/Latent_semantic_analysis,144,155,1.0764,8,8,0,0,True,10727.7,4026.0
+Latent_semantic_analysis:10,Latent semantic analysis,https://en.wikipedia.org/wiki/Latent_semantic_analysis,135,125,0.9259,6,6,0,0,True,4736.5,2563.5
+Latent_semantic_analysis:11,Latent semantic analysis,https://en.wikipedia.org/wiki/Latent_semantic_analysis,105,107,1.019,7,7,0,0,True,17770.6,5033.1
+Latent_semantic_analysis:12,Latent semantic analysis,https://en.wikipedia.org/wiki/Latent_semantic_analysis,94,95,1.0106,9,9,0,0,True,3875.0,6313.4
+Latent_semantic_analysis:13,Latent semantic analysis,https://en.wikipedia.org/wiki/Latent_semantic_analysis,121,139,1.1488,5,5,0,0,True,2970.3,6656.2
+Latent_semantic_analysis:14,Latent semantic analysis,https://en.wikipedia.org/wiki/Latent_semantic_analysis,77,78,1.013,3,3,0,0,True,17060.0,5014.5
+Latent_semantic_analysis:15,Latent semantic analysis,https://en.wikipedia.org/wiki/Latent_semantic_analysis,135,134,0.9926,5,5,0,0,True,3250.4,8704.9
+Latent_semantic_analysis:16,Latent semantic analysis,https://en.wikipedia.org/wiki/Latent_semantic_analysis,109,112,1.0275,6,6,0,0,True,8272.2,8779.7
+Latent_semantic_analysis:17,Latent semantic analysis,https://en.wikipedia.org/wiki/Latent_semantic_analysis,224,229,1.0223,11,11,0,0,True,5380.0,11537.5
+Retrieval-augmented_generation:1,Retrieval-augmented generation,https://en.wikipedia.org/wiki/Retrieval-augmented_generation,137,149,1.0876,9,9,0,0,True,10636.0,4225.3
+Retrieval-augmented_generation:2,Retrieval-augmented generation,https://en.wikipedia.org/wiki/Retrieval-augmented_generation,124,120,0.9677,7,7,0,0,True,5918.8,4122.9
+Retrieval-augmented_generation:3,Retrieval-augmented generation,https://en.wikipedia.org/wiki/Retrieval-augmented_generation,189,186,0.9841,12,12,0,0,True,3684.2,5201.9
+Retrieval-augmented_generation:4,Retrieval-augmented generation,https://en.wikipedia.org/wiki/Retrieval-augmented_generation,118,126,1.0678,5,5,0,0,True,12882.1,8017.9
+Retrieval-augmented_generation:5,Retrieval-augmented generation,https://en.wikipedia.org/wiki/Retrieval-augmented_generation,97,100,1.0309,7,7,0,0,True,17854.9,3532.2
+Retrieval-augmented_generation:6,Retrieval-augmented generation,https://en.wikipedia.org/wiki/Retrieval-augmented_generation,100,107,1.07,7,7,0,0,True,6115.1,4650.6
