@@ -1,0 +1,26 @@
+passage_id,title,source_url,original_tokens,fact_tokens,compression_ratio,fact_count,entailed_fact_count,unsupported_fact_count,missing_major_claim_count,qa_fidelity_pass,rephrase_latency_ms,judge_latency_ms
+fed_dialogue:20260429:3,"FOMC press conference, April 29 2026",https://www.federalreserve.gov/mediacenter/files/FOMCpresconf20260429.pdf,299,77,0.2575,3,3,0,0,True,5554.9,16682.3
+fed_dialogue:20260429:4,"FOMC press conference, April 29 2026",https://www.federalreserve.gov/mediacenter/files/FOMCpresconf20260429.pdf,290,91,0.3138,6,5,1,1,False,10381.8,10976.1
+fed_dialogue:20260429:5,"FOMC press conference, April 29 2026",https://www.federalreserve.gov/mediacenter/files/FOMCpresconf20260429.pdf,257,173,0.6732,11,11,0,0,True,15503.0,6359.0
+fed_dialogue:20260429:6,"FOMC press conference, April 29 2026",https://www.federalreserve.gov/mediacenter/files/FOMCpresconf20260429.pdf,136,94,0.6912,5,5,0,0,True,15512.8,28592.0
+fed_dialogue:20260429:7,"FOMC press conference, April 29 2026",https://www.federalreserve.gov/mediacenter/files/FOMCpresconf20260429.pdf,201,73,0.3632,3,2,1,0,False,8298.8,13100.8
+fed_dialogue:20260429:9,"FOMC press conference, April 29 2026",https://www.federalreserve.gov/mediacenter/files/FOMCpresconf20260429.pdf,295,108,0.3661,3,3,0,0,True,12750.3,4553.6
+fed_dialogue:20260429:10,"FOMC press conference, April 29 2026",https://www.federalreserve.gov/mediacenter/files/FOMCpresconf20260429.pdf,276,197,0.7138,6,6,0,0,True,20154.0,6439.0
+fed_dialogue:20260429:11,"FOMC press conference, April 29 2026",https://www.federalreserve.gov/mediacenter/files/FOMCpresconf20260429.pdf,333,125,0.3754,9,9,0,0,True,13627.9,4736.8
+fed_dialogue:20260429:12,"FOMC press conference, April 29 2026",https://www.federalreserve.gov/mediacenter/files/FOMCpresconf20260429.pdf,308,140,0.4545,8,8,0,0,True,11260.3,11977.4
+fed_dialogue:20260429:14,"FOMC press conference, April 29 2026",https://www.federalreserve.gov/mediacenter/files/FOMCpresconf20260429.pdf,337,160,0.4748,10,10,0,0,True,12381.4,12628.1
+fed_dialogue:20260429:15,"FOMC press conference, April 29 2026",https://www.federalreserve.gov/mediacenter/files/FOMCpresconf20260429.pdf,285,173,0.607,8,8,0,0,True,16085.2,5475.6
+fed_dialogue:20260429:16,"FOMC press conference, April 29 2026",https://www.federalreserve.gov/mediacenter/files/FOMCpresconf20260429.pdf,276,195,0.7065,8,8,0,0,True,9320.9,9232.5
+fed_dialogue:20260429:17,"FOMC press conference, April 29 2026",https://www.federalreserve.gov/mediacenter/files/FOMCpresconf20260429.pdf,217,129,0.5945,8,8,0,0,True,13361.3,13103.7
+fed_dialogue:20260429:18,"FOMC press conference, April 29 2026",https://www.federalreserve.gov/mediacenter/files/FOMCpresconf20260429.pdf,330,163,0.4939,11,11,0,0,True,9656.2,15321.6
+fed_dialogue:20260429:19,"FOMC press conference, April 29 2026",https://www.federalreserve.gov/mediacenter/files/FOMCpresconf20260429.pdf,237,193,0.8143,11,9,2,0,True,16932.4,16445.7
+fed_dialogue:20260429:20,"FOMC press conference, April 29 2026",https://www.federalreserve.gov/mediacenter/files/FOMCpresconf20260429.pdf,299,94,0.3144,5,5,0,0,True,6437.0,6738.9
+fed_dialogue:20260429:21,"FOMC press conference, April 29 2026",https://www.federalreserve.gov/mediacenter/files/FOMCpresconf20260429.pdf,340,135,0.3971,7,7,0,0,True,4517.6,7177.3
+fed_dialogue:20260429:22,"FOMC press conference, April 29 2026",https://www.federalreserve.gov/mediacenter/files/FOMCpresconf20260429.pdf,143,52,0.3636,2,2,0,0,True,8327.5,8929.6
+fed_dialogue:20260429:23,"FOMC press conference, April 29 2026",https://www.federalreserve.gov/mediacenter/files/FOMCpresconf20260429.pdf,322,172,0.5342,8,8,0,0,True,12691.6,6968.9
+fed_dialogue:20260429:24,"FOMC press conference, April 29 2026",https://www.federalreserve.gov/mediacenter/files/FOMCpresconf20260429.pdf,210,134,0.6381,7,7,0,0,True,7704.5,7096.0
+fed_dialogue:20260429:25,"FOMC press conference, April 29 2026",https://www.federalreserve.gov/mediacenter/files/FOMCpresconf20260429.pdf,300,191,0.6367,8,8,0,0,True,23575.7,5005.8
+fed_dialogue:20260429:26,"FOMC press conference, April 29 2026",https://www.federalreserve.gov/mediacenter/files/FOMCpresconf20260429.pdf,299,136,0.4548,6,6,0,0,True,11041.4,8254.0
+fed_dialogue:20260429:27,"FOMC press conference, April 29 2026",https://www.federalreserve.gov/mediacenter/files/FOMCpresconf20260429.pdf,169,80,0.4734,4,4,0,0,True,15964.2,6339.8
+fed_dialogue:20260429:28,"FOMC press conference, April 29 2026",https://www.federalreserve.gov/mediacenter/files/FOMCpresconf20260429.pdf,308,106,0.3442,4,4,0,0,True,12215.6,3765.0
+fed_dialogue:20260429:30,"FOMC press conference, April 29 2026",https://www.federalreserve.gov/mediacenter/files/FOMCpresconf20260429.pdf,322,119,0.3696,4,4,0,0,True,33144.2,4441.8

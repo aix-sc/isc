@@ -90,10 +90,32 @@ class Passage:
     text: str
 
 
-def resolve_fireworks_api_key() -> str:
-    key = os.environ.get("FIREWORKS_API_KEY", "").strip()
+def resolve_fireworks_api_key(op_ref: str | None, op_account: str | None) -> str:
+    for env_name in ("FIREWORKS_API_KEY", "LLM_GATEWAY_DEFAULT_FIREWORKS_API_KEY"):
+        value = os.environ.get(env_name, "").strip()
+        if value:
+            return value
+
+    if not op_ref:
+        raise RuntimeError(
+            "Set FIREWORKS_API_KEY or LLM_GATEWAY_DEFAULT_FIREWORKS_API_KEY, "
+            "or pass --op-ref with a 1Password secret reference."
+        )
+
+    cmd = ["op", "read", op_ref]
+    if op_account:
+        cmd.extend(["--account", op_account])
+
+    try:
+        result = subprocess.run(cmd, check=True, capture_output=True, text=True)
+    except FileNotFoundError as exc:
+        raise RuntimeError("1Password CLI `op` is not installed.") from exc
+    except subprocess.CalledProcessError as exc:
+        raise RuntimeError(f"Could not read 1Password ref {op_ref!r}: {exc.stderr.strip()}") from exc
+
+    key = result.stdout.strip()
     if not key:
-        raise RuntimeError("Set FIREWORKS_API_KEY.")
+        raise RuntimeError(f"1Password ref {op_ref!r} resolved to an empty value.")
     return key
 
 
@@ -328,6 +350,7 @@ def rephrase_messages(passage: Passage, source_set: str) -> list[dict[str, str]]
     if source_set == "fed_dialogue":
         system = (
             "You perform S2 fact rephrasing for an ingest-time fact compilation pipeline. "
+            "Your first character must be `{`; do not reason before writing JSON. "
             "Rewrite dialogue into compact, self-contained, pronoun-free atomic facts. "
             "Remove filler, stutters, repetition, backchannels, hedging phrases, and conversational scaffolding. "
             "Resolve pronouns and back-references to explicit entities when the referent is recoverable. "
@@ -338,6 +361,7 @@ def rephrase_messages(passage: Passage, source_set: str) -> list[dict[str, str]]
     else:
         system = (
             "You perform S2 fact rephrasing for an ingest-time fact compilation pipeline. "
+            "Your first character must be `{`; do not reason before writing JSON. "
             "Rewrite the passage into compact, self-contained, pronoun-free atomic facts. "
             "Preserve names, dates, quantities, negation, definitions, and causal claims. "
             "Do not add information not present in the passage. Return only a JSON object. "
@@ -419,6 +443,12 @@ def facts_from_text(text: str) -> list[str]:
 
 
 def normalize_facts(parsed: dict[str, Any]) -> list[str]:
+    if "parse_error" in parsed and "facts" not in parsed:
+        parse_error = parsed.get("parse_error")
+        if isinstance(parse_error, str):
+            return facts_from_text(parse_error)
+        return []
+
     raw = parsed.get("facts", [])
     if not raw:
         for key in ("atomic_facts", "rephrased_facts", "fact_rows", "statements"):
@@ -482,7 +512,7 @@ def run(args: argparse.Namespace) -> None:
         print(f"wrote {len(passages)} passages to {out_dir / 'passages.jsonl'}")
         return
 
-    api_key = resolve_fireworks_api_key()
+    api_key = resolve_fireworks_api_key(args.op_ref, args.op_account)
     rows: list[dict[str, Any]] = []
 
     for ix, passage in enumerate(passages, start=1):
@@ -654,7 +684,7 @@ Suggested manuscript sentence:
         "command": " ".join(sys.argv),
         "source_set": args.source_set,
         "outputs": ["passages.jsonl", "answers.jsonl", "scores.csv", "summary.json", "summary.md"],
-        "credential_source": "FIREWORKS_API_KEY",
+        "credential_source": "FIREWORKS_API_KEY, LLM_GATEWAY_DEFAULT_FIREWORKS_API_KEY, or --op-ref <1Password secret reference>",
     }
     (out_dir / "manifest.json").write_text(json.dumps(manifest, indent=2) + "\n")
 
@@ -665,9 +695,11 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--limit", type=int, default=30)
     parser.add_argument("--model", default=DEFAULT_MODEL)
     parser.add_argument("--judge-model", default=DEFAULT_MODEL)
-    parser.add_argument("--max-tokens", type=int, default=2200)
+    parser.add_argument("--max-tokens", type=int, default=5000)
     parser.add_argument("--temperature", type=float, default=0.0)
     parser.add_argument("--timeout", type=float, default=120.0)
+    parser.add_argument("--op-ref", default=None)
+    parser.add_argument("--op-account", default=None)
     parser.add_argument("--snapshot-only", action="store_true")
     parser.add_argument(
         "--out-dir",

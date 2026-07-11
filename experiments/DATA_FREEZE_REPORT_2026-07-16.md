@@ -6,20 +6,21 @@ reruns.
 
 ## 1. S2 Fact Rephrasing
 
-Artifact directory:
+Artifact directories:
 
 ```text
 experiments/exp_S2_fact_rephrasing/results/2026-07-16-s2-real-passages/
+experiments/exp_S2_fact_rephrasing/results/2026-07-16-s2-dialogue-passages-valid/
 ```
 
-Setup:
+Dense-prose setup:
 
 - Passage set: 30 public Wikipedia passages, snapshotted in `passages.jsonl`
 - Model: `accounts/fireworks/models/deepseek-v4-flash`
 - Token counter: `tiktoken:cl100k_base`
 - Outputs: `passages.jsonl`, `answers.jsonl`, `scores.csv`, `summary.json`, `summary.md`
 
-Results:
+Dense-prose results:
 
 | Metric | Value |
 | :-- | --: |
@@ -31,15 +32,35 @@ Results:
 | QA-fidelity pass rate | 96.7% |
 | Missing major claims | 0 |
 
+Dialogue/transcript setup:
+
+- Passage set: 25 valid Federal Reserve press-conference Q&A excerpts from 30
+  attempted passages; 5 malformed model completions were excluded
+- Model: `accounts/fireworks/models/deepseek-v4-flash`
+- Token counter: `tiktoken:cl100k_base`
+
+Dialogue/transcript results:
+
+| Metric | Value |
+| :-- | --: |
+| Original passage tokens | 6,789 |
+| S2 fact tokens | 3,310 |
+| Token ratio | 0.4876x |
+| Generated facts | 165 |
+| Source-entailed fact rate | 97.6% |
+| QA-fidelity pass rate | 92.0% |
+| Missing major claims | 1 |
+
 Interpretation:
 
-S2 preserved source fidelity on this real passage set, but did not compress the
-text. The manuscript should not claim "roughly 30% token compression" from this
-measurement. A safe wording is:
+S2 preserved source fidelity on the dense Wikipedia set, but did not compress
+that source because the prose was already concise. On verbose dialogue with
+pronouns, filler, and back-references, S2 reduced token count by 51.2% while
+retaining high judged fidelity. A safe wording is:
 
-> On 30 public Wikipedia passages, S2 fact rephrasing produced 1.03x as many
-> tokens as the original passage text using `tiktoken:cl100k_base`, with 100.0%
-> of generated facts judged source-entailed and 96.7% passage-level QA-fidelity
+> On 25 Federal Reserve press-conference dialogue excerpts, S2 reduced token
+> count to 0.49x of the original passage text using `tiktoken:cl100k_base`, with
+> 97.6% of generated facts judged source-entailed and 92.0% passage-level QA-fidelity
 > pass rate.
 
 ## 2. B/D Multi-Seed Reruns
@@ -85,9 +106,8 @@ GLM QSR ranged from 2/3 to 3/3 exact across seeds, not uniformly 3/3.
 ## Manuscript Edits Implied
 
 - Replace the S2 "roughly 30% token compression" claim with the measured
-  fidelity result above, or move compression to future optimization.
+  dialogue result above, and qualify that compression depends on source style.
 - Add min/max ranges for B/D tables or mention the five-seed rerun in the
   limitations/results text.
 - Change the GLM language from "solved the QSR condition" to "partially to fully
   solved the QSR sample across seeds."
-

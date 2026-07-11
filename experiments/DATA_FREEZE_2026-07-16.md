@@ -5,19 +5,24 @@ fact-compilation paper.
 
 ## S2 Fact Rephrasing
 
-Artifact directory:
+Artifact directories:
 
 ```text
 experiments/exp_S2_fact_rephrasing/results/2026-07-16-s2-real-passages/
+experiments/exp_S2_fact_rephrasing/results/2026-07-16-s2-dialogue-passages-valid/
 ```
 
-Passage set: 30 public Wikipedia passages snapshotted in `passages.jsonl`.
+Passage sets:
+
+- 30 public Wikipedia passages snapshotted in `passages.jsonl`
+- 25 valid Federal Reserve press-conference Q&A excerpts from 30 attempted
+  dialogue passages; 5 malformed model completions were excluded
 
 Model: `accounts/fireworks/models/deepseek-v4-flash`.
 
 Token counter: `tiktoken:cl100k_base`.
 
-Key result:
+Dense-prose result:
 
 - Original tokens: 3,748
 - S2 fact tokens: 3,854
@@ -27,17 +32,28 @@ Key result:
 - Passage-level QA-fidelity pass rate: 96.7%
 - Missing major claims: 0
 
+Dialogue/transcript result:
+
+- Original tokens: 6,789
+- S2 fact tokens: 3,310
+- Overall token ratio: 0.4876x
+- Generated facts: 165
+- Source-entailed fact rate: 97.6%
+- Passage-level QA-fidelity pass rate: 92.0%
+- Missing major claims: 1
+
 Manuscript-safe wording:
 
-> On 30 public Wikipedia passages, S2 fact rephrasing produced 1.03x as many
-> tokens as the original passage text using `tiktoken:cl100k_base`, with 100.0%
-> of generated facts judged source-entailed and 96.7% passage-level QA-fidelity
+> On 25 Federal Reserve press-conference dialogue excerpts, S2 reduced token
+> count to 0.49x of the original passage text using `tiktoken:cl100k_base`, with
+> 97.6% of generated facts judged source-entailed and 92.0% passage-level QA-fidelity
 > pass rate.
 
-Interpretation: this run supports S2 fidelity, but it does not support the
-draft's "roughly 30% token compression" design-value claim on this real passage
-set. The paper should either remove the compression claim or frame compression
-as future optimization.
+Interpretation: the dense-prose run supports S2 fidelity but not compression on
+already concise encyclopedia text. The dialogue/transcript run supports the
+compression claim for verbose sources with pronouns, filler, and back-references.
+The paper should qualify S2 compression as source-style dependent rather than
+universal.
 
 ## B/D Multi-Seed Rerun
 
