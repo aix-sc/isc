@@ -10,7 +10,7 @@
     "accounts/fireworks/models/glm-5p2"
   ],
   "modes": ["qsr"],
-  "credential_source": "FIREWORKS_API_KEY",
+  "credential_source": "FIREWORKS_API_KEY, LLM_GATEWAY_DEFAULT_FIREWORKS_API_KEY, or --op-ref <1Password secret reference>",
   "pricing_source": "experiments/exp_BD_fireworks/run.py PRICES_PER_MILLION",
   "primary_result": "Exact answer+source+revision: Kimi K2.7 Code 0/3, GLM 5.2 3/3"
 }

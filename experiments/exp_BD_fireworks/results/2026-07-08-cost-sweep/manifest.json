@@ -7,7 +7,7 @@
     "uv run python experiments/exp_BD_fireworks/run.py --config experiments/exp_BD_fireworks/configs/cost_pro_qsr_context128_sample.json"
   ],
   "question_set": "revision",
-  "credential_source": "FIREWORKS_API_KEY",
+  "credential_source": "FIREWORKS_API_KEY, LLM_GATEWAY_DEFAULT_FIREWORKS_API_KEY, or --op-ref <1Password secret reference>",
   "pricing_source": "experiments/exp_BD_fireworks/run.py PRICES_PER_MILLION",
   "primary_result": "At equal accuracy, Flash QSR context128 costs 14.36x Flash ISC; Pro QSR context128 sample costs 187.89x Flash ISC per question"
 }
