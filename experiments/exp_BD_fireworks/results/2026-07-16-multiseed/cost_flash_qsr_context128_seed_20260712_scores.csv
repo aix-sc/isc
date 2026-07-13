@@ -1,0 +1,50 @@
+question_index,question_id,category,mode,entity,slot,model_name,model_id,expected_value,expected_source,expected_revision,expected_deleted,model_value,model_source,model_revision,model_rationale,answer_correct,source_correct,revision_correct,latency_ms,prompt_tokens,completion_tokens,total_tokens,estimated_cost_usd,raw_content
+1,project_001:launch_region,corrected,qsr,project_001,launch_region,deepseek-v4-flash,accounts/fireworks/models/deepseek-v4-flash,launch_region_corrected_project_001,src/project_001/launch_region/rev-5.md,5,False,launch_region_corrected_project_001,src/project_001/launch_region/rev-5.md,5,"The highest revision with current_flag true for project_001 and launch_region is revision 5, which has value 'launch_region_corrected_project_001'. No deletion tombstone exists.",True,True,True,2248.4,9412,273,9685,0.00139412,"{
+""value"": ""launch_region_corrected_project_001"",
+""source"": ""src/project_001/launch_region/rev-5.md"",
+""revision"": 5,
+""rationale"": ""The highest revision with current_flag true for project_001 and launch_region is revision 5, which has value 'launch_region_corrected_project_001'. No deletion tombstone exists.""
+}"
+2,project_012:capital_plan,deleted,qsr,project_012,capital_plan,deepseek-v4-flash,accounts/fireworks/models/deepseek-v4-flash,UNKNOWN,src/project_012/capital_plan/delete.md,5,True,UNKNOWN,src/project_012/capital_plan/delete.md,5,Deletion tombstone indicates the slot has been deleted.,True,True,True,2993.9,9390,503,9893,0.00145544,"{
+""value"": ""UNKNOWN"",
+""source"": ""src/project_012/capital_plan/delete.md"",
+""revision"": 5,
+""rationale"": ""Deletion tombstone indicates the slot has been deleted.""
+}"
+3,project_040:launch_region,ordinary,qsr,project_040,launch_region,deepseek-v4-flash,accounts/fireworks/models/deepseek-v4-flash,launch_region_v4_5645,src/project_040/launch_region/rev-4.md,4,False,launch_region_v4_5645,src/project_040/launch_region/rev-4.md,4,"The only entry for project_040 launch_region with current_flag true is revision 4, value launch_region_v4_5645.",True,True,True,2066.2,9439,263,9702,0.0013951,"{
+""value"": ""launch_region_v4_5645"",
+""source"": ""src/project_040/launch_region/rev-4.md"",
+""revision"": 4,
+""rationale"": ""The only entry for project_040 launch_region with current_flag true is revision 4, value launch_region_v4_5645.""
+}"
+4,project_002:risk_owner,corrected,qsr,project_002,risk_owner,deepseek-v4-flash,accounts/fireworks/models/deepseek-v4-flash,risk_owner_corrected_project_002,src/project_002/risk_owner/rev-4.md,4,False,risk_owner_corrected_project_002,src/project_002/risk_owner/rev-4.md,4,The entry for project_002 risk_owner with current_flag true and highest revision (4) is selected.,True,True,True,2673.6,9390,455,9845,0.001442,"{
+""value"": ""risk_owner_corrected_project_002"",
+""source"": ""src/project_002/risk_owner/rev-4.md"",
+""revision"": 4,
+""rationale"": ""The entry for project_002 risk_owner with current_flag true and highest revision (4) is selected.""
+}"
+5,project_012:launch_region,deleted,qsr,project_012,launch_region,deepseek-v4-flash,accounts/fireworks/models/deepseek-v4-flash,UNKNOWN,src/project_012/launch_region/delete.md,5,True,UNKNOWN,src/project_012/launch_region/delete.md,5,"The only current entry for project_012 launch_region is a deletion tombstone (revision 5), indicating the value is unknown.",True,True,True,3302.3,9386,470,9856,0.00144564,"{""value"": ""UNKNOWN"", ""source"": ""src/project_012/launch_region/delete.md"", ""revision"": 5, ""rationale"": ""The only current entry for project_012 launch_region is a deletion tombstone (revision 5), indicating the value is unknown.""}"
+6,project_076:launch_region,ordinary,qsr,project_076,launch_region,deepseek-v4-flash,accounts/fireworks/models/deepseek-v4-flash,launch_region_v2_1696,src/project_076/launch_region/rev-2.md,2,False,launch_region_v2_1696,src/project_076/launch_region/rev-2.md,2,"The only entry for project_076 and launch_region with current_flag true is revision 2, value launch_region_v2_1696.",True,True,True,2013.9,9397,245,9642,0.00138418,"{
+""value"": ""launch_region_v2_1696"",
+""source"": ""src/project_076/launch_region/rev-2.md"",
+""revision"": 2,
+""rationale"": ""The only entry for project_076 and launch_region with current_flag true is revision 2, value launch_region_v2_1696.""
+}"
+7,project_004:capital_plan,corrected,qsr,project_004,capital_plan,deepseek-v4-flash,accounts/fireworks/models/deepseek-v4-flash,capital_plan_corrected_project_004,src/project_004/capital_plan/rev-3.md,3,False,capital_plan_corrected_project_004,src/project_004/capital_plan/rev-3.md,3,"The document with entity project_004, slot capital_plan, current_flag true, and highest revision (3) is selected.",True,True,True,3070.5,9426,543,9969,0.00147168,"{
+""value"": ""capital_plan_corrected_project_004"",
+""source"": ""src/project_004/capital_plan/rev-3.md"",
+""revision"": 3,
+""rationale"": ""The document with entity project_004, slot capital_plan, current_flag true, and highest revision (3) is selected.""
+}"
+8,project_011:launch_region,deleted,qsr,project_011,launch_region,deepseek-v4-flash,accounts/fireworks/models/deepseek-v4-flash,UNKNOWN,src/project_011/launch_region/delete.md,5,True,UNKNOWN,src/project_011/launch_region/delete.md,5,"The deletion tombstone for project_011 launch_region has revision 5 and current_flag true, indicating it is the current state. Since it is a deletion, the value is UNKNOWN.",True,True,True,3537.1,9379,609,9988,0.00148358,"{
+""value"": ""UNKNOWN"",
+""source"": ""src/project_011/launch_region/delete.md"",
+""revision"": 5,
+""rationale"": ""The deletion tombstone for project_011 launch_region has revision 5 and current_flag true, indicating it is the current state. Since it is a deletion, the value is UNKNOWN.""
+}"
+9,project_050:launch_region,ordinary,qsr,project_050,launch_region,deepseek-v4-flash,accounts/fireworks/models/deepseek-v4-flash,launch_region_v2_7127,src/project_050/launch_region/rev-2.md,2,False,launch_region_v2_7127,src/project_050/launch_region/rev-2.md,2,Only current and non-deleted entry for project_050 launch_region.,True,True,True,2810.6,9379,442,9821,0.00143682,"{
+""value"": ""launch_region_v2_7127"",
+""source"": ""src/project_050/launch_region/rev-2.md"",
+""revision"": 2,
+""rationale"": ""Only current and non-deleted entry for project_050 launch_region.""
+}"

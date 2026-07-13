@@ -1,0 +1,25 @@
+{
+  "experiment": "B/D Fireworks multi-seed rerun",
+  "command": "experiments/exp_BD_fireworks/run_multiseed.py --out-dir experiments/exp_BD_fireworks/results/2026-07-16-multiseed",
+  "configs": [
+    "experiments/exp_BD_fireworks/configs/adversarial_flash.json",
+    "experiments/exp_BD_fireworks/configs/adversarial_heavy_qsr.json",
+    "experiments/exp_BD_fireworks/configs/cost_flash_qsr_isc.json",
+    "experiments/exp_BD_fireworks/configs/cost_flash_qsr_context128.json",
+    "experiments/exp_BD_fireworks/configs/cost_pro_qsr_context128_sample.json"
+  ],
+  "seeds": [
+    20260709,
+    20260710,
+    20260711,
+    20260712,
+    20260713
+  ],
+  "outputs": [
+    "*_scores.csv",
+    "*_answers.jsonl",
+    "*_summary.json",
+    "summary.json",
+    "summary.md"
+  ]
+}

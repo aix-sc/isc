@@ -1,0 +1,12 @@
+{
+  "experiment": "S2 fact rephrasing compression and fidelity",
+  "command": "experiments/exp_S2_fact_rephrasing/run.py --limit 30 --out-dir experiments/exp_S2_fact_rephrasing/results/2026-07-16-s2-real-passages",
+  "outputs": [
+    "passages.jsonl",
+    "answers.jsonl",
+    "scores.csv",
+    "summary.json",
+    "summary.md"
+  ],
+  "credential_source": "FIREWORKS_API_KEY"
+}
