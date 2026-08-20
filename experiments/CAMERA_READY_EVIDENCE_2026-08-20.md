@@ -63,8 +63,8 @@ files.
 The repository was verified public on 2026-08-20. Before confirming the
 release gate:
 
-- Gitleaks v8.30.1 scanned the complete Git history: 29 commits and about
-  3.06 MB, with **no leaks found**.
+- Gitleaks v8.30.1 scanned the complete Git history: 30 commits and about
+  3.07 MB, with **no leaks found**.
 - The only tracked environment file is
   [`packages/web/.env.example`](../packages/web/.env.example), containing
   placeholder Firebase values. Real `.env`, `.firebaserc`, and local settings
