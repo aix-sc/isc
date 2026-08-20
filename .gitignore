@@ -17,6 +17,10 @@ coverage/
 cypress/videos/
 cypress/screenshots/
 
+# Python experiment tooling
+__pycache__/
+*.py[cod]
+
 # TS composite build artifacts
 *.config.js
 *.config.d.ts
