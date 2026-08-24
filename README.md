@@ -2,8 +2,13 @@
 
 **Live:** <https://isc-research.web.app/#top>
 
+## Papers
+
+- [*RAG Deserves an Index: Why Ingest-Time Compilation Beats Query-Time Interpretation*](https://arxiv.org/abs/2608.20845) ([PDF](https://arxiv.org/pdf/2608.20845), [DOI](https://doi.org/10.48550/arXiv.2608.20845))
+- [*Cost Scales with Change, Not Corpus Size: Incrementally Maintaining an Evolving Semantic Substrate*](https://arxiv.org/abs/2608.16621) ([PDF](https://arxiv.org/pdf/2608.16621), [DOI](https://doi.org/10.48550/arXiv.2608.16621))
+
 An open-source, reproducible companion to the **Ingest-time Semantic Compilation (ISC)**
-paper (Wild–Takahashi, target venue **CIDR 2027**), built on the **EKIDEN.ai stack** so it
+research program, built on the **EKIDEN.ai stack** so it
 drops straight into the internal monorepo and tooling.
 
 - Re-run the **cost model** (Experiment A) live — sliders for the cost constants recompute the
