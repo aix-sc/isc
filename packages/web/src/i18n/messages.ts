@@ -7,7 +7,6 @@ export const en = {
     experiments: 'Experiments',
     cost: 'Cost model',
     maintenance: 'Maintenance',
-    next: 'Next run',
     faq: 'FAQ',
     github: 'GitHub ↗',
     brandTagline: 'Ingest-time Semantic Compilation',
@@ -121,7 +120,7 @@ export const en = {
     title: 'Real-corpus run — embedding APIs + Wikipedia revision history',
   },
   faq: {
-    kicker: '05 · FAQ',
+    kicker: '04 · FAQ',
     title: 'FAQ — in plain language',
     lede: 'Every question this project raised, plus likely follow-ups, answered simply.',
   },
@@ -174,16 +173,10 @@ export const en = {
     links: { repo: 'harness (GitHub)', freeze: 'data-freeze-2026-07-16', evidence: 'evidence document' },
   },
   pubs: {
-    kicker: '04 · Publications & data',
+    kicker: '03 · Publications & data',
     detail: 'Paper page (aix.sc) ↗',
     title: 'Three public results, one program',
     lede: 'The maintenance economics (IES), the position (arXiv), and the measured architecture study (ICAST-ES) — each stands alone, and together they make the case for compiling meaning once at ingest.',
-  },
-  roadmap: {
-    kicker: '03 · What’s next',
-    title: 'Planned experiments — specifications first, numbers later',
-    lede: 'The next round hardens the evidence: human calibration of the automatic judge, a document-disjoint held-out reproduction, judge-model separation, an ingest-expansion baseline, and real-corpus scale.',
-    policy: 'Policy: experiment specifications and deadlines are fixed in a pre-registration committed to the repository before execution. No result data appears on this page until the corresponding paper is public.',
   },
   expD: {
     unit: 'answers out of 30 (5 seeds)',
@@ -232,7 +225,6 @@ export const ja: typeof en = {
     experiments: '実験',
     cost: 'コストモデル',
     maintenance: '保守',
-    next: '次の実験',
     faq: 'FAQ',
     github: 'GitHub ↗',
     brandTagline: '取込時意味コンパイル',
@@ -346,7 +338,7 @@ export const ja: typeof en = {
     title: '実コーパス実行 — 埋め込みAPI + Wikipedia の改訂履歴',
   },
   faq: {
-    kicker: '05 · FAQ',
+    kicker: '04 · FAQ',
     title: 'FAQ — やさしい言葉で',
     lede: '本プロジェクトで出たすべての疑問と、想定される追加質問に、やさしく答えます。',
   },
@@ -399,16 +391,10 @@ export const ja: typeof en = {
     links: { repo: 'ハーネス（GitHub）', freeze: 'data-freeze-2026-07-16', evidence: 'エビデンス文書' },
   },
   pubs: {
-    kicker: '04 · 出版と公開データ',
+    kicker: '03 · 出版と公開データ',
     detail: '論文紹介ページ（aix.sc）↗',
     title: '3つの公開成果、1つのプログラム',
     lede: '保守の経済学（IES）、ポジション（arXiv）、実測アーキテクチャ実証（ICAST-ES）— それぞれ独立に成立し、合わせて「意味は取込時に一度だけコンパイルする」という主張を構成します。',
-  },
-  roadmap: {
-    kicker: '03 · これから',
-    title: '実験計画 — 仕様が先、数値は後',
-    lede: '次のラウンドで証拠を強化します：自動判定の人手較正、文書分離のheld-out再現、判定モデル分離、取込時拡張ベースライン、実コーパスでの規模化。',
-    policy: '方針：実験の仕様と期日は、実行前にリポジトリへコミットする事前登録で固定します。対応する論文が公開されるまで、結果データは本ページに掲載しません。',
   },
   expD: {
     unit: '30問中の回答数（5シード）',

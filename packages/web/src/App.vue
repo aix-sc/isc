@@ -7,7 +7,6 @@ import HeroSection from '@/components/HeroSection.vue'
 import OverviewSection from '@/components/OverviewSection.vue'
 import ExperimentsSection from '@/components/ExperimentsSection.vue'
 import PublicationsSection from '@/components/PublicationsSection.vue'
-import RoadmapSection from '@/components/RoadmapSection.vue'
 import FaqSection from '@/components/FaqSection.vue'
 import ChatDock from '@/components/ChatDock.vue'
 
@@ -23,7 +22,6 @@ const { experiments, summary, costRows } = useExperiments()
       <v-container class="wrap">
         <OverviewSection />
         <ExperimentsSection :experiments="experiments" :summary="summary" :cost-rows="costRows" />
-        <RoadmapSection />
         <PublicationsSection />
         <FaqSection />
       </v-container>
