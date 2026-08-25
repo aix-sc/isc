@@ -211,7 +211,8 @@ export const en = {
     yusukeRole: 'Associate Professor, Faculty of Data Science, Musashino University',
     yusukeBio:
       'Computer scientist. Serial entrepreneur. Co-founded AIx{\'{}\'}. He works on adaptive semantic substrates and knowledge bases built on orthogonalized semantic spaces. Earlier he founded software startups in Silicon Valley and Tokyo, with experience across product design, growth, and customer development. 500 Startups alumni. He holds a PhD in Media and Governance from Keio University.',
-    urakiRole: 'Associate Professor, Faculty of Data Science, Musashino University · Asia AI Institute',
+    urakiRole: 'Asia AI Institute, Faculty of Data Science, Musashino University, Tokyo, Japan',
+    urakiBio: 'PhD in Media and Governance, Keio University. Specializes in semantics-based data analysis, pursuing methodologies that bring expert experience and knowledge into analysis; advances the Semantic Microscope with Prof. Yasushi Kiyoki. Former member of Japan\'s national freestyle ski team and former FIS committee member; currently Information & Science staff for the Japanese Olympic Committee (JOC).',
     github: 'GitHub (OSS) ↗',
     cidr: 'CIDR 2027 ↗',
     backToTop: 'Back to top ↑',
@@ -432,7 +433,8 @@ export const ja: typeof en = {
     yusukeRole: '武蔵野大学データサイエンス学部 准教授',
     yusukeBio:
       '計算機科学者、シリアルアントレプレナー。AIx{\'{}\'} 共同創業者。直交化された意味空間を基盤に、適応的セマンティック基底と知識ベースを研究。以前はシリコンバレーと東京でソフトウェアスタートアップを創業し、プロダクトデザイン・グロース・顧客開発に従事。500 Startups 出身。博士（政策・メディア、慶應義塾大学）。',
-    urakiRole: '武蔵野大学データサイエンス学部 准教授 · Asia AI Institute',
+    urakiRole: 'Asia AI Institute, Faculty of Data Science, Musashino University, Tokyo, Japan',
+    urakiBio: '慶應義塾大学大学院政策・メディア研究科博士課程修了、博士（政策・メディア）。意味に基づくデータ分析を専門とし、専門家の経験や知識を分析に取り込む方法論を追究。「Semantic Microscope」を清木康教授と推進。元フリースタイルスキー日本代表・国際スキー連盟（FIS）委員を歴任し、現在は日本オリンピック委員会（JOC）情報・科学スタッフ。',
     github: 'GitHub (OSS) ↗',
     cidr: 'CIDR 2027 ↗',
     backToTop: 'トップへ戻る ↑',
