@@ -106,7 +106,7 @@ export const en = {
   },
   experiments: {
     publishedIcast: 'Measured & published — IEEE ICAST-ES 2026 (accepted; presenting Oct 9–10, Surabaya). Every number below comes from the peer-reviewed paper and its frozen public artifacts.',
-    publishedIes: 'Measured & published — IEEE IES 2026, Best Paper Award.',
+    publishedIes: 'Measured & published — IEEE IES 2026 (presented Aug 2, Yogyakarta).',
     kicker: '02 · The experiments',
     title: 'Seven experiments',
     choose: 'Select an experiment',
@@ -326,7 +326,7 @@ export const ja: typeof en = {
   },
   experiments: {
     publishedIcast: '実測・出版済み — IEEE ICAST-ES 2026（採択・10/9–10スラバヤ発表）。以下の数値はすべて査読済み論文と公開済みの凍結アーティファクトに由来します。',
-    publishedIes: '実測・出版済み — IEEE IES 2026・Best Paper Award。',
+    publishedIes: '実測・出版済み — IEEE IES 2026（8/2ジョグジャカルタ発表）。',
     kicker: '02 · 実験',
     title: '7つの実験',
     choose: '実験を選択',

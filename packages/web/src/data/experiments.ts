@@ -46,7 +46,7 @@ const EXPERIMENTS_EN: ExperimentMeta[] = [
   {
     id: 'C',
     name: 'Experiment C — incremental maintenance vs. full re-SVD (+ virtual axis update)',
-    status: 'completed & published (IEEE IES 2026 — Best Paper; arXiv:2608.16621)',
+    status: 'completed & published (IEEE IES 2026; arXiv:2608.16621)',
     purpose:
       'Test H2: event-driven incremental updates track the full-re-SVD subspace at low cost, with maintenance cost that scales with CHANGE, not corpus size N. A second part tests the “virtual axis update”: can a model-generation change be absorbed without re-embedding everything?',
     data:
@@ -147,7 +147,7 @@ const EXPERIMENTS_JA: ExperimentMeta[] = [
   {
     id: 'C',
     name: '実験C — 増分保守 vs. 完全な再SVD（+ 仮想軸更新）',
-    status: '完了・出版済み（IEEE IES 2026 — Best Paper・arXiv:2608.16621）',
+    status: '完了・出版済み（IEEE IES 2026・arXiv:2608.16621）',
     purpose:
       '仮説H2の検証: イベント駆動の増分更新は、低コストで完全再SVDの部分空間を追従し、その保守コストはコーパス規模 N ではなく「変化量」に比例します。第2部では「仮想軸更新」を検証します。モデル世代の変更を、すべてを再埋め込みせずに吸収できるか?',
     data:

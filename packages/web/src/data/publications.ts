@@ -58,12 +58,11 @@ const PUBS_EN: Publication[] = [
   {
     id: 'ies2026',
     badge: 'IEEE IES 2026 - presented Aug 2, Yogyakarta',
-    award: 'Best Paper Award',
     title: 'Cost Scales with Change, Not Corpus Size: Incrementally Maintaining an Evolving Semantic Substrate',
     authors: 'Y. Takahashi, K. Wild and A. Uraki',
     venueLine: 'Proc. Int. Electronics Symposium 2026 (IES 2026), Yogyakarta, Indonesia',
     summary:
-      'The peer-reviewed conference version of the maintenance study, presented at IES 2026 and awarded Best Paper.',
+      'The peer-reviewed conference version of the maintenance study, presented at IES 2026 in Yogyakarta.',
     aixHref: 'https://aix.sc/publications/ies2026-semantic-substrate',
     links: [
       { label: 'DOI', href: 'https://doi.org/10.48550/arXiv.2608.16621' },
@@ -116,12 +115,11 @@ const PUBS_JA: Publication[] = [
   {
     id: 'ies2026',
     badge: 'IEEE IES 2026 - 8/2 発表（ジョグジャカルタ）',
-    award: 'Best Paper Award',
     title: 'Cost Scales with Change, Not Corpus Size: Incrementally Maintaining an Evolving Semantic Substrate',
     authors: 'Y. Takahashi, K. Wild and A. Uraki',
     venueLine: 'Proc. Int. Electronics Symposium 2026 (IES 2026), Yogyakarta, Indonesia',
     summary:
-      '保守研究の査読付き会議版。IES 2026で発表し、Best Paper Awardを受賞。',
+      '保守研究の査読付き会議版。IES 2026（ジョグジャカルタ）で発表。',
     aixHref: 'https://aix.sc/publications/ies2026-semantic-substrate',
     links: [
       { label: 'DOI', href: 'https://doi.org/10.48550/arXiv.2608.16621' },
