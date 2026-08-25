@@ -17,7 +17,7 @@ export interface Publication {
 
 const KYLE: PubAuthor = { name: 'Kyle Wild', img: '/team/kyle.jpg', initials: 'KW' }
 const YUSUKE: PubAuthor = { name: 'Yusuke Takahashi', img: '/team/yusuke.jpg', initials: 'YT' }
-const ASAKO: PubAuthor = { name: 'Asako Uraki', img: '/team/uraki.jpg', initials: 'AU' }
+const ASAKO: PubAuthor = { name: 'Asako Uraki', img: '/team/uraki.svg', initials: 'AU' }
 
 const PUBS_EN: Publication[] = [
   {

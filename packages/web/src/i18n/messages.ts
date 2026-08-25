@@ -211,6 +211,8 @@ export const en = {
     yusukeRole: 'Associate Professor, Faculty of Data Science, Musashino University',
     yusukeBio:
       'Computer scientist. Serial entrepreneur. Co-founded AIx{\'{}\'}. He works on adaptive semantic substrates and knowledge bases built on orthogonalized semantic spaces. Earlier he founded software startups in Silicon Valley and Tokyo, with experience across product design, growth, and customer development. 500 Startups alumni. He holds a PhD in Media and Governance from Keio University.',
+    urakiRole: 'Associate Professor, Faculty of Data Science, Musashino University · Asia AI Institute',
+    urakiBio: 'Co-author across the ISC research program — the maintenance study (IES 2026), the measured architecture study (ICAST-ES 2026), and the position paper. Faculty of Data Science, Musashino University; Asia AI Institute; AIx, Inc.',
     github: 'GitHub (OSS) ↗',
     cidr: 'CIDR 2027 ↗',
     backToTop: 'Back to top ↑',
@@ -431,6 +433,8 @@ export const ja: typeof en = {
     yusukeRole: '武蔵野大学データサイエンス学部 准教授',
     yusukeBio:
       '計算機科学者、シリアルアントレプレナー。AIx{\'{}\'} 共同創業者。直交化された意味空間を基盤に、適応的セマンティック基底と知識ベースを研究。以前はシリコンバレーと東京でソフトウェアスタートアップを創業し、プロダクトデザイン・グロース・顧客開発に従事。500 Startups 出身。博士（政策・メディア、慶應義塾大学）。',
+    urakiRole: '武蔵野大学データサイエンス学部 准教授 · Asia AI Institute',
+    urakiBio: 'ISC研究プログラム全体の共著者 — 保守研究（IES 2026）、実測アーキテクチャ実証（ICAST-ES 2026）、ポジション論文。武蔵野大学データサイエンス学部／Asia AI Institute／AIx, Inc.',
     github: 'GitHub (OSS) ↗',
     cidr: 'CIDR 2027 ↗',
     backToTop: 'トップへ戻る ↑',
