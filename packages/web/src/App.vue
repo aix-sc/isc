@@ -6,7 +6,6 @@ import AppHeader from '@/components/AppHeader.vue'
 import HeroSection from '@/components/HeroSection.vue'
 import OverviewSection from '@/components/OverviewSection.vue'
 import ExperimentsSection from '@/components/ExperimentsSection.vue'
-import ResultsSection from '@/components/ResultsSection.vue'
 import PublicationsSection from '@/components/PublicationsSection.vue'
 import RoadmapSection from '@/components/RoadmapSection.vue'
 import FaqSection from '@/components/FaqSection.vue'
@@ -23,7 +22,6 @@ const { experiments, summary, costRows } = useExperiments()
       <HeroSection :summary="summary" />
       <v-container class="wrap">
         <OverviewSection />
-        <ResultsSection />
         <PublicationsSection />
         <ExperimentsSection :experiments="experiments" :summary="summary" :cost-rows="costRows" />
         <RoadmapSection />

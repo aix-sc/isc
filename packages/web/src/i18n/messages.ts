@@ -62,7 +62,7 @@ export const en = {
     },
   },
   cost: {
-    kicker: '05 · Experiment A — interactive',
+    kicker: 'Experiment A — interactive',
     title: 'Cost model & break-even R*',
     ctrls: {
       N: 'corpus size N',
@@ -82,7 +82,7 @@ export const en = {
     axes: { x: 'cumulative reads R', y: 'total cost ($)' },
   },
   maintenance: {
-    kicker: '06 · Experiment C — completed (pilot)',
+    kicker: 'Experiment C — measured & published',
     title: 'Incremental maintenance vs. full re-SVD',
     band: {
       cheaperUpdate: 'cheaper / update (N={n})',
@@ -105,7 +105,9 @@ export const en = {
     downloads: { code: 'Experiment code', measurements: 'Per-event measurements', summary: 'Summary', figure: 'Figure' },
   },
   experiments: {
-    kicker: 'The experiments',
+    publishedIcast: 'Measured & published — IEEE ICAST-ES 2026 (accepted; presenting Oct 9–10, Surabaya). Every number below comes from the peer-reviewed paper and its frozen public artifacts.',
+    publishedIes: 'Measured & published — IEEE IES 2026, Best Paper Award.',
+    kicker: '02 · The experiments',
     title: 'Seven experiments',
     choose: 'Select an experiment',
     tabs: { A: 'A · Cost model', Aprime: 'A′ · Measured R* (real corpus)', B: 'B · Failure asymmetry', C: 'C · Maintenance', D: 'D · Non-economic', E: 'E · Virtual axis update (i)', F: 'F · Virtual axis update (ii)' },
@@ -119,7 +121,7 @@ export const en = {
     title: 'Real-corpus run — embedding APIs + Wikipedia revision history',
   },
   faq: {
-    kicker: '07 · FAQ',
+    kicker: '05 · FAQ',
     title: 'FAQ — in plain language',
     lede: 'Every question this project raised, plus likely follow-ups, answered simply.',
   },
@@ -181,6 +183,23 @@ export const en = {
     title: 'Planned experiments \u2014 specifications first, numbers later',
     lede: 'The next round hardens the evidence: human calibration of the automatic judge, a document-disjoint held-out reproduction, judge-model separation, an ingest-expansion baseline, and real-corpus scale.',
     policy: 'Policy: experiment specifications and deadlines are fixed in a pre-registration committed to the repository before execution. No result data appears on this page until the corresponding paper is public.',
+  },
+  expD: {
+    unit: 'answers out of 30 (5 seeds)',
+    decompTitle: 'Where reconstruction fails: value recovery, not citation discipline',
+    decompNote: 'Adversarial set, five seeds. The compiled path answered 30/30 with the source and revision cited verbatim from the stored row. Of the 29 QSR failures, zero had a correct value with a wrong citation — all 29 failed to recover the value at all.',
+    rulesTitle: 'The governance rules resolved once at ingest (R1–R7)',
+    rulesNote: 'Under QSR the model must re-apply all seven rules inside the context window on every read; under ISC they are applied once and the result is stored with provenance.',
+    rules: {
+      R1: 'Only production rows are eligible.',
+      R2: 'Among eligible rows, the highest revision wins.',
+      R3: 'Drafts, proposals, rejected, sandbox, and future-dated rows are ignored.',
+      R4: 'A revocation row naming a document identifier removes that candidate.',
+      R5: 'Owner and regulatory sources are preferred over imported ones.',
+      R6: 'A deletion tombstone past its effective date makes the answer UNKNOWN.',
+      R7: 'The cited source and revision must come from the chosen row itself.',
+    },
+    outcome: 'Measured & published (ICAST-ES 2026): governance-correct answers with verbatim provenance in every seed — and a failure decomposition showing the benefit is not mere citation hygiene: query-time reconstruction fails at value recovery itself. Audit-trail and access-control extensions remain future work.',
   },
   footer: {
     title: 'Ingest-time Semantic Compilation',
@@ -262,7 +281,7 @@ export const ja: typeof en = {
     },
   },
   cost: {
-    kicker: '05 · 実験A — インタラクティブ',
+    kicker: '実験A — インタラクティブ',
     title: 'コストモデルと損益分岐 R*',
     ctrls: {
       N: 'コーパス規模 N',
@@ -282,7 +301,7 @@ export const ja: typeof en = {
     axes: { x: '累積読み取り R', y: '総コスト ($)' },
   },
   maintenance: {
-    kicker: '06 · 実験C — 完了（パイロット）',
+    kicker: '実験C — 実測・出版済み',
     title: '増分保守 vs. 完全な再SVD',
     band: {
       cheaperUpdate: '更新あたりの低コスト化 (N={n})',
@@ -305,7 +324,9 @@ export const ja: typeof en = {
     downloads: { code: '実験コード', measurements: 'イベント別の測定値', summary: 'サマリ', figure: '図' },
   },
   experiments: {
-    kicker: '実験',
+    publishedIcast: '実測・出版済み — IEEE ICAST-ES 2026（採択・10/9–10スラバヤ発表）。以下の数値はすべて査読済み論文と公開済みの凍結アーティファクトに由来します。',
+    publishedIes: '実測・出版済み — IEEE IES 2026・Best Paper Award。',
+    kicker: '02 · 実験',
     title: '7つの実験',
     choose: '実験を選択',
     tabs: { A: 'A · コストモデル', Aprime: 'A′ · 実コーパスで測定した R*', B: 'B · 失敗の非対称性', C: 'C · 保守', D: 'D · 非経済的', E: 'E · 仮想軸更新 (i)', F: 'F · 仮想軸更新 (ii)' },
@@ -319,7 +340,7 @@ export const ja: typeof en = {
     title: '実コーパス実行 — 埋め込みAPI + Wikipedia の改訂履歴',
   },
   faq: {
-    kicker: '07 · FAQ',
+    kicker: '05 · FAQ',
     title: 'FAQ — やさしい言葉で',
     lede: '本プロジェクトで出たすべての疑問と、想定される追加質問に、やさしく答えます。',
   },
@@ -381,6 +402,23 @@ export const ja: typeof en = {
     title: '実験計画 \u2014 仕様が先、数値は後',
     lede: '次のラウンドで証拠を強化します：自動判定の人手較正、文書分離のheld-out再現、判定モデル分離、取込時拡張ベースライン、実コーパスでの規模化。',
     policy: '方針：実験の仕様と期日は、実行前にリポジトリへコミットする事前登録で固定します。対応する論文が公開されるまで、結果データは本ページに掲載しません。',
+  },
+  expD: {
+    unit: '30問中の回答数（5シード）',
+    decompTitle: '再構成はどこで失敗するか：引用規律ではなく値回復',
+    decompNote: '敵対的セット・5シード。コンパイル経路は30/30で正答し、出典と改訂を保存行から逐語引用。QSRの失敗29件のうち「値は正しいが引用を誤った」例は0件 — 全29件が値の回復自体に失敗。',
+    rulesTitle: '取込時に一度だけ解決されるガバナンス規則（R1–R7）',
+    rulesNote: 'QSRではモデルが読み取りのたびに7規則をコンテキスト内で再適用。ISCでは一度適用し、結果を来歴付きで保存。',
+    rules: {
+      R1: '本番（production）行のみが適格。',
+      R2: '適格行のうち最高改訂が勝つ。',
+      R3: '下書き・提案・却下・サンドボックス・未来日付は無視。',
+      R4: '文書IDを名指す失効行は候補を除去。',
+      R5: 'オーナー・規制系ソースを輸入系より優先。',
+      R6: '発効日を過ぎた削除tombstoneは答えをUNKNOWNに。',
+      R7: '引用する出典・改訂は選ばれた行自身から。',
+    },
+    outcome: '実測・出版済み（ICAST-ES 2026）：全シードでガバナンス正しい回答と逐語の来歴引用。失敗の内訳はこの利点が単なる引用衛生ではないことを示す — クエリ時再構成は値回復の段階で失敗する。監査証跡・アクセス制御への拡張は今後の課題。',
   },
   footer: {
     title: 'Ingest-time Semantic Compilation',

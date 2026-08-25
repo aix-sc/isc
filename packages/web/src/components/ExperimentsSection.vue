@@ -5,6 +5,8 @@ import type { ExperimentMeta, ExpCSummary, CostRow } from '@/types/experiment'
 import CostModelSection from './CostModelSection.vue'
 import MaintenanceSection from './MaintenanceSection.vue'
 import PlannedExperiment from './PlannedExperiment.vue'
+import MeasuredExperimentB from './MeasuredExperimentB.vue'
+import MeasuredExperimentD from './MeasuredExperimentD.vue'
 
 const props = defineProps<{
   experiments: ExperimentMeta[]
@@ -82,9 +84,15 @@ const items = computed(() =>
     <v-window v-model="sel">
       <v-window-item value="A"><CostModelSection :meta="metaA" /></v-window-item>
       <v-window-item value="Aprime"><PlannedExperiment :meta="metaAprime" /></v-window-item>
-      <v-window-item value="B"><PlannedExperiment :meta="metaB" /></v-window-item>
-      <v-window-item value="C"><MaintenanceSection :meta="metaC" :summary="summary" :cost-rows="costRows" /></v-window-item>
-      <v-window-item value="D"><PlannedExperiment :meta="metaD" /></v-window-item>
+      <v-window-item value="B"><MeasuredExperimentB :meta="metaB" /></v-window-item>
+      <v-window-item value="C">
+        <v-alert type="success" variant="tonal" density="comfortable" class="mb-4">
+          {{ t('experiments.publishedIes') }}
+          <a class="pub-link" href="https://arxiv.org/abs/2608.16621" target="_blank" rel="noopener noreferrer">arXiv:2608.16621</a>
+        </v-alert>
+        <MaintenanceSection :meta="metaC" :summary="summary" :cost-rows="costRows" />
+      </v-window-item>
+      <v-window-item value="D"><MeasuredExperimentD :meta="metaD" /></v-window-item>
       <v-window-item value="E"><PlannedExperiment :meta="metaE" /></v-window-item>
       <v-window-item value="F"><PlannedExperiment :meta="metaF" /></v-window-item>
     </v-window>
@@ -95,6 +103,8 @@ const items = computed(() =>
 .block { padding: clamp(2.2rem,5vw,3.6rem) 0; border-top: 1px solid var(--line); }
 .exp-select { max-width: 560px; }
 .exp-select :deep(.v-field__input) { font-family: var(--serif); font-weight: 600; }
+.pub-link { margin-left: .6rem; font-family: var(--mono); color: var(--teal); text-decoration: none; }
+.pub-link:hover { text-decoration: underline; }
 /* Inner experiment sections carry their own top border/padding; neutralize it
    inside the window so the select owns the separation. */
 .v-window :deep(.block) { border-top: none; padding-top: .5rem; }
