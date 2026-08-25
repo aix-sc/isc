@@ -175,7 +175,7 @@ export const en = {
   pubs: {
     kicker: '03 · Publications & data',
     detail: 'Paper page (aix.sc) ↗',
-    title: 'Three public results, one program',
+    title: 'Published papers and data',
     lede: 'The maintenance economics (IES), the position (arXiv), and the measured architecture study (ICAST-ES) — each stands alone, and together they make the case for compiling meaning once at ingest.',
   },
   expD: {
@@ -402,7 +402,7 @@ export const ja: typeof en = {
   pubs: {
     kicker: '03 · 出版と公開データ',
     detail: '論文紹介ページ（aix.sc）↗',
-    title: '3つの公開成果、1つのプログラム',
+    title: '公開済みの論文とデータ',
     lede: '保守の経済学（IES）、ポジション（arXiv）、実測アーキテクチャ実証（ICAST-ES）— それぞれ独立に成立し、合わせて「意味は取込時に一度だけコンパイルする」という主張を構成します。',
   },
   expD: {

@@ -32,7 +32,8 @@ const PUBS_EN: Publication[] = [
       'The measured architecture study: failure asymmetry (1/30 vs 30/30 across five seeds), a 12.89x read-cost gap, a 21.6x token gap, and S2 rephrasing measured on Federal Reserve dialogue and Wikipedia prose.',
     aixHref: 'https://aix.sc/publications/icast2026-ingest-time-fact-compilation',
     links: [
-      { label: 'Harness & frozen data', href: 'https://github.com/aix-sc/isc' },
+      { label: 'Frozen data (2026-07-16)', href: 'https://github.com/aix-sc/isc/tree/data-freeze-2026-07-16/experiments' },
+      { label: 'Harness (GitHub)', href: 'https://github.com/aix-sc/isc' },
     ],
   },
   {
@@ -95,7 +96,8 @@ const PUBS_JA: Publication[] = [
       '実測アーキテクチャ実証：失敗の非対称性（5シードで1/30対30/30）、読み取りコスト12.89倍差、トークン21.6倍差、連邦準備制度対話とWikipedia散文でのS2言い換え実測。',
     aixHref: 'https://aix.sc/publications/icast2026-ingest-time-fact-compilation',
     links: [
-      { label: 'ハーネスと凍結データ', href: 'https://github.com/aix-sc/isc' },
+      { label: '凍結データ（2026-07-16）', href: 'https://github.com/aix-sc/isc/tree/data-freeze-2026-07-16/experiments' },
+      { label: 'ハーネス（GitHub）', href: 'https://github.com/aix-sc/isc' },
     ],
   },
   {
