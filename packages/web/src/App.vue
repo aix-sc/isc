@@ -62,8 +62,7 @@ const { experiments, summary, costRows } = useExperiments()
         <div class="foot-inner">
           <div class="foot-links">
             <a href="https://muds.ac" target="_blank" rel="noopener">{{ t('footer.muds') }}</a>
-            <a href="https://github.com/aix-sc" target="_blank" rel="noopener">{{ t('footer.aix') }}</a>
-            <a href="#" rel="noopener">{{ t('footer.lab') }}</a>
+            <a href="https://aix.sc/" target="_blank" rel="noopener">{{ t('footer.aixLab') }}</a>
             <a :href="GITHUB_URL" target="_blank" rel="noopener">{{ t('footer.github') }}</a>
             <a href="#top">{{ t('footer.backToTop') }}</a>
           </div>

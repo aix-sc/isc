@@ -16,7 +16,7 @@ const { t } = useI18n()
 type ExpId = 'A' | 'Aprime' | 'B' | 'C' | 'D' | 'E' | 'F'
 const IDS: ExpId[] = ['A', 'Aprime', 'B', 'C', 'D', 'E', 'F']
 const STATUS: Record<ExpId, 'interactive' | 'completed' | 'planned'> = {
-  A: 'interactive', Aprime: 'planned', B: 'planned', C: 'completed', D: 'planned', E: 'planned', F: 'planned',
+  A: 'interactive', Aprime: 'planned', B: 'completed', C: 'completed', D: 'completed', E: 'planned', F: 'planned',
 }
 const sel = ref<ExpId>('A')
 

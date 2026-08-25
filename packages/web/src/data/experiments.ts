@@ -20,7 +20,7 @@ const EXPERIMENTS_EN: ExperimentMeta[] = [
   {
     id: 'Aprime',
     name: 'Experiment A′ — measured cost model on a real corpus',
-    status: 'planned (real-corpus measurement of A)',
+    status: 'planned — the read-side gap and per-fact ingest cost are now measured (ICAST-ES 2026); the full break-even incl. maintenance is next',
     purpose:
       'The measured counterpart of Experiment A: implement both a QSR (query-time reconstruction = RAG) and an ISC (ingest-time compilation) pipeline end-to-end on a single real corpus, then plug the measured c_c/c_m/c_q/c_r back into the model and read off a measured R*. It turns the “illustrative” constants of the interactive calculator into evidence on real data.',
     data:
@@ -33,7 +33,7 @@ const EXPERIMENTS_EN: ExperimentMeta[] = [
   {
     id: 'B',
     name: 'Experiment B — failure asymmetry & run-to-run stability',
-    status: 'planned (description only)',
+    status: 'measured & published (IEEE ICAST-ES 2026)',
     purpose:
       'Test H3: ISC and QSR fail differently. QSR re-derives meaning per query, so identical questions can drift run-to-run; ISC reads from a fixed compiled substrate, so its answers should be more stable and its failures more systematic (and thus debuggable). Quantify that asymmetry.',
     data:
@@ -41,12 +41,12 @@ const EXPERIMENTS_EN: ExperimentMeta[] = [
     evaluation:
       'Run-to-run variance of answers (semantic + lexical), contradiction rate across repeats, and a taxonomy of failure modes (random vs. systematic). Stability under small corpus edits.',
     outcomes:
-      'A measured stability gap (e.g. ISC variance ≪ QSR variance) and a failure-mode taxonomy showing ISC errors are reproducible and localizable — the empirical basis for the “debuggable retrieval” claim in the paper.',
+      'Measured (five seeds, same inexpensive model): QSR answered 1/30 adversarial governance questions exactly (0/6–1/6 per seed) while ISC answered 30/30 — exact in every seed, i.e. zero run-to-run drift on the compiled path. Decomposing the 29 QSR failures: none found the correct value with a wrong citation; all 29 failed value recovery itself. The fuller stability taxonomy under corpus edits remains follow-up work.',
   },
   {
     id: 'C',
     name: 'Experiment C — incremental maintenance vs. full re-SVD (+ virtual axis update)',
-    status: 'completed (synthetic pilot)',
+    status: 'completed & published (IEEE IES 2026 — Best Paper; arXiv:2608.16621)',
     purpose:
       'Test H2: event-driven incremental updates track the full-re-SVD subspace at low cost, with maintenance cost that scales with CHANGE, not corpus size N. A second part tests the “virtual axis update”: can a model-generation change be absorbed without re-embedding everything?',
     data:
@@ -57,7 +57,7 @@ const EXPERIMENTS_EN: ExperimentMeta[] = [
   {
     id: 'D',
     name: 'Experiment D — non-economic benefits (provenance, attribution, governance)',
-    status: 'planned (description only)',
+    status: 'measured in part & published (ICAST-ES 2026: R1–R7 governance + verbatim cited provenance)',
     purpose:
       'Test H4: compiling meaning once yields benefits beyond cost. A typed, persistent substrate carries explicit provenance, makes attribution checkable, and supports governance (access control, deletion, audit) that per-query reconstruction cannot easily offer.',
     data:
@@ -121,7 +121,7 @@ const EXPERIMENTS_JA: ExperimentMeta[] = [
   {
     id: 'Aprime',
     name: '実験A′ — 実コーパスで測定したコストモデル',
-    status: '計画中（実験A の実コーパス測定）',
+    status: '計画中 — 読み取り側ギャップとper-fact取込コストは実測済み（ICAST-ES 2026）。保守込みの完全な損益分岐が次段',
     purpose:
       '実験A の測定版です。QSR（問い合わせ時再構築 = RAG）と ISC（取込時コンパイル）の両パイプラインを、単一の実コーパス上でエンドツーエンドに実装し、測定した c_c/c_m/c_q/c_r をモデルに戻して測定された R* を読み取ります。インタラクティブ電卓の「説明用」定数を、実データ上の証拠へと変えます。',
     data:
@@ -134,7 +134,7 @@ const EXPERIMENTS_JA: ExperimentMeta[] = [
   {
     id: 'B',
     name: '実験B — 失敗の非対称性と実行間の安定性',
-    status: '計画中（説明のみ）',
+    status: '実測・出版済み（IEEE ICAST-ES 2026）',
     purpose:
       '仮説H3の検証: ISC と QSR は失敗の仕方が異なります。QSR はクエリごとに意味を再導出するため、同じ質問でも実行ごとに揺らぎ得ます。ISC は固定済みのコンパイル基盤から読み出すため、回答はより安定し、失敗もより体系的（=デバッグ可能）になるはずです。この非対称性を定量化します。',
     data:
@@ -142,12 +142,12 @@ const EXPERIMENTS_JA: ExperimentMeta[] = [
     evaluation:
       '回答の実行間ばらつき（意味的・字句的）、繰り返し間の矛盾率、失敗モードの分類（ランダム vs. 体系的）。小さなコーパス編集に対する安定性。',
     outcomes:
-      '測定された安定性の差（例: ISC の分散 ≪ QSR の分散）と、ISC の誤りが再現可能で局在化できることを示す失敗モード分類。論文の「デバッグ可能な検索」という主張の実証的根拠になります。',
+      '実測（5シード・同一の安価なモデル）: QSR は敵対的ガバナンス質問30問中1問のみ正確（シード毎0/6〜1/6）、ISC は30/30 — 全シードexactで、コンパイル経路の実行間ドリフトはゼロ。失敗29件の内訳は「値正解×引用誤り」0件・全29件が値回復自体に失敗。コーパス編集下の完全な安定性分類は後続研究。',
   },
   {
     id: 'C',
     name: '実験C — 増分保守 vs. 完全な再SVD（+ 仮想軸更新）',
-    status: '完了（合成データによるパイロット）',
+    status: '完了・出版済み（IEEE IES 2026 — Best Paper・arXiv:2608.16621）',
     purpose:
       '仮説H2の検証: イベント駆動の増分更新は、低コストで完全再SVDの部分空間を追従し、その保守コストはコーパス規模 N ではなく「変化量」に比例します。第2部では「仮想軸更新」を検証します。モデル世代の変更を、すべてを再埋め込みせずに吸収できるか?',
     data:
@@ -158,7 +158,7 @@ const EXPERIMENTS_JA: ExperimentMeta[] = [
   {
     id: 'D',
     name: '実験D — 非経済的な利点（来歴・帰属・ガバナンス）',
-    status: '計画中（説明のみ）',
+    status: '一部実測・出版済み（ICAST-ES 2026：R1–R7ガバナンス＋出典・改訂の逐語引用）',
     purpose:
       '仮説H4の検証: 意味を一度コンパイルすることで、コスト以外の利点が得られます。型付きで永続的な基盤は明示的な来歴を持ち、帰属を検証可能にし、クエリごとの再構築では容易に提供できないガバナンス（アクセス制御・削除・監査）を支えます。',
     data:

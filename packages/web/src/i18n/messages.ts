@@ -195,8 +195,7 @@ export const en = {
     cidr: 'CIDR 2027 ↗',
     backToTop: 'Back to top ↑',
     muds: 'Musashino Data Science ↗',
-    aix: 'AIx ↗',
-    lab: 'Uraki–Takahashi Lab at MUDS ↗',
+    aixLab: 'AIx / Uraki–Takahashi Lab ↗',
     fine:
       'Open source under the MIT license. Experiment figures are synthetic-data pilots of the harness; the real-corpus run is the next step.',
   },
@@ -396,8 +395,7 @@ export const ja: typeof en = {
     cidr: 'CIDR 2027 ↗',
     backToTop: 'トップへ戻る ↑',
     muds: 'Musashino Data Science ↗',
-    aix: 'AIx ↗',
-    lab: 'Uraki–Takahashi Lab at MUDS ↗',
+    aixLab: 'AIx / 浦木・高橋研究室 ↗',
     fine:
       'MIT ライセンスのオープンソース。実験の図はハーネスの合成データによるパイロットであり、実コーパス実行が次のステップです。',
   },
