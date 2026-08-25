@@ -15,10 +15,10 @@ const props = defineProps<{
 }>()
 
 const { t } = useI18n()
-type ExpId = 'A' | 'Aprime' | 'B' | 'C' | 'D' | 'E' | 'F'
-const IDS: ExpId[] = ['A', 'Aprime', 'B', 'C', 'D', 'E', 'F']
+type ExpId = 'A' | 'Aprime' | 'B' | 'C' | 'D' | 'E' | 'F' | 'G' | 'H' | 'I'
+const IDS: ExpId[] = ['A', 'Aprime', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I']
 const STATUS: Record<ExpId, 'interactive' | 'completed' | 'planned'> = {
-  A: 'interactive', Aprime: 'planned', B: 'completed', C: 'completed', D: 'completed', E: 'planned', F: 'planned',
+  A: 'interactive', Aprime: 'planned', B: 'completed', C: 'completed', D: 'completed', E: 'planned', F: 'planned', G: 'planned', H: 'planned', I: 'planned',
 }
 const sel = ref<ExpId>('A')
 
@@ -50,6 +50,9 @@ const metaC = computed(() => byId('C'))
 const metaD = computed(() => byId('D'))
 const metaE = computed(() => byId('E'))
 const metaF = computed(() => byId('F'))
+const metaG = computed(() => byId('G'))
+const metaH = computed(() => byId('H'))
+const metaI = computed(() => byId('I'))
 
 const items = computed(() =>
   IDS.map((id) => ({
@@ -95,6 +98,9 @@ const items = computed(() =>
       <v-window-item value="D"><MeasuredExperimentD :meta="metaD" /></v-window-item>
       <v-window-item value="E"><PlannedExperiment :meta="metaE" /></v-window-item>
       <v-window-item value="F"><PlannedExperiment :meta="metaF" /></v-window-item>
+      <v-window-item value="G"><PlannedExperiment :meta="metaG" /></v-window-item>
+      <v-window-item value="H"><PlannedExperiment :meta="metaH" /></v-window-item>
+      <v-window-item value="I"><PlannedExperiment :meta="metaI" /></v-window-item>
     </v-window>
   </section>
 </template>

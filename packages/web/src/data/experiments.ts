@@ -94,6 +94,41 @@ const EXPERIMENTS_EN: ExperimentMeta[] = [
       'A quantified trade-off showing how much quality a small-anchor Procrustes map recovers for how little re-embedding — evidence for absorbing a model-generation change without rip-and-replace.',
   },
   {
+    id: 'G',
+    name: 'Experiment G — evaluation hardening: human calibration, judge separation, held-out reproduction',
+    status: 'planned (specification fixed by pre-registration)',
+    purpose:
+      'Harden the evidence behind the measured results. Three parts: (1) two independent external raters double-annotate the automatic entailment and QA-fidelity judgments, so accuracy claims rest on chance-corrected human agreement rather than a single LLM judge; (2) judge-model separation: re-judge the core cells with a different judge model chosen and recorded before the run; (3) reproduce the full protocol on a document-disjoint held-out set of 500 documents.',
+    data:
+      'Stratified samples for double annotation; a held-out corpus disjoint at the document level from everything used so far. Specifications and thresholds are committed to the repository as a pre-registration before execution.',
+    evaluation:
+      'Chance-corrected inter-rater agreement (e.g. Cohen\u2019s kappa) between human raters and against the automatic judge; side-by-side agreement between judge models; replication of the measured asymmetries on held-out data.',
+    outcomes:
+      'Either the asymmetries survive independent judgment and fresh data \u2014 or the protocol reveals where the automatic evaluation was too generous. Both outcomes are published.',
+  },
+  {
+    id: 'H',
+    name: 'Experiment H — ingest-time expansion baseline (doc2query)',
+    status: 'planned (description only)',
+    purpose:
+      'Separate \u201ccompiling the payload\u201d from \u201cexpanding the pointers\u201d. doc2query-style methods also spend work at ingest, but they enrich the retrieval keys while the reader still consumes raw text; ISC compiles what the reader consumes. Does the measured asymmetry persist against an ingest-time expansion baseline?',
+    data:
+      'The same corpus and question sets, with a doc2query-style expansion pipeline added as a third arm alongside QSR and ISC.',
+    evaluation:
+      'Exact rate, per-question cost, and token footprint of the expansion arm versus both QSR and ISC under identical governance rules.',
+  },
+  {
+    id: 'I',
+    name: 'Experiment I — real corpora at scale & full-ledger cost accounting',
+    status: 'planned (description only)',
+    purpose:
+      'Move from controlled synthetic revisions to real revision streams, grow the corpus, and account the full ledger \u2014 ingest and maintenance included, not just the read side. Also covers embedding-model migration in a production-like setting (connecting to Experiment F) and human validation of S2 on larger samples.',
+    data:
+      'Real revision histories (institutional documents, Wikipedia revision streams); provider prices recorded in the harness at run time.',
+    evaluation:
+      'End-to-end cost versus cumulative reads with a measured break-even R*; maintenance cost versus change volume; fidelity and exactness at scale.',
+  },
+  {
     id: 'NEXT',
     name: 'Next — real-corpus run',
     status: 'planned (the next step)',
@@ -193,6 +228,41 @@ const EXPERIMENTS_JA: ExperimentMeta[] = [
       '写像ベクトル vs. 新規埋め込みベクトルの品質、必要なアンカー数 k、節約できたコスト。モデル間整列は損失を伴い、同一プロバイダの世代間で最も有効です。部分的成功（「数% を再埋め込みして品質の X% を回復」）でも強い結果です。',
     outcomes:
       '小さなアンカーの Procrustes 写像が、どれだけ少ない再埋め込みでどれだけの品質を回復するかを定量化 — rip-and-replace なしでモデル世代変更を吸収できる証拠です。',
+  },
+  {
+    id: 'G',
+    name: '実験G — 評価の強化：人手較正・判定モデル分離・held-out再現',
+    status: '計画中（事前登録により仕様確定）',
+    purpose:
+      '実測結果の証拠を強化します。3部構成：(1) 独立した外部評価者2名が自動の含意・QA忠実性判定を二重注釈し、精度主張を単一のLLM判定ではなく偶然一致補正つきの人間の一致率に載せる。(2) 判定モデル分離：実行前に選定・記録した別の判定モデルで中核セルを再判定。(3) 文書レベルで重複しないheld-out 500文書で全プロトコルを再現。',
+    data:
+      '二重注釈用の層化サンプル。これまでの全データと文書単位で分離したheld-outコーパス。仕様と閾値は実行前に事前登録としてリポジトリへコミット。',
+    evaluation:
+      '評価者間・対自動判定の偶然一致補正つき一致率（Cohen\u2019s kappa等）。判定モデル間の一致の並記。held-outデータでの非対称性の再現。',
+    outcomes:
+      '非対称性が独立judgmentと新データに耐えるか、あるいは自動評価が甘すぎた箇所が判明するか — どちらの結果も公表します。',
+  },
+  {
+    id: 'H',
+    name: '実験H — 取込時拡張ベースライン（doc2query）',
+    status: '計画中（説明のみ）',
+    purpose:
+      '「ペイロードをコンパイルする」と「ポインタを拡張する」を切り分けます。doc2query系も取込時に労働を払いますが、豊かにするのは検索キーで、読み手は依然として生テキストを消費します。ISCは読み手が消費するもの自体をコンパイルします。取込時拡張ベースラインに対しても実測の非対称性は残るか？',
+    data:
+      '同一コーパス・同一質問セットに、QSRとISCに並ぶ第3アームとしてdoc2query系拡張パイプラインを追加。',
+    evaluation:
+      '同一ガバナンス規則下での拡張アームのexact率・コスト/問・トークンを、QSR・ISC両方と比較。',
+  },
+  {
+    id: 'I',
+    name: '実験I — 実コーパスの規模化と全台帳コスト会計',
+    status: '計画中（説明のみ）',
+    purpose:
+      '統制された合成改訂から実改訂ストリームへ移行し、コーパスを規模化し、読み取り側だけでなく取込・保守を含む全台帳でコストを会計します。実運用に近い設定での埋め込みモデル移行（実験Fと接続）と、より大きなサンプルでのS2人手検証も含みます。',
+    data:
+      '実改訂履歴（機関文書・Wikipedia改訂ストリーム）。プロバイダ価格は実行時にハーネスへ記録。',
+    evaluation:
+      '累積読み取りに対するエンドツーエンドコストと実測R*。変化量に対する保守コスト。規模化での忠実性とexact率。',
   },
   {
     id: 'NEXT',
