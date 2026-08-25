@@ -2,6 +2,7 @@ import { initializeApp, type FirebaseApp } from 'firebase/app'
 import { getFirestore, connectFirestoreEmulator, type Firestore } from 'firebase/firestore'
 import { getFunctions, connectFunctionsEmulator, type Functions } from 'firebase/functions'
 import { getStorage, connectStorageEmulator, type FirebaseStorage } from 'firebase/storage'
+import { getAnalytics, isSupported, logEvent } from 'firebase/analytics'
 
 const cfg = {
   apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
@@ -9,6 +10,7 @@ const cfg = {
   projectId: import.meta.env.VITE_FIREBASE_PROJECT_ID,
   storageBucket: import.meta.env.VITE_FIREBASE_STORAGE_BUCKET,
   appId: import.meta.env.VITE_FIREBASE_APP_ID,
+  measurementId: import.meta.env.VITE_FIREBASE_MEASUREMENT_ID,
 }
 const region = import.meta.env.VITE_FUNCTIONS_REGION || 'us-central1'
 const useEmulators = import.meta.env.VITE_USE_EMULATORS === 'true'
@@ -37,3 +39,17 @@ if (firebaseEnabled) {
 export const db = _db
 export const functions = _functions
 export const storage = _storage
+
+// Google Analytics (GA4) — best-effort. Requires VITE_FIREBASE_MEASUREMENT_ID (G-XXXX).
+// logEvent('generate_lead', …) is GA4's recommended event for lead capture.
+export async function logAnalyticsEvent(
+  name: string,
+  params?: Record<string, unknown>,
+): Promise<void> {
+  if (!firebaseEnabled || !app || !cfg.measurementId) return
+  try {
+    if (await isSupported()) logEvent(getAnalytics(app), name, params)
+  } catch {
+    /* analytics is non-critical; never block the UX on it */
+  }
+}

@@ -145,6 +145,17 @@ export const en = {
       'How does ISC differ from RAG?',
     ],
   },
+  newsletter: {
+    heading: 'Subscribe to the newsletter',
+    placeholder: 'you@example.com',
+    button: 'Subscribe',
+    sending: 'Subscribing…',
+    privacy:
+      'We use your email only to contact you about this research and about Musashino Data Science and AIx{\'{}\'}, the organizations the researchers are affiliated with.',
+    success: "Thanks — you're subscribed.",
+    errInvalid: 'Please enter a valid email address.',
+    errGeneric: 'Something went wrong. Please try again in a moment.',
+  },
   footer: {
     title: 'Ingest-time Semantic Compilation',
     team: 'Project Team',
@@ -308,6 +319,17 @@ export const ja: typeof en = {
       '仮想軸更新とは何ですか?',
       'ISC は RAG とどう違いますか?',
     ],
+  },
+  newsletter: {
+    heading: 'ニュースレターを購読',
+    placeholder: 'you@example.com',
+    button: '登録する',
+    sending: '送信中…',
+    privacy:
+      'この研究に関するご連絡と、研究者の所属する Musashino Data Science、AIx{\'{}\'}に関するご連絡をする以外には用いません。',
+    success: 'ご登録ありがとうございます。',
+    errInvalid: '有効なメールアドレスを入力してください。',
+    errGeneric: '送信に失敗しました。時間をおいて再度お試しください。',
   },
   footer: {
     title: 'Ingest-time Semantic Compilation',

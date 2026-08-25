@@ -5,5 +5,7 @@ service cloud.firestore {
     match /experiments/{id} { allow read: if true; allow write: if false; }
     // Anonymous question logs: create-only from clients, never readable by clients.
     match /questions/{id} { allow create: if true; allow read, update, delete: if false; }
+    // Newsletter sign-ups: written only via the subscribeNewsletter function (Admin SDK).
+    match /subscribers/{id} { allow read, write: if false; }
   }
 }
