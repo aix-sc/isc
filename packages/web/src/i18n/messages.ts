@@ -62,7 +62,7 @@ export const en = {
     },
   },
   cost: {
-    kicker: '02 · Experiment A — interactive',
+    kicker: '05 · Experiment A — interactive',
     title: 'Cost model & break-even R*',
     ctrls: {
       N: 'corpus size N',
@@ -82,7 +82,7 @@ export const en = {
     axes: { x: 'cumulative reads R', y: 'total cost ($)' },
   },
   maintenance: {
-    kicker: '03 · Experiment C — completed (pilot)',
+    kicker: '06 · Experiment C — completed (pilot)',
     title: 'Incremental maintenance vs. full re-SVD',
     band: {
       cheaperUpdate: 'cheaper / update (N={n})',
@@ -119,7 +119,7 @@ export const en = {
     title: 'Real-corpus run — embedding APIs + Wikipedia revision history',
   },
   faq: {
-    kicker: '06 · FAQ',
+    kicker: '07 · FAQ',
     title: 'FAQ — in plain language',
     lede: 'Every question this project raised, plus likely follow-ups, answered simply.',
   },
@@ -155,6 +155,32 @@ export const en = {
     success: "Thanks — you're subscribed.",
     errInvalid: 'Please enter a valid email address.',
     errGeneric: 'Something went wrong. Please try again in a moment.',
+  },
+  results: {
+    kicker: '02 \u00b7 Measured results',
+    title: 'What we measured: the asymmetry is real',
+    lede: 'Same corpus, same governance rules, same inexpensive model \u2014 the only variable is when the semantic labor is paid. Five seeds per condition; all numbers below come from the accepted IEEE ICAST-ES 2026 paper and its frozen, public artifacts.',
+    metric: { exact: 'exact answers, ISC vs QSR', readCost: 'lower mean read cost / question', tokens: 'fewer tokens / question', latency: 'lower mean latency' },
+    view: { exact: 'Failure asymmetry', cost: 'Cost / question', tokens: 'Tokens', s2: 'Rephrasing (S2)' },
+    note: {
+      exact: 'Adversarial governance questions (6 \u00d7 5 seeds; spot checks 3 \u00d7 5). QSR = query-time semantic reconstruction over 64 noisy rows; ISC reads the compiled substrate row. Mean exact rate across seeds.',
+      cost: 'Log scale. Mean per-question cost at July 8, 2026 provider prices, recorded in the harness for reproducibility. Price ratios vary with providers; the token asymmetry is architectural.',
+      tokens: 'Cost sweep on simple revision tasks (9 \u00d7 5 seeds, 128 context rows for QSR); both architectures exact in every seed \u2014 the comparison isolates footprint.',
+      s2: 'S2 rephrasing on two real source styles: 25 Federal Reserve press-conference excerpts (dialogue, 0.49\u00d7 tokens) and 30 Wikipedia passages (dense prose, 1.03\u00d7). Judgments are automatic; human calibration is planned (I5).',
+    },
+    provenance: 'Every number traces to the frozen run artifacts:',
+    links: { repo: 'harness (GitHub)', freeze: 'data-freeze-2026-07-16', evidence: 'evidence document' },
+  },
+  pubs: {
+    kicker: '03 \u00b7 Publications & data',
+    title: 'Three public results, one program',
+    lede: 'The maintenance economics (IES), the position (arXiv), and the measured architecture study (ICAST-ES) \u2014 each stands alone, and together they make the case for compiling meaning once at ingest.',
+  },
+  roadmap: {
+    kicker: '04 \u00b7 What\u2019s next',
+    title: 'Planned experiments \u2014 specifications first, numbers later',
+    lede: 'The next round hardens the evidence: human calibration of the automatic judge, a document-disjoint held-out reproduction, judge-model separation, an ingest-expansion baseline, and real-corpus scale.',
+    policy: 'Policy: experiment specifications and deadlines are fixed in a pre-registration committed to the repository before execution. No result data appears on this page until the corresponding paper is public.',
   },
   footer: {
     title: 'Ingest-time Semantic Compilation',
@@ -237,7 +263,7 @@ export const ja: typeof en = {
     },
   },
   cost: {
-    kicker: '02 · 実験A — インタラクティブ',
+    kicker: '05 · 実験A — インタラクティブ',
     title: 'コストモデルと損益分岐 R*',
     ctrls: {
       N: 'コーパス規模 N',
@@ -257,7 +283,7 @@ export const ja: typeof en = {
     axes: { x: '累積読み取り R', y: '総コスト ($)' },
   },
   maintenance: {
-    kicker: '03 · 実験C — 完了（パイロット）',
+    kicker: '06 · 実験C — 完了（パイロット）',
     title: '増分保守 vs. 完全な再SVD',
     band: {
       cheaperUpdate: '更新あたりの低コスト化 (N={n})',
@@ -294,7 +320,7 @@ export const ja: typeof en = {
     title: '実コーパス実行 — 埋め込みAPI + Wikipedia の改訂履歴',
   },
   faq: {
-    kicker: '06 · FAQ',
+    kicker: '07 · FAQ',
     title: 'FAQ — やさしい言葉で',
     lede: '本プロジェクトで出たすべての疑問と、想定される追加質問に、やさしく答えます。',
   },
@@ -330,6 +356,32 @@ export const ja: typeof en = {
     success: 'ご登録ありがとうございます。',
     errInvalid: '有効なメールアドレスを入力してください。',
     errGeneric: '送信に失敗しました。時間をおいて再度お試しください。',
+  },
+  results: {
+    kicker: '02 \u00b7 実測結果',
+    title: '実測したもの：非対称性は現実にある',
+    lede: '同じコーパス・同じガバナンス規則・同じ安価なモデル \u2014 変えたのは「意味の労働をいつ払うか」だけ。各条件5シード。以下の数値はすべて採択済みIEEE ICAST-ES 2026論文と、公開済みの凍結アーティファクトに由来します。',
+    metric: { exact: '正確応答 ISC対QSR', readCost: '読み取りコスト低減（平均/問）', tokens: 'トークン削減/問', latency: '平均レイテンシ低減' },
+    view: { exact: '失敗の非対称性', cost: 'コスト/問', tokens: 'トークン', s2: '言い換え（S2）' },
+    note: {
+      exact: '敵対的ガバナンス質問（6問\u00d75シード；spot checkは3\u00d75）。QSR=64行のノイズ混じり文脈からのクエリ時再構成、ISC=コンパイル済み基層行の読み取り。シード平均のexact率。',
+      cost: '対数スケール。2026年7月8日時点のプロバイダ公表価格による平均コスト/問（価格はハーネスに記録済み）。価格比はプロバイダ依存、トークン非対称性はアーキテクチャ由来。',
+      tokens: '単純改訂タスクのコストスイープ（9問\u00d75シード・QSRは128行文脈）。両アーキテクチャとも全シードexact \u2014 比較はフットプリントのみを分離。',
+      s2: '実素材2スタイルでのS2言い換え：連邦準備制度の会見抜粋25件（対話・トークン0.49\u00d7）とWikipedia 30件（密な散文・1.03\u00d7）。判定は自動で、人手較正（I5）を計画中。',
+    },
+    provenance: 'すべての数値は凍結された実行アーティファクトに遡れます：',
+    links: { repo: 'ハーネス（GitHub）', freeze: 'data-freeze-2026-07-16', evidence: 'エビデンス文書' },
+  },
+  pubs: {
+    kicker: '03 \u00b7 出版と公開データ',
+    title: '3つの公開成果、1つのプログラム',
+    lede: '保守の経済学（IES）、ポジション（arXiv）、実測アーキテクチャ実証（ICAST-ES）\u2014 それぞれ独立に成立し、合わせて「意味は取込時に一度だけコンパイルする」という主張を構成します。',
+  },
+  roadmap: {
+    kicker: '04 \u00b7 これから',
+    title: '実験計画 \u2014 仕様が先、数値は後',
+    lede: '次のラウンドで証拠を強化します：自動判定の人手較正、文書分離のheld-out再現、判定モデル分離、取込時拡張ベースライン、実コーパスでの規模化。',
+    policy: '方針：実験の仕様と期日は、実行前にリポジトリへコミットする事前登録で固定します。対応する論文が公開されるまで、結果データは本ページに掲載しません。',
   },
   footer: {
     title: 'Ingest-time Semantic Compilation',
