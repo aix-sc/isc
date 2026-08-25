@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { useI18n } from 'vue-i18n'
 import type { ExperimentMeta } from '@/types/experiment'
+import PlannedDiagram from './PlannedDiagram.vue'
 
 defineProps<{ meta: ExperimentMeta }>()
 const { t } = useI18n()
@@ -12,6 +13,8 @@ const { t } = useI18n()
     <v-alert type="info" variant="tonal" density="comfortable" class="mb-4">
       {{ t('experiments.plannedNote') }}
     </v-alert>
+
+    <PlannedDiagram :id="meta.id" />
 
     <v-card class="pa-5">
       <div class="field">

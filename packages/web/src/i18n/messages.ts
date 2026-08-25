@@ -195,6 +195,14 @@ export const en = {
     },
     outcome: 'Measured & published (ICAST-ES 2026): governance-correct answers with verbatim provenance in every seed — and a failure decomposition showing the benefit is not mere citation hygiene: query-time reconstruction fails at value recovery itself. Audit-trail and access-control extensions remain future work.',
   },
+  plannedFig: {
+    Aprime: 'The plan in one picture: run both pipelines end-to-end on a real corpus, measure the four cost constants, and read the crossing point off as a measured R* — the read count after which compiling once beats re-deriving every time.',
+    E: 'When new documents drift away from the current axes, add a small incremental axis (+Δ) instead of recomputing the whole decomposition — maintenance stays proportional to change.',
+    F: 'A model-generation change is absorbed by re-embedding only a small anchor set, then mapping everything else through an orthogonal Procrustes transform Ω — instead of re-embedding the entire corpus.',
+    G: 'Three independent hardening steps: two human raters with chance-corrected agreement, a second judge model recorded before the run, and a full replay on 500 document-disjoint held-out documents.',
+    H: 'Three arms on the same corpus: QSR pays the semantic labor at read time, doc2query expands retrieval keys but the reader still consumes raw text, ISC compiles the payload the reader consumes.',
+    I: 'The full ledger — ingest and maintenance included, not just reads — measured on real revision streams at growing scale, with the break-even R* re-measured end-to-end.',
+  },
   footer: {
     title: 'Ingest-time Semantic Compilation',
     team: 'Project Team',
@@ -412,6 +420,14 @@ export const ja: typeof en = {
       R7: '引用する出典・改訂は選ばれた行自身から。',
     },
     outcome: '実測・出版済み（ICAST-ES 2026）：全シードでガバナンス正しい回答と逐語の来歴引用。失敗の内訳はこの利点が単なる引用衛生ではないことを示す — クエリ時再構成は値回復の段階で失敗する。監査証跡・アクセス制御への拡張は今後の課題。',
+  },
+  plannedFig: {
+    Aprime: '計画の一枚図：実コーパスで両パイプラインを端から端まで走らせ、4つのコスト定数を実測し、交点を実測のR*として読み取る — 「一度コンパイル」が「毎回再導出」に勝ち始める読み取り回数。',
+    E: '新しい文書が既存の軸からずれてきたら、全体を再分解せず小さな増分軸（+Δ）を足す — 保守は変化量に比例したまま。',
+    F: 'モデル世代の変更は、小さなアンカー集合だけ再埋め込みし、残り全部を直交Procrustes変換Ωで写像して吸収 — コーパス全体の再埋め込みを回避。',
+    G: '3つの独立した強化：偶然一致補正つきの人手評価者2名、実行前に記録した第2の判定モデル、文書分離のheld-out 500文書での全再現。',
+    H: '同一コーパスに3アーム：QSRは読み取り時に意味の労働を支払い、doc2queryは検索キーを拡張するが読み手は生テキストのまま、ISCは読み手が消費するペイロード自体をコンパイル。',
+    I: '全台帳 — 読み取りだけでなく取込と保守を含む — を実改訂ストリーム・拡大する規模で実測し、損益分岐R*をエンドツーエンドで測り直す。',
   },
   footer: {
     title: 'Ingest-time Semantic Compilation',
