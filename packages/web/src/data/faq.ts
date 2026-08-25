@@ -5,31 +5,7 @@ export interface FaqItem { q: string; a: string }
 // Plain-language FAQ for the ISC (Ingest-time Semantic Compilation) work.
 // Answers expanded for fuller, more careful explanations. Strings use template
 // literals so quotes/apostrophes need no escaping.
-const FAQ_JA: FaqItem[  {
-    q: `実際に測ってみて、何がわかったの？`,
-    a: `同じコーパス・同じルール・同じ安価なモデルで、「意味の労働をいつ払うか」だけを変えて比べました（5シード）。改訂・削除・失効が絡む意地悪な質問30問で、毎回その場で意味を組み立て直す方式（QSR）は1問しか正確に答えられず、取込時にコンパイルした基層から読む方式（ISC）は30問すべてに正答。しかも1問あたりの読み取りコストは12.89分の1、トークン消費は21.6分の1、応答も約2.9倍速い。両方式が正答できる簡単な質問でも、ISCの方が一貫して軽い — つまり「速い・安い・正確」が同時に成り立ちました。数値はすべてIEEE ICAST-ES 2026採択論文と公開済みの凍結データに由来します。`,
-  },
-  {
-    q: `失敗するとき、何が起きているの？「引用のでっち上げ」は？`,
-    a: `失敗した29問を分解すると、「値は正しいのに出典を間違えた」例は0件で、29問すべてが正しい値の回復そのものに失敗していました。つまりクエリ時再構成の失敗は引用マナーの問題ではなく、能力の問題です。逆にISC側は30問すべてで、保存された行から出典と改訂を逐語で引用して正答 — 来歴（どこから来た情報か）が常に付いてくるのがコンパイル方式の構造的な利点です。`,
-  },
-  {
-    q: `もっと賢い（高い）モデルを使えば、コンパイルしなくても良いのでは？`,
-    a: `部分的にはその通りで、それも測りました。重量級のGLM 5.2は同じ意地悪質問に3分の2ほど正答できます — ただしコストは、安価なモデルでコンパイル基層を読む構成の約137倍。つまり「毎回考え直す」を力技で成立させることはできますが、料金は毎回発生します。コンパイルは同じ能力のしきい値を取込時に一度だけ支払い、以後のすべての読み取りを安価なモデルで走らせる、という違いです。`,
-  },
-  {
-    q: `言い換え（S2）でデータが壊れたり、情報が失われたりしない？`,
-    a: `2種類の実素材で測りました。連邦準備制度の記者会見のような冗長な対話は、ファクトへの言い換えでトークンが約半分（0.49倍）になり、97.6%のファクトが元の文に裏付けられ、QA忠実性は92.0%。すでに簡潔なWikipediaの散文はほぼ不変（1.03倍）で忠実性は保たれます。つまり圧縮は「パイプラインの手柄」ではなく「元テキストの性質」で、冗長な社内文書ほど得をし、簡潔な文書では害を出さない、という挙動です。判定は現在自動で、人手による較正を次の段階として計画しています。`,
-  },
-  {
-    q: `論文はどこで読める？`,
-    a: `現在4件が公開・採択済みです。①アーキテクチャ実証（IEEE ICAST-ES 2026採択・10月スラバヤ発表）②ポジション論文「RAG Deserves an Index」（arXiv:2608.20845）③保守研究のarXiv版（arXiv:2608.16621）④同・IES 2026会議版（8月ジョグジャカルタ発表）。本ページ下部のPublicationsセクションから、各論文の紹介ページ（aix.sc）とarXiv・DOIに飛べます。実験ハーネスと凍結データもGitHubで公開しています。`,
-  },
-  {
-    q: `この数値、どうやって信用すればいい？`,
-    a: `3つの仕組みで担保しています。①全実行のプロンプト・応答・判定・価格を凍結スナップショットとして保存し、GitHubで公開（タグ data-freeze-2026-07-16）。②論文の全数値は決定論的スクリプトで生データから再導出でき、第三者が同じ計算を再実行できます。③今後の実験は、仕様と期日を実行前に事前登録としてリポジトリにコミットしてから走らせます。「信じてください」ではなく「確かめてください」が方針です。`,
-  },
-] = [
+const FAQ_JA: FaqItem[] = [
   {
     q: `一文でいうと、この研究は何の話？`,
     a: `多くのAIは、誰かが質問するたびに資料の意味を一から考え直し、同じ解釈コストを毎回払っています。本研究はその逆で、資料が入ってきた時に意味の作業を一度だけ行い、結果をきれいに整理した検索可能な構造として保存し、以後は引くだけにします。核心の主張は、いったん多くの読み（問い合わせ）が発生すれば、その構造を最新に保つコストは資料の『量』ではなく『変化量』に比例して増える、というもの。だから同じ資料への質問は、回数を重ねるほど安く・速く・一貫したものになります。`,
@@ -94,33 +70,33 @@ const FAQ_JA: FaqItem[  {
     q: `『ゴールドリフト』とは？Zahnらと競合する？`,
     a: `『ゴールドリフト』とは、長いAI対話が、最初に与えられた指示や事実を少しずつ忘れたり歪めたりする傾向のことです。Zahn らはこれを測定し、対策として『Knowledge Objects』を提案しました。私たちの研究は競合ではなく相補的です：彼らの Knowledge Objects は、ISC が生み出す準備済み意味を保存する一つの具体的な形 — 記号的な基層 — にほかなりません。私たちの枠組みでは、ISC が一般原理（意味を一度コンパイルして保存する）であり、Knowledge Objects はそのコンパイル済み意味を離散的・記号的な形で保持する一つの有効な方法です。`,
   },
+  {
+    q: `実際に測ってみて、何がわかったの？`,
+    a: `同じコーパス・同じルール・同じ安価なモデルで、「意味の労働をいつ払うか」だけを変えて比べました（5シード）。改訂・削除・失効が絡む意地悪な質問30問で、毎回その場で意味を組み立て直す方式（QSR）は1問しか正確に答えられず、取込時にコンパイルした基層から読む方式（ISC）は30問すべてに正答。しかも1問あたりの読み取りコストは12.89分の1、トークン消費は21.6分の1、応答も約2.9倍速い。両方式が正答できる簡単な質問でも、ISCの方が一貫して軽い — つまり「速い・安い・正確」が同時に成り立ちました。数値はすべてIEEE ICAST-ES 2026採択論文と公開済みの凍結データに由来します。`,
+  },
+  {
+    q: `失敗するとき、何が起きているの？「引用のでっち上げ」は？`,
+    a: `失敗した29問を分解すると、「値は正しいのに出典を間違えた」例は0件で、29問すべてが正しい値の回復そのものに失敗していました。つまりクエリ時再構成の失敗は引用マナーの問題ではなく、能力の問題です。逆にISC側は30問すべてで、保存された行から出典と改訂を逐語で引用して正答 — 来歴（どこから来た情報か）が常に付いてくるのがコンパイル方式の構造的な利点です。`,
+  },
+  {
+    q: `もっと賢い（高い）モデルを使えば、コンパイルしなくても良いのでは？`,
+    a: `部分的にはその通りで、それも測りました。重量級のGLM 5.2は同じ意地悪質問に3分の2ほど正答できます — ただしコストは、安価なモデルでコンパイル基層を読む構成の約137倍。つまり「毎回考え直す」を力技で成立させることはできますが、料金は毎回発生します。コンパイルは同じ能力のしきい値を取込時に一度だけ支払い、以後のすべての読み取りを安価なモデルで走らせる、という違いです。`,
+  },
+  {
+    q: `言い換え（S2）でデータが壊れたり、情報が失われたりしない？`,
+    a: `2種類の実素材で測りました。連邦準備制度の記者会見のような冗長な対話は、ファクトへの言い換えでトークンが約半分（0.49倍）になり、97.6%のファクトが元の文に裏付けられ、QA忠実性は92.0%。すでに簡潔なWikipediaの散文はほぼ不変（1.03倍）で忠実性は保たれます。つまり圧縮は「パイプラインの手柄」ではなく「元テキストの性質」で、冗長な社内文書ほど得をし、簡潔な文書では害を出さない、という挙動です。判定は現在自動で、人手による較正を次の段階として計画しています。`,
+  },
+  {
+    q: `論文はどこで読める？`,
+    a: `現在4件が公開・採択済みです。①アーキテクチャ実証（IEEE ICAST-ES 2026採択・10月スラバヤ発表）②ポジション論文「RAG Deserves an Index」（arXiv:2608.20845）③保守研究のarXiv版（arXiv:2608.16621）④同・IES 2026会議版（8月ジョグジャカルタ発表）。本ページ下部のPublicationsセクションから、各論文の紹介ページ（aix.sc）とarXiv・DOIに飛べます。実験ハーネスと凍結データもGitHubで公開しています。`,
+  },
+  {
+    q: `この数値、どうやって信用すればいい？`,
+    a: `3つの仕組みで担保しています。①全実行のプロンプト・応答・判定・価格を凍結スナップショットとして保存し、GitHubで公開(タグ data-freeze-2026-07-16)。②論文の全数値は決定論的スクリプトで生データから再導出でき、第三者が同じ計算を再実行できます。③今後の実験は、仕様と期日を実行前に事前登録としてリポジトリにコミットしてから走らせます。「信じてください」ではなく「確かめてください」が方針です。`,
+  },
 ]
 
-const FAQ_EN: FaqItem[  {
-    q: `What did the measurements actually show?`,
-    a: `Same corpus, same rules, same inexpensive model - the only variable was when the semantic labor is paid (five seeds). On thirty adversarial questions involving revisions, deletions, and revocations, the rebuild-meaning-on-every-read approach (QSR) answered exactly once; reading from a substrate compiled at ingest (ISC) answered all thirty. The compiled path also cost 12.89x less per read, used 21.6x fewer tokens, and responded about 2.9x faster. Even on easy questions both sides get right, ISC stays consistently lighter - so faster, cheaper, and more accurate held at the same time. Every number comes from the accepted IEEE ICAST-ES 2026 paper and its frozen public artifacts.`,
-  },
-  {
-    q: `When it fails, what actually happens? Does it fabricate citations?`,
-    a: `Decomposing the 29 failures: zero cases had a correct value with a wrong citation - all 29 failed to recover the value at all. Query-time reconstruction fails at capability, not citation manners. The compiled path answered all thirty with the source and revision quoted verbatim from the stored row - provenance comes attached by construction.`,
-  },
-  {
-    q: `Could a smarter (pricier) model just skip the compilation?`,
-    a: `Partly, and we measured that too. Heavyweight GLM 5.2 answers about two-thirds of the same adversarial questions - at roughly 137x the cost of an inexpensive model reading the compiled substrate. Brute force can make re-thinking-every-time work, but the bill arrives on every read. Compilation pays the same capability threshold once, at ingest, and lets every subsequent read run on a cheap model.`,
-  },
-  {
-    q: `Does the rephrasing step (S2) corrupt or lose information?`,
-    a: `Measured on two real source styles. Verbose dialogue (Federal Reserve press conferences) compresses to about half the tokens (0.49x) with 97.6% of facts entailed by their sources and 92.0% QA fidelity. Already-concise Wikipedia prose stays essentially unchanged (1.03x) with fidelity preserved. Compression is a property of the source style, not a trick of the pipeline: verbose institutional text gains, concise text is not harmed. Judgments are currently automatic; human calibration is the planned next step.`,
-  },
-  {
-    q: `Where can I read the papers?`,
-    a: `Four are public or accepted: (1) the measured architecture study (IEEE ICAST-ES 2026, presenting in Surabaya this October); (2) the position paper "RAG Deserves an Index" (arXiv:2608.20845); (3) the maintenance study, arXiv version (arXiv:2608.16621); (4) its IES 2026 conference version (presented in Yogyakarta in August). The Publications section below links each paper page on aix.sc plus arXiv and DOI. The harness and frozen data are on GitHub.`,
-  },
-  {
-    q: `Why should I trust these numbers?`,
-    a: `Three mechanisms. (1) Every run's prompts, completions, judgments, and prices are frozen and public on GitHub (tag data-freeze-2026-07-16). (2) Every number in the papers re-derives from the raw data via deterministic scripts, so third parties can re-run the same computation. (3) Upcoming experiments commit their specifications and deadlines to the repository as a pre-registration before execution. The policy is "verify us", not "trust us".`,
-  },
-] = [
+const FAQ_EN: FaqItem[] = [
   {
     q: `In one sentence, what is this paper about?`,
     a: `Most AI systems re-derive what your documents mean every single time someone asks a question, paying the same interpretation cost over and over. This research proposes the opposite: do that meaning-work once, at the moment a document is ingested, store the result in a clean, queryable structure, and from then on simply look it up. The core claim is that once you have many reads, the cost of keeping that prepared structure up to date scales with how much the data changes, not with how large the corpus is — so repeated questions get steadily cheaper, faster, and more consistent.`,
@@ -184,6 +160,30 @@ const FAQ_EN: FaqItem[  {
   {
     q: `What is 'gold drift'? Does it compete with Zahn et al.?`,
     a: `Gold drift is the tendency of a long AI conversation to gradually forget or distort the instructions and facts it was originally given. Zahn et al. measured this effect and proposed Knowledge Objects as a remedy. Our work is complementary rather than competing: their Knowledge Objects are essentially one concrete form — a symbolic substrate — for storing the kind of prepared meaning that ISC produces. In our framing, ISC is the general principle (compile and persist meaning once), and Knowledge Objects are one valid way to hold that compiled meaning in discrete, symbolic form.`,
+  },
+  {
+    q: `What did the measurements actually show?`,
+    a: `Same corpus, same rules, same inexpensive model - the only variable was when the semantic labor is paid (five seeds). On thirty adversarial questions involving revisions, deletions, and revocations, the rebuild-meaning-on-every-read approach (QSR) answered exactly once; reading from a substrate compiled at ingest (ISC) answered all thirty. The compiled path also cost 12.89x less per read, used 21.6x fewer tokens, and responded about 2.9x faster. Even on easy questions both sides get right, ISC stays consistently lighter - so faster, cheaper, and more accurate held at the same time. Every number comes from the accepted IEEE ICAST-ES 2026 paper and its frozen public artifacts.`,
+  },
+  {
+    q: `When it fails, what actually happens? Does it fabricate citations?`,
+    a: `Decomposing the 29 failures: zero cases had a correct value with a wrong citation - all 29 failed to recover the value at all. Query-time reconstruction fails at capability, not citation manners. The compiled path answered all thirty with the source and revision quoted verbatim from the stored row - provenance comes attached by construction.`,
+  },
+  {
+    q: `Could a smarter (pricier) model just skip the compilation?`,
+    a: `Partly, and we measured that too. Heavyweight GLM 5.2 answers about two-thirds of the same adversarial questions - at roughly 137x the cost of an inexpensive model reading the compiled substrate. Brute force can make re-thinking-every-time work, but the bill arrives on every read. Compilation pays the same capability threshold once, at ingest, and lets every subsequent read run on a cheap model.`,
+  },
+  {
+    q: `Does the rephrasing step (S2) corrupt or lose information?`,
+    a: `Measured on two real source styles. Verbose dialogue (Federal Reserve press conferences) compresses to about half the tokens (0.49x) with 97.6% of facts entailed by their sources and 92.0% QA fidelity. Already-concise Wikipedia prose stays essentially unchanged (1.03x) with fidelity preserved. Compression is a property of the source style, not a trick of the pipeline: verbose institutional text gains, concise text is not harmed. Judgments are currently automatic; human calibration is the planned next step.`,
+  },
+  {
+    q: `Where can I read the papers?`,
+    a: `Four are public or accepted: (1) the measured architecture study (IEEE ICAST-ES 2026, presenting in Surabaya this October); (2) the position paper "RAG Deserves an Index" (arXiv:2608.20845); (3) the maintenance study, arXiv version (arXiv:2608.16621); (4) its IES 2026 conference version (presented in Yogyakarta in August). The Publications section below links each paper page on aix.sc plus arXiv and DOI. The harness and frozen data are on GitHub.`,
+  },
+  {
+    q: `Why should I trust these numbers?`,
+    a: `Three mechanisms. (1) Every run's prompts, completions, judgments, and prices are frozen and public on GitHub (tag data-freeze-2026-07-16). (2) Every number in the papers re-derives from the raw data via deterministic scripts, so third parties can re-run the same computation. (3) Upcoming experiments commit their specifications and deadlines to the repository as a pre-registration before execution. The policy is "verify us", not "trust us".`,
   },
 ]
 
