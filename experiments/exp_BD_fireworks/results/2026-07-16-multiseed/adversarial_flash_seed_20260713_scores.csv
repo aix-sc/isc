@@ -1,0 +1,187 @@
+question_index,question_id,category,mode,entity,slot,model_name,model_id,expected_value,expected_source,expected_revision,expected_deleted,model_value,model_source,model_revision,model_rationale,answer_correct,source_correct,revision_correct,latency_ms,prompt_tokens,completion_tokens,total_tokens,estimated_cost_usd,raw_content
+1,adversarial_project_000:launch_region,adversarial_policy,qsr,adversarial_project_000,launch_region,deepseek-v4-flash,accounts/fireworks/models/deepseek-v4-flash,launch_region_governed_000,src/adversarial_project_000/launch_region/owner-approved-r5.md,5,False,,,,,False,False,False,10754.7,7325,1024,8349,0.00131222,"We need to find the current value for slot 'launch_region' of entity 'adversarial_project_000'. Today is 2026-07-08.
+
+First, filter rows matching entity=adversarial_project_000 and slot=launch_region. From the context, relevant rows:
+
+- row 13: doc_id adversarial_project_000_launch_region_approved_5, type=value, entity=adversarial_project_000, slot=launch_region, value=launch_region_governed_000, version=5, env=production, state=approved, source_trust=owner, valid_from=2026-01-01, valid_until=NONE, source=src/adversarial_project_000/launch_region/owner-approved-r5.md
+
+- row 15: doc_id adversarial_project_000_launch_region_approved_high_revoked, type=value, entity=adversarial_project_000, slot=launch_region, value=launch_region_wrong_revoked_000, version=11, env=production, state=approved, source_trust=owner, valid_from=2026-01-01, valid_until=NONE, source=src/adversarial_project_000/launch_region/owner-approved-r11.md
+
+- row 21: doc_id adversarial_project_000_launch_region_approved_imported, type=value, entity=adversarial_project_000, slot=launch_region, value=launch_region_wrong_imported_000, version=10, env=production, state=approved, source_trust=imported, valid_from=2026-01-01, valid_until=NONE, source=src/adversarial_project_000/launch_region/imported-r10.md
+
+- row 22: doc_id adversarial_project_000_launch_region_approved_future, type=value, entity=adversarial_project_000, slot=launch_region, value=launch_region_wrong_future_000, version=9, env=production, state=approved, source_trust=regulatory, valid_from=2026-12-01, valid_until=NONE, source=src/adversarial_project_000/launch_region/future-r9.md. Note: valid_from is 2026-12-01, which is after today (2026-07-08), so it is not valid yet. Rule 3: valid_from must be on or before today. So this row is not eligible.
+
+- row 34: doc_id adversarial_project_000_launch_region_distractor_15, type=note, not value, so ignore.
+
+- row 63: doc_id adversarial_project_000_launch_region_draft_latest, type=value, entity=adversarial_project_000, slot=launch_region, value=launch_region_wrong_draft_000, version=14, env=production, state=draft, source_trust=owner, valid_from=2026-01-01, valid_until=NONE. But state is draft, not approved. Rule 2: state must be approved. So not eligible.
+
+Also, there is a revocation row: row 54: doc_id adversarial_project_000_launch_region_revokes_high, type=revocation, entity=adversarial_project_000, slot=launch_region, revokes: adversarial_project_000_launch_region_approved_high_revoked, version=13, env=production, state=approved, source_trust=regulatory, effective_on=2026-05-01. This revocation targets the doc_id of row 15. Rule 5: Ignore any candidate whose doc_id is named by a matching type=revocation row. So row 15 is revoked and should be ignored.
+
+Now, consider eligible value rows for adversarial_project_000, launch_region:
+
+- row 13: version 5, owner, approved, valid from 2026-01-01, valid_until NONE. Check if any revocation targets it? No revocation mentions its doc_id. So it is a candidate.
+
+- row 21: version 10, imported, approved, valid from 2026-01-01, valid_until NONE. But rule 6: Ignore any candidate whose source_trust is imported if an eligible owner or regulatory candidate exists. Here we have an owner candidate (row 13) and also a regulatory candidate? row 22 is regulatory but not eligible due to future valid_from. So we have an eligible owner candidate (row 13). Therefore, row 21 (imported) must be ignored.
+
+- row 15 is revoked, so ignored"
+1,adversarial_project_000:launch_region,adversarial_policy,isc,adversarial_project_000,launch_region,deepseek-v4-flash,accounts/fireworks/models/deepseek-v4-flash,launch_region_governed_000,src/adversarial_project_000/launch_region/owner-approved-r5.md,5,False,launch_region_governed_000,src/adversarial_project_000/launch_region/owner-approved-r5.md,5,The compiled record indicates the slot 'launch_region' for entity 'adversarial_project_000' is not deleted and has the value 'launch_region_governed_000' at revision 5 from the specified source.,True,True,True,2812.6,204,300,504,0.00011256,"{
+""value"": ""launch_region_governed_000"",
+""source"": ""src/adversarial_project_000/launch_region/owner-approved-r5.md"",
+""revision"": 5,
+""rationale"": ""The compiled record indicates the slot 'launch_region' for entity 'adversarial_project_000' is not deleted and has the value 'launch_region_governed_000' at revision 5 from the specified source.""
+}"
+2,adversarial_project_001:risk_owner,adversarial_policy,qsr,adversarial_project_001,risk_owner,deepseek-v4-flash,accounts/fireworks/models/deepseek-v4-flash,risk_owner_governed_001,src/adversarial_project_001/risk_owner/owner-approved-r6.md,6,False,,,,,False,False,False,6575.2,7293,1024,8317,0.00130774,"We need to find the current value for entity 'adversarial_project_001', slot 'risk_owner'. Today is 2026-07-08.
+
+First, filter rows matching entity and slot. Look for rows with entity='adversarial_project_001' and slot='risk_owner'.
+
+From the context, relevant rows:
+
+- row 14: doc_id adversarial_project_001_risk_owner_distractor_1, type=note, value=risk_owner_distractor_8080, version=10, env=production, state=rejected, source_trust=imported, valid_from=2026-02-01, valid_until=2027-01-01. Not type=value, so ignore.
+
+- row 15: doc_id adversarial_project_001_risk_owner_approved_future, type=value, value=risk_owner_wrong_future_001, version=10, env=production, state=approved, source_trust=regulatory, valid_from=2026-12-01, valid_until=NONE. valid_from is 2026-12-01, which is after today (2026-07-08), so not eligible (rule 3: valid_from must be on or before today). So ignore.
+
+- row 34: doc_id adversarial_project_001_risk_owner_approved_high_revoked, type=value, value=risk_owner_wrong_revoked_001, version=12, env=production, state=approved, source_trust=owner, valid_from=2026-01-01, valid_until=NONE. This is a candidate: type=value, env=production, state=approved, valid_from 2026-01-01 <= today, valid_until NONE. But check rule 5: ignore if doc_id is named by a matching type=revocation row. There is a revocation row 40: doc_id adversarial_project_001_risk_owner_revokes_high, type=revocation, entity=adversarial_project_001, slot=risk_owner, revokes: adversarial_project_001_risk_owner_approved_high_revoked, version=14, env=production, state=approved, source_trust=regulatory, effective_on=2026-05-01. This revocation row matches the doc_id of row 34? The revokes field points to the doc_id of the value row. So row 40 revokes row 34. Rule 5 says: ""Ignore any candidate whose doc_id is named by a matching type=revocation row."" So row 34 is revoked. Also check rule 7: tombstone? No tombstone rows for this entity/slot. So row 34 is ignored.
+
+- row 53: doc_id adversarial_project_001_risk_owner_approved_imported, type=value, value=risk_owner_wrong_imported_001, version=11, env=production, state=approved, source_trust=imported, valid_from=2026-01-01, valid_until=NONE. This is a candidate: type=value, env=production, state=approved, valid_from <= today, valid_until NONE. But rule 6: ""Ignore any candidate whose source_trust is imported if an eligible owner or regulatory candidate exists."" We need to check if there are any eligible owner or regulatory candidates. Let's see other candidates.
+
+- row 62: doc_id adversarial_project_001_risk_owner_draft_latest, type=value, value=risk_owner_wrong_draft_001, version=15, env=production, state=draft, source_trust=owner, valid_from=2026-01-01, valid_until=NONE. State is draft, not approved, so not eligible (rule 2: state must be approved). So ignore.
+
+- row 64: doc_id adversarial_project_001_risk_owner_approved_6, type=value, value=risk_owner_governed_001, version=6, env=production, state=approved, source_trust=owner, valid_from=2026-01-01, valid_until=NONE. This is a candidate: type=value, env=production, state=approved, source_trust=owner, valid_from <= today, valid_until NONE. Check rule 5: Is there a revocation for this doc_id? The revocation row 40 revokes row 34, not row 64. So row 64 is not revoked. Also check rule 6: source_trust is owner, not imported, so rule 6 does not apply to it (it applies to imported candidates). So row 64 is eligible.
+
+Now, we have two eligible value rows: row 53 (imported) and row 64 (owner). Also row"
+2,adversarial_project_001:risk_owner,adversarial_policy,isc,adversarial_project_001,risk_owner,deepseek-v4-flash,accounts/fireworks/models/deepseek-v4-flash,risk_owner_governed_001,src/adversarial_project_001/risk_owner/owner-approved-r6.md,6,False,risk_owner_governed_001,src/adversarial_project_001/risk_owner/owner-approved-r6.md,6,The compiled record for adversarial_project_001/risk_owner is not deleted (deleted: false) and provides the value risk_owner_governed_001 at revision 6.,True,True,True,2042.3,202,307,509,0.00011424,"{
+""value"": ""risk_owner_governed_001"",
+""source"": ""src/adversarial_project_001/risk_owner/owner-approved-r6.md"",
+""revision"": 6,
+""rationale"": ""The compiled record for adversarial_project_001/risk_owner is not deleted (deleted: false) and provides the value risk_owner_governed_001 at revision 6.""
+}"
+3,adversarial_project_002:capital_plan,adversarial_deleted,qsr,adversarial_project_002,capital_plan,deepseek-v4-flash,accounts/fireworks/models/deepseek-v4-flash,UNKNOWN,src/adversarial_project_002/capital_plan/regulatory-delete-r14.md,14,True,,,,,True,False,False,5496.3,7303,1024,8327,0.00130914,"We need to determine the current value for slot 'capital_plan' for entity 'adversarial_project_002' as of today 2026-07-08. Follow the resolution rules.
+
+First, identify candidate rows that match entity=adversarial_project_002 and slot=capital_plan. From the context, rows that match:
+- row 11: doc_id adversarial_project_002_capital_plan_approved_imported, type=value, env=production, state=approved, source_trust=imported, valid_from=2026-01-01, valid_until=NONE, version=12, value=capital_plan_wrong_imported_002
+- row 13: doc_id adversarial_project_002_capital_plan_draft_latest, type=value, env=production, state=draft, source_trust=owner, valid_from=2026-01-01, valid_until=NONE, version=16, value=capital_plan_wrong_draft_002 (state=draft, not approved)
+- row 14: doc_id adversarial_project_002_capital_plan_revokes_high, type=revocation, entity=adversarial_project_002, slot=capital_plan, revokes: adversarial_project_002_capital_plan_approved_high_revoked, version=15, env=production, state=approved, source_trust=regulatory, effective_on=2026-05-01. This is a revocation row that revokes a specific doc_id.
+- row 16: doc_id adversarial_project_002_capital_plan_tombstone, type=tombstone, entity=adversarial_project_002, slot=capital_plan, value=DELETED, version=14, env=production, state=approved, source_trust=regulatory, effective_on=2026-06-15. This is a tombstone row.
+- row 17: doc_id adversarial_project_002_capital_plan_approved_future, type=value, env=production, state=approved, source_trust=regulatory, valid_from=2026-12-01, valid_until=NONE, version=11, value=capital_plan_wrong_future_002 (valid_from is future, after today, so not eligible)
+- row 26: doc_id adversarial_project_002_capital_plan_approved_7, type=value, env=production, state=approved, source_trust=owner, valid_from=2026-01-01, valid_until=NONE, version=7, value=capital_plan_governed_002
+- row 35: doc_id adversarial_project_002_capital_plan_approved_high_revoked, type=value, env=production, state=approved, source_trust=owner, valid_from=2026-01-01, valid_until=NONE, version=13, value=capital_plan_wrong_revoked_002
+
+Also note row 8 is for risk_owner, not capital_plan.
+
+Now apply rules step by step.
+
+Rule 1: Consider only rows matching the requested entity and slot. So we have rows 11,13,14,16,17,26,35.
+
+Rule 2: Candidate rows must have type=value, env=production, state=approved. So among those, type=value rows: 11,13,17,26,35. But state must be approved: row 13 state=draft, so exclude. Row 17 valid_from is future (2026-12-01 > today 2026-07-08), so not eligible per rule 3? Actually rule 3 says valid_from must be on or before today. Row 17 valid_from is 2026-12-01, after today, so exclude. So remaining value rows with state=approved: row 11 (approved, imported), row 26 (approved, owner), row 35 (approved, owner). Also row 14 is revocation, not value, so not candidate for value. Row 16 is tombstone.
+
+Rule 3: valid_from on or before today: all three have valid_from 2026-01-01, which is before today, so ok.
+
+Rule 4: valid_until must be NONE or after today: all three have valid_until=NONE, so ok.
+
+Rule 5: Ignore any candidate whose doc_id is named by a matching type=revocation row. We have revocation row 14: doc_id adversarial_project_002_capital_plan_revokes_high, revokes: adversarial_project_002_capital_plan_approved_high_revoked. That revokes doc_id adversarial_project_002_capital_plan_approved_high_revoked, which is row 35. So row 35 is revoked. Also check if"
+3,adversarial_project_002:capital_plan,adversarial_deleted,isc,adversarial_project_002,capital_plan,deepseek-v4-flash,accounts/fireworks/models/deepseek-v4-flash,UNKNOWN,src/adversarial_project_002/capital_plan/regulatory-delete-r14.md,14,True,UNKNOWN,src/adversarial_project_002/capital_plan/regulatory-delete-r14.md,14,Slot marked as deleted in compiled record.,True,True,True,2369.6,197,227,424,9.114e-05,"{
+""value"": ""UNKNOWN"",
+""source"": ""src/adversarial_project_002/capital_plan/regulatory-delete-r14.md"",
+""revision"": 14,
+""rationale"": ""Slot marked as deleted in compiled record.""
+}"
+4,adversarial_project_003:launch_region,adversarial_policy,qsr,adversarial_project_003,launch_region,deepseek-v4-flash,accounts/fireworks/models/deepseek-v4-flash,launch_region_governed_003,src/adversarial_project_003/launch_region/owner-approved-r8.md,8,False,,,,,False,False,False,5781.8,7295,1024,8319,0.00130802,"We need to find the current value for slot 'launch_region' of entity 'adversarial_project_003'. Today is 2026-07-08.
+
+First, filter rows matching entity='adversarial_project_003' and slot='launch_region'. From the context, rows that match:
+
+- row 9: doc_id adversarial_project_003_launch_region_draft_latest, type=value, entity=adversarial_project_003, slot=launch_region, value=launch_region_wrong_draft_003, version=17, env=production, state=draft, source_trust=owner, valid_from=2026-01-01, valid_until=NONE.
+- row 10: doc_id adversarial_project_003_launch_region_approved_imported, type=value, entity=adversarial_project_003, slot=launch_region, value=launch_region_wrong_imported_003, version=13, env=production, state=approved, source_trust=imported, valid_from=2026-01-01, valid_until=NONE.
+- row 39: doc_id adversarial_project_003_launch_region_approved_8, type=value, entity=adversarial_project_003, slot=launch_region, value=launch_region_governed_003, version=8, env=production, state=approved, source_trust=owner, valid_from=2026-01-01, valid_until=NONE.
+- row 43: doc_id adversarial_project_003_launch_region_revokes_high, type=revocation, entity=adversarial_project_003, slot=launch_region, revokes: adversarial_project_003_launch_region_approved_high_revoked, version=16, env=production, state=approved, source_trust=regulatory, effective_on=2026-05-01.
+- row 46: doc_id adversarial_project_003_launch_region_approved_future, type=value, entity=adversarial_project_003, slot=launch_region, value=launch_region_wrong_future_003, version=12, env=production, state=approved, source_trust=regulatory, valid_from=2026-12-01, valid_until=NONE.
+- row 63: doc_id adversarial_project_003_launch_region_approved_high_revoked, type=value, entity=adversarial_project_003, slot=launch_region, value=launch_region_wrong_revoked_003, version=14, env=production, state=approved, source_trust=owner, valid_from=2026-01-01, valid_until=NONE.
+
+Also note row 43 is a revocation that revokes doc_id adversarial_project_003_launch_region_approved_high_revoked (row 63). So row 63 is revoked by row 43.
+
+Now apply resolution rules:
+
+Rule 1: Consider only rows matching the requested entity and slot. Already done.
+
+Rule 2: Candidate rows must have type=value, env=production, state=approved. So we only consider rows with type=value, env=production, state=approved. Among the value rows:
+
+- row 9: state=draft -> not approved.
+- row 10: state=approved, env=production, type=value -> candidate.
+- row 39: state=approved, env=production, type=value -> candidate.
+- row 46: state=approved, env=production, type=value, but valid_from=2026-12-01 which is after today (2026-07-08). So valid_from is after today, so fails rule 3 (valid_from must be on or before today). So not candidate.
+- row 63: state=approved, env=production, type=value, valid_from=2026-01-01 (on or before today), valid_until=NONE -> candidate.
+
+So candidates: row 10, row 39, row 63.
+
+Rule 3: valid_from on or before today. All three have valid_from 2026-01-01, which is before today. So all pass.
+
+Rule 4: valid_until must be NONE or after today. All have valid_until=NONE, so pass.
+
+Rule 5: Ignore any candidate whose doc_id is named by a matching type=revocation row. We have a revocation row (row 43) that revokes doc_id adversarial_project_003_launch_region_approved_high_revoked (row 63). So row 63 is revoked. So we must ignore row 63.
+
+Rule 6: Ignore any"
+4,adversarial_project_003:launch_region,adversarial_policy,isc,adversarial_project_003,launch_region,deepseek-v4-flash,accounts/fireworks/models/deepseek-v4-flash,launch_region_governed_003,src/adversarial_project_003/launch_region/owner-approved-r8.md,8,False,launch_region_governed_003,src/adversarial_project_003/launch_region/owner-approved-r8.md,8,"The compiled record indicates that the slot 'launch_region' for entity 'adversarial_project_003' has value 'launch_region_governed_003' at revision 8, and it is not deleted.",True,True,True,4259.1,204,334,538,0.00012208,"{
+""value"": ""launch_region_governed_003"",
+""source"": ""src/adversarial_project_003/launch_region/owner-approved-r8.md"",
+""revision"": 8,
+""rationale"": ""The compiled record indicates that the slot 'launch_region' for entity 'adversarial_project_003' has value 'launch_region_governed_003' at revision 8, and it is not deleted.""
+}"
+5,adversarial_project_004:risk_owner,adversarial_policy,qsr,adversarial_project_004,risk_owner,deepseek-v4-flash,accounts/fireworks/models/deepseek-v4-flash,risk_owner_governed_004,src/adversarial_project_004/risk_owner/owner-approved-r5.md,5,False,,,,,False,False,False,5937.8,7298,1024,8322,0.00130844,"We need to find the current value for entity 'adversarial_project_004', slot 'risk_owner'. Today is 2026-07-08.
+
+First, filter rows matching entity and slot. Look for rows with entity=adversarial_project_004 and slot=risk_owner.
+
+From context:
+- row 22: type=note, entity=adversarial_project_004, slot=risk_owner, value=risk_owner_distractor_2749, version=8, env=production, state=draft, source_trust=owner, valid_from=2026-02-01, valid_until=2026-06-01. Note: state=draft, not approved. Also valid_until is 2026-06-01, which is before today (2026-07-08), so it's expired anyway.
+- row 30: type=value, entity=adversarial_project_004, slot=risk_owner, value=risk_owner_wrong_draft_004, version=14, env=production, state=draft, source_trust=owner, valid_from=2026-01-01, valid_until=NONE. State=draft, not approved.
+- row 36: type=value, entity=adversarial_project_004, slot=risk_owner, value=risk_owner_wrong_imported_004, version=10, env=production, state=approved, source_trust=imported, valid_from=2026-01-01, valid_until=NONE. This is approved, but source_trust=imported. Rule 6: ignore imported if eligible owner or regulatory candidate exists.
+- row 47: type=value, entity=adversarial_project_004, slot=risk_owner, value=risk_owner_wrong_revoked_004, version=11, env=production, state=approved, source_trust=owner, valid_from=2026-01-01, valid_until=NONE. This is approved, owner. But there is a revocation row (row 60) that revokes this specific doc_id? Let's check.
+- row 53: type=value, entity=adversarial_project_004, slot=risk_owner, value=risk_owner_governed_004, version=5, env=production, state=approved, source_trust=owner, valid_from=2026-01-01, valid_until=NONE. This is approved, owner.
+- row 58: type=value, entity=adversarial_project_004, slot=risk_owner, value=risk_owner_wrong_future_004, version=9, env=production, state=approved, source_trust=regulatory, valid_from=2026-12-01, valid_until=NONE. valid_from is in the future (2026-12-01 > today 2026-07-08), so not eligible.
+- row 60: type=revocation, entity=adversarial_project_004, slot=risk_owner, revokes: adversarial_project_004_risk_owner_approved_high_revoked, version=13, env=production, state=approved, source_trust=regulatory, effective_on=2026-05-01. This revocation targets doc_id 'adversarial_project_004_risk_owner_approved_high_revoked' which is row 47. effective_on is 2026-05-01, which is before today, so it is active. Rule 5: ignore any candidate whose doc_id is named by a matching type=revocation row. So row 47 is revoked and should be ignored.
+
+Now, we need to consider eligible value rows. Candidates must have type=value, env=production, state=approved, valid_from <= today, valid_until NONE or > today.
+
+Check each:
+- row 30: state=draft -> not eligible.
+- row 36: state=approved, env=production, valid_from=2026-01-01 <= today, valid_until=NONE. But source_trust=imported. Rule 6: ignore imported if eligible owner or regulatory candidate exists. Are there any eligible owner or regulatory candidates? Let's see.
+- row 47: state=approved, owner, but it is revoked by row 60, so ignore per rule 5.
+- row 53: state=approved, owner, valid_from=2026-01-01, valid_until=NONE. No revocation targeting this doc_id? Check revocations: row 60 revokes row 47 only. So row 53 is not revoked. Also, it is owner, so it is an eligible owner candidate. Since there is an eligible owner candidate (row 53), rule 6 says ignore imported candidates. So row 36"
+5,adversarial_project_004:risk_owner,adversarial_policy,isc,adversarial_project_004,risk_owner,deepseek-v4-flash,accounts/fireworks/models/deepseek-v4-flash,risk_owner_governed_004,src/adversarial_project_004/risk_owner/owner-approved-r5.md,5,False,risk_owner_governed_004,src/adversarial_project_004/risk_owner/owner-approved-r5.md,5,"The compiled record for entity 'adversarial_project_004' slot 'risk_owner' has revision 5, is not deleted, and the value is 'risk_owner_governed_004'.",True,True,True,2604.8,202,314,516,0.0001162,"{
+""value"": ""risk_owner_governed_004"",
+""source"": ""src/adversarial_project_004/risk_owner/owner-approved-r5.md"",
+""revision"": 5,
+""rationale"": ""The compiled record for entity 'adversarial_project_004' slot 'risk_owner' has revision 5, is not deleted, and the value is 'risk_owner_governed_004'.""
+}"
+6,adversarial_project_005:capital_plan,adversarial_policy,qsr,adversarial_project_005,capital_plan,deepseek-v4-flash,accounts/fireworks/models/deepseek-v4-flash,capital_plan_governed_005,src/adversarial_project_005/capital_plan/owner-approved-r6.md,6,False,,,,,False,False,False,8435.3,7305,1024,8329,0.00130942,"We need to find the current value for entity 'adversarial_project_005', slot 'capital_plan'. Today is 2026-07-08.
+
+First, identify candidate rows that match entity and slot, type=value, env=production, state=approved, valid_from <= today, valid_until is NONE or > today.
+
+Rows for adversarial_project_005, capital_plan:
+- row 2: doc_id adversarial_project_005_capital_plan_approved_6, type=value, value=capital_plan_governed_005, version=6, env=production, state=approved, source_trust=owner, valid_from=2026-01-01, valid_until=NONE. This is a candidate.
+- row 21: type=value, but env=sandbox, state=rejected -> not candidate.
+- row 26: type=value, env=production, state=proposal -> not approved.
+- row 35: doc_id adversarial_project_005_capital_plan_approved_high_revoked, type=value, value=capital_plan_wrong_revoked_005, version=12, env=production, state=approved, source_trust=owner, valid_from=2026-01-01, valid_until=NONE. This is a candidate.
+- row 49: type=value, env=production, state=draft -> not approved.
+- row 60: doc_id adversarial_project_005_capital_plan_approved_future, type=value, value=capital_plan_wrong_future_005, version=10, env=production, state=approved, source_trust=regulatory, valid_from=2026-12-01, valid_until=NONE. valid_from is after today (2026-12-01 > 2026-07-08), so not eligible.
+- row 64: doc_id adversarial_project_005_capital_plan_approved_imported, type=value, value=capital_plan_wrong_imported_005, version=11, env=production, state=approved, source_trust=imported, valid_from=2026-01-01, valid_until=NONE. This is a candidate.
+
+So we have three candidate value rows: row 2 (version 6, owner), row 35 (version 12, owner), row 64 (version 11, imported).
+
+Now apply rule 5: Ignore any candidate whose doc_id is named by a matching type=revocation row. Check for revocation rows that target these doc_ids.
+
+We have a revocation row: row 30: doc_id adversarial_project_005_capital_plan_revokes_high, type=revocation, entity=adversarial_project_005, slot=capital_plan, revokes: adversarial_project_005_capital_plan_approved_high_revoked, version=14, env=production, state=approved, source_trust=regulatory, effective_on=2026-05-01. This revocation targets doc_id 'adversarial_project_005_capital_plan_approved_high_revoked' which is row 35. So row 35 is revoked. Since effective_on is 2026-05-01, which is on or before today (2026-07-08), we ignore row 35.
+
+No other revocation rows for adversarial_project_005 capital_plan? Check other revocation rows: row 7 (entity 020), row 11 (003), row 14 (003), row 17 (022), row 20 (014), row 22 (021), row 23 (001), row 24 (012), row 31 (007), row 33 (018), row 34 (011), row 50 (008), row 51 (018), row 58 (009), row 59 (009), row 63 (019). None target row 2 or row 64.
+
+Now rule 6: Ignore any candidate whose source_trust is imported if an eligible owner or regulatory candidate exists. We have row 2 (source_trust=owner) and row 64 (source_trust=imported). Since there is an eligible owner candidate (row 2), we ignore row 64 (imported). So only row 2 remains.
+
+Now rule 7: Check for tombstone rows. A tombstone row would be type=tombstone. None in the context. So no tombstone.
+
+Thus the answer is from row 2: value=capital_plan_governed_005, source=src/adversarial_project_005/capital_plan/owner-approved-r6.md, version=6.
+
+We need to output JSON with keys: value, source, revision, rationale. The revision is the version number? The instruction says ""Source/revision must come from that row."""
+6,adversarial_project_005:capital_plan,adversarial_policy,isc,adversarial_project_005,capital_plan,deepseek-v4-flash,accounts/fireworks/models/deepseek-v4-flash,capital_plan_governed_005,src/adversarial_project_005/capital_plan/owner-approved-r6.md,6,False,capital_plan_governed_005,src/adversarial_project_005/capital_plan/owner-approved-r6.md,6,Compiled record indicates non-deleted value with revision 6.,True,True,True,2437.1,202,236,438,9.436e-05,"{
+""value"": ""capital_plan_governed_005"",
+""source"": ""src/adversarial_project_005/capital_plan/owner-approved-r6.md"",
+""revision"": 6,
+""rationale"": ""Compiled record indicates non-deleted value with revision 6.""
+}"

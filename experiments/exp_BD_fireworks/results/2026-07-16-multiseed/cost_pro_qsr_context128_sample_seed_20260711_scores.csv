@@ -1,0 +1,8 @@
+question_index,question_id,category,mode,entity,slot,model_name,model_id,expected_value,expected_source,expected_revision,expected_deleted,model_value,model_source,model_revision,model_rationale,answer_correct,source_correct,revision_correct,latency_ms,prompt_tokens,completion_tokens,total_tokens,estimated_cost_usd,raw_content
+1,project_007:capital_plan,corrected,qsr,project_007,capital_plan,deepseek-v4-pro,accounts/fireworks/models/deepseek-v4-pro,capital_plan_corrected_project_007,src/project_007/capital_plan/rev-3.md,3,False,capital_plan_corrected_project_007,src/project_007/capital_plan/rev-3.md,3,Revision 3 is the highest current revision for project_007 capital_plan.,True,True,True,5313.5,9415,391,9806,0.01774278,"{
+""value"": ""capital_plan_corrected_project_007"",
+""source"": ""src/project_007/capital_plan/rev-3.md"",
+""revision"": 3,
+""rationale"": ""Revision 3 is the highest current revision for project_007 capital_plan.""
+}"
+2,project_014:risk_owner,deleted,qsr,project_014,risk_owner,deepseek-v4-pro,accounts/fireworks/models/deepseek-v4-pro,UNKNOWN,src/project_014/risk_owner/delete.md,3,True,UNKNOWN,src/project_014/risk_owner/delete.md,3,"The current record for project_014 risk_owner is a deletion tombstone at revision 3, indicating the value has been deleted, so the answer is UNKNOWN.",True,True,True,7865.5,9388,677,10065,0.01869108,"{""value"": ""UNKNOWN"", ""source"": ""src/project_014/risk_owner/delete.md"", ""revision"": 3, ""rationale"": ""The current record for project_014 risk_owner is a deletion tombstone at revision 3, indicating the value has been deleted, so the answer is UNKNOWN.""}"

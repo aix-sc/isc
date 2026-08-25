@@ -1,0 +1,17 @@
+{
+  "experiment": "S2 fact rephrasing compression and fidelity, valid dialogue subset",
+  "source_run": "../2026-07-16-s2-dialogue-passages",
+  "filter": "Rows with fact_count > 0; malformed model completions excluded.",
+  "source_set": "fed_dialogue",
+  "attempted_passages": 30,
+  "included_passages": 25,
+  "excluded_malformed_completions": 5,
+  "outputs": [
+    "passages.jsonl",
+    "answers.jsonl",
+    "scores.csv",
+    "summary.json",
+    "summary.md"
+  ],
+  "credential_source": "FIREWORKS_API_KEY, LLM_GATEWAY_DEFAULT_FIREWORKS_API_KEY, or --op-ref <1Password secret reference>"
+}

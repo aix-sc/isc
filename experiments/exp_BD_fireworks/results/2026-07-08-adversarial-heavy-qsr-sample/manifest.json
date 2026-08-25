@@ -1,0 +1,16 @@
+{
+  "date": "2026-07-08",
+  "experiment": "B/D Fireworks adversarial heavy-model QSR sample",
+  "command": "uv run python experiments/exp_BD_fireworks/run.py --config experiments/exp_BD_fireworks/configs/adversarial_heavy_qsr.json",
+  "question_set": "adversarial",
+  "limit": 3,
+  "context_docs": 64,
+  "models": [
+    "accounts/fireworks/models/kimi-k2p7-code",
+    "accounts/fireworks/models/glm-5p2"
+  ],
+  "modes": ["qsr"],
+  "credential_source": "FIREWORKS_API_KEY, LLM_GATEWAY_DEFAULT_FIREWORKS_API_KEY, or --op-ref <1Password secret reference>",
+  "pricing_source": "experiments/exp_BD_fireworks/run.py PRICES_PER_MILLION",
+  "primary_result": "Exact answer+source+revision: Kimi K2.7 Code 0/3, GLM 5.2 3/3"
+}

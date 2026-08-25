@@ -1,0 +1,613 @@
+{
+  "date": "2026-07-11",
+  "cells": {
+    "adversarial_flash/deepseek-v4-flash/qsr": {
+      "seeds": [
+        20260709,
+        20260710,
+        20260711,
+        20260712,
+        20260713
+      ],
+      "per_seed": [
+        {
+          "seed": 20260709,
+          "questions": 6,
+          "exact_count": 0,
+          "exact_rate": 0.0,
+          "cost_per_question": 0.0013066666666666667,
+          "tokens_per_question": 8309.333333333334,
+          "latency_ms": 10953.083333333334
+        },
+        {
+          "seed": 20260710,
+          "questions": 6,
+          "exact_count": 0,
+          "exact_rate": 0.0,
+          "cost_per_question": 0.0013088133333333332,
+          "tokens_per_question": 8324.666666666666,
+          "latency_ms": 9255.683333333334
+        },
+        {
+          "seed": 20260711,
+          "questions": 6,
+          "exact_count": 0,
+          "exact_rate": 0.0,
+          "cost_per_question": 0.0013065733333333333,
+          "tokens_per_question": 8308.666666666666,
+          "latency_ms": 9006.95
+        },
+        {
+          "seed": 20260712,
+          "questions": 6,
+          "exact_count": 1,
+          "exact_rate": 0.16666666666666666,
+          "cost_per_question": 0.00130802,
+          "tokens_per_question": 8321.833333333334,
+          "latency_ms": 7958.35
+        },
+        {
+          "seed": 20260713,
+          "questions": 6,
+          "exact_count": 0,
+          "exact_rate": 0.0,
+          "cost_per_question": 0.0013091633333333333,
+          "tokens_per_question": 8327.166666666666,
+          "latency_ms": 7163.516666666666
+        }
+      ],
+      "exact_rate": {
+        "min": 0.0,
+        "mean": 0.03333333,
+        "max": 0.16666667
+      },
+      "cost_per_question": {
+        "min": 0.00130657,
+        "mean": 0.00130785,
+        "max": 0.00130916
+      },
+      "tokens_per_question": {
+        "min": 8308.66666667,
+        "mean": 8318.33333333,
+        "max": 8327.16666667
+      },
+      "latency_ms": {
+        "min": 7163.51666667,
+        "mean": 8867.51666667,
+        "max": 10953.08333333
+      }
+    },
+    "adversarial_flash/deepseek-v4-flash/isc": {
+      "seeds": [
+        20260709,
+        20260710,
+        20260711,
+        20260712,
+        20260713
+      ],
+      "per_seed": [
+        {
+          "seed": 20260709,
+          "questions": 6,
+          "exact_count": 6,
+          "exact_rate": 1.0,
+          "cost_per_question": 9.681e-05,
+          "tokens_per_question": 446.6666666666667,
+          "latency_ms": 2426.5166666666664
+        },
+        {
+          "seed": 20260710,
+          "questions": 6,
+          "exact_count": 6,
+          "exact_rate": 1.0,
+          "cost_per_question": 0.00010269000000000001,
+          "tokens_per_question": 467.6666666666667,
+          "latency_ms": 3690.6833333333334
+        },
+        {
+          "seed": 20260711,
+          "questions": 6,
+          "exact_count": 6,
+          "exact_rate": 1.0,
+          "cost_per_question": 0.00010544333333333332,
+          "tokens_per_question": 477.5,
+          "latency_ms": 3690.15
+        },
+        {
+          "seed": 20260712,
+          "questions": 6,
+          "exact_count": 6,
+          "exact_rate": 1.0,
+          "cost_per_question": 9.387000000000001e-05,
+          "tokens_per_question": 436.1666666666667,
+          "latency_ms": 2734.35
+        },
+        {
+          "seed": 20260713,
+          "questions": 6,
+          "exact_count": 6,
+          "exact_rate": 1.0,
+          "cost_per_question": 0.00010843,
+          "tokens_per_question": 488.1666666666667,
+          "latency_ms": 2754.25
+        }
+      ],
+      "exact_rate": {
+        "min": 1.0,
+        "mean": 1.0,
+        "max": 1.0
+      },
+      "cost_per_question": {
+        "min": 9.387e-05,
+        "mean": 0.00010145,
+        "max": 0.00010843
+      },
+      "tokens_per_question": {
+        "min": 436.16666667,
+        "mean": 463.23333333,
+        "max": 488.16666667
+      },
+      "latency_ms": {
+        "min": 2426.51666667,
+        "mean": 3059.19,
+        "max": 3690.68333333
+      }
+    },
+    "adversarial_heavy_qsr/kimi-k2p7-code/qsr": {
+      "seeds": [
+        20260709,
+        20260710,
+        20260711,
+        20260712,
+        20260713
+      ],
+      "per_seed": [
+        {
+          "seed": 20260709,
+          "questions": 3,
+          "exact_count": 0,
+          "exact_rate": 0.0,
+          "cost_per_question": 0.010876783333333334,
+          "tokens_per_question": 8161.666666666667,
+          "latency_ms": 6418.8
+        },
+        {
+          "seed": 20260710,
+          "questions": 3,
+          "exact_count": 0,
+          "exact_rate": 0.0,
+          "cost_per_question": 0.010895466666666666,
+          "tokens_per_question": 8181.333333333333,
+          "latency_ms": 6438.133333333333
+        },
+        {
+          "seed": 20260711,
+          "questions": 3,
+          "exact_count": 0,
+          "exact_rate": 0.0,
+          "cost_per_question": 0.010878366666666667,
+          "tokens_per_question": 8163.333333333333,
+          "latency_ms": 7540.5
+        },
+        {
+          "seed": 20260712,
+          "questions": 3,
+          "exact_count": 1,
+          "exact_rate": 0.3333333333333333,
+          "cost_per_question": 0.010745016666666668,
+          "tokens_per_question": 8135.333333333333,
+          "latency_ms": 8873.366666666667
+        },
+        {
+          "seed": 20260713,
+          "questions": 3,
+          "exact_count": 0,
+          "exact_rate": 0.0,
+          "cost_per_question": 0.01090465,
+          "tokens_per_question": 8191.0,
+          "latency_ms": 7955.9
+        }
+      ],
+      "exact_rate": {
+        "min": 0.0,
+        "mean": 0.06666667,
+        "max": 0.33333333
+      },
+      "cost_per_question": {
+        "min": 0.01074502,
+        "mean": 0.01086006,
+        "max": 0.01090465
+      },
+      "tokens_per_question": {
+        "min": 8135.33333333,
+        "mean": 8166.53333333,
+        "max": 8191.0
+      },
+      "latency_ms": {
+        "min": 6418.8,
+        "mean": 7445.34,
+        "max": 8873.36666667
+      }
+    },
+    "adversarial_heavy_qsr/glm-5p2/qsr": {
+      "seeds": [
+        20260709,
+        20260710,
+        20260711,
+        20260712,
+        20260713
+      ],
+      "per_seed": [
+        {
+          "seed": 20260709,
+          "questions": 3,
+          "exact_count": 2,
+          "exact_rate": 0.6666666666666666,
+          "cost_per_question": 0.013681666666666667,
+          "tokens_per_question": 8108.333333333333,
+          "latency_ms": 6645.1
+        },
+        {
+          "seed": 20260710,
+          "questions": 3,
+          "exact_count": 2,
+          "exact_rate": 0.6666666666666666,
+          "cost_per_question": 0.013749266666666668,
+          "tokens_per_question": 8137.333333333333,
+          "latency_ms": 6250.4
+        },
+        {
+          "seed": 20260711,
+          "questions": 3,
+          "exact_count": 2,
+          "exact_rate": 0.6666666666666666,
+          "cost_per_question": 0.0143734,
+          "tokens_per_question": 8266.0,
+          "latency_ms": 8421.8
+        },
+        {
+          "seed": 20260712,
+          "questions": 3,
+          "exact_count": 2,
+          "exact_rate": 0.6666666666666666,
+          "cost_per_question": 0.013854266666666665,
+          "tokens_per_question": 8157.333333333333,
+          "latency_ms": 6424.3
+        },
+        {
+          "seed": 20260713,
+          "questions": 3,
+          "exact_count": 3,
+          "exact_rate": 1.0,
+          "cost_per_question": 0.013790933333333333,
+          "tokens_per_question": 8145.666666666667,
+          "latency_ms": 9668.666666666668
+        }
+      ],
+      "exact_rate": {
+        "min": 0.66666667,
+        "mean": 0.73333333,
+        "max": 1.0
+      },
+      "cost_per_question": {
+        "min": 0.01368167,
+        "mean": 0.01388991,
+        "max": 0.0143734
+      },
+      "tokens_per_question": {
+        "min": 8108.33333333,
+        "mean": 8162.93333333,
+        "max": 8266.0
+      },
+      "latency_ms": {
+        "min": 6250.4,
+        "mean": 7482.05333333,
+        "max": 9668.66666667
+      }
+    },
+    "cost_flash_qsr_context128/deepseek-v4-flash/qsr": {
+      "seeds": [
+        20260709,
+        20260710,
+        20260711,
+        20260712,
+        20260713
+      ],
+      "per_seed": [
+        {
+          "seed": 20260709,
+          "questions": 9,
+          "exact_count": 9,
+          "exact_rate": 1.0,
+          "cost_per_question": 0.0014142488888888888,
+          "tokens_per_question": 9753.222222222223,
+          "latency_ms": 4399.044444444445
+        },
+        {
+          "seed": 20260710,
+          "questions": 9,
+          "exact_count": 9,
+          "exact_rate": 1.0,
+          "cost_per_question": 0.0014326355555555556,
+          "tokens_per_question": 9820.111111111111,
+          "latency_ms": 3438.7000000000003
+        },
+        {
+          "seed": 20260711,
+          "questions": 9,
+          "exact_count": 9,
+          "exact_rate": 1.0,
+          "cost_per_question": 0.0014095822222222221,
+          "tokens_per_question": 9737.777777777777,
+          "latency_ms": 3038.1111111111113
+        },
+        {
+          "seed": 20260712,
+          "questions": 9,
+          "exact_count": 9,
+          "exact_rate": 1.0,
+          "cost_per_question": 0.0014342844444444444,
+          "tokens_per_question": 9822.333333333334,
+          "latency_ms": 2746.277777777778
+        },
+        {
+          "seed": 20260713,
+          "questions": 9,
+          "exact_count": 9,
+          "exact_rate": 1.0,
+          "cost_per_question": 0.0014139377777777776,
+          "tokens_per_question": 9752.444444444445,
+          "latency_ms": 3384.322222222222
+        }
+      ],
+      "exact_rate": {
+        "min": 1.0,
+        "mean": 1.0,
+        "max": 1.0
+      },
+      "cost_per_question": {
+        "min": 0.00140958,
+        "mean": 0.00142094,
+        "max": 0.00143428
+      },
+      "tokens_per_question": {
+        "min": 9737.77777778,
+        "mean": 9777.17777778,
+        "max": 9822.33333333
+      },
+      "latency_ms": {
+        "min": 2746.27777778,
+        "mean": 3401.29111111,
+        "max": 4399.04444444
+      }
+    },
+    "cost_flash_qsr_isc/deepseek-v4-flash/qsr": {
+      "seeds": [
+        20260709,
+        20260710,
+        20260711,
+        20260712,
+        20260713
+      ],
+      "per_seed": [
+        {
+          "seed": 20260709,
+          "questions": 9,
+          "exact_count": 9,
+          "exact_rate": 1.0,
+          "cost_per_question": 0.00042491555555555555,
+          "tokens_per_question": 2739.8888888888887,
+          "latency_ms": 2478.211111111111
+        },
+        {
+          "seed": 20260710,
+          "questions": 9,
+          "exact_count": 9,
+          "exact_rate": 1.0,
+          "cost_per_question": 0.00041206666666666664,
+          "tokens_per_question": 2692.4444444444443,
+          "latency_ms": 2198.2
+        },
+        {
+          "seed": 20260711,
+          "questions": 9,
+          "exact_count": 9,
+          "exact_rate": 1.0,
+          "cost_per_question": 0.0004154577777777778,
+          "tokens_per_question": 2704.777777777778,
+          "latency_ms": 4493.366666666667
+        },
+        {
+          "seed": 20260712,
+          "questions": 9,
+          "exact_count": 9,
+          "exact_rate": 1.0,
+          "cost_per_question": 0.00043163555555555554,
+          "tokens_per_question": 2762.5555555555557,
+          "latency_ms": 3586.3555555555554
+        },
+        {
+          "seed": 20260713,
+          "questions": 9,
+          "exact_count": 9,
+          "exact_rate": 1.0,
+          "cost_per_question": 0.0004147888888888889,
+          "tokens_per_question": 2701.3333333333335,
+          "latency_ms": 1910.4222222222222
+        }
+      ],
+      "exact_rate": {
+        "min": 1.0,
+        "mean": 1.0,
+        "max": 1.0
+      },
+      "cost_per_question": {
+        "min": 0.00041207,
+        "mean": 0.00041977,
+        "max": 0.00043164
+      },
+      "tokens_per_question": {
+        "min": 2692.44444444,
+        "mean": 2720.2,
+        "max": 2762.55555556
+      },
+      "latency_ms": {
+        "min": 1910.42222222,
+        "mean": 2933.31111111,
+        "max": 4493.36666667
+      }
+    },
+    "cost_flash_qsr_isc/deepseek-v4-flash/isc": {
+      "seeds": [
+        20260709,
+        20260710,
+        20260711,
+        20260712,
+        20260713
+      ],
+      "per_seed": [
+        {
+          "seed": 20260709,
+          "questions": 9,
+          "exact_count": 9,
+          "exact_rate": 1.0,
+          "cost_per_question": 9.854444444444445e-05,
+          "tokens_per_question": 448.1111111111111,
+          "latency_ms": 3201.388888888889
+        },
+        {
+          "seed": 20260710,
+          "questions": 9,
+          "exact_count": 9,
+          "exact_rate": 1.0,
+          "cost_per_question": 0.00010013111111111111,
+          "tokens_per_question": 453.77777777777777,
+          "latency_ms": 4628.133333333333
+        },
+        {
+          "seed": 20260711,
+          "questions": 9,
+          "exact_count": 9,
+          "exact_rate": 1.0,
+          "cost_per_question": 0.00010560666666666666,
+          "tokens_per_question": 473.44444444444446,
+          "latency_ms": 2142.1555555555556
+        },
+        {
+          "seed": 20260712,
+          "questions": 9,
+          "exact_count": 9,
+          "exact_rate": 1.0,
+          "cost_per_question": 0.00010072222222222222,
+          "tokens_per_question": 456.22222222222223,
+          "latency_ms": 2424.5666666666666
+        },
+        {
+          "seed": 20260713,
+          "questions": 9,
+          "exact_count": 9,
+          "exact_rate": 1.0,
+          "cost_per_question": 9.490444444444445e-05,
+          "tokens_per_question": 434.8888888888889,
+          "latency_ms": 4088.0777777777776
+        }
+      ],
+      "exact_rate": {
+        "min": 1.0,
+        "mean": 1.0,
+        "max": 1.0
+      },
+      "cost_per_question": {
+        "min": 9.49e-05,
+        "mean": 9.998e-05,
+        "max": 0.00010561
+      },
+      "tokens_per_question": {
+        "min": 434.88888889,
+        "mean": 453.28888889,
+        "max": 473.44444444
+      },
+      "latency_ms": {
+        "min": 2142.15555556,
+        "mean": 3296.86444444,
+        "max": 4628.13333333
+      }
+    },
+    "cost_pro_qsr_context128_sample/deepseek-v4-pro/qsr": {
+      "seeds": [
+        20260709,
+        20260710,
+        20260711,
+        20260712,
+        20260713
+      ],
+      "per_seed": [
+        {
+          "seed": 20260709,
+          "questions": 2,
+          "exact_count": 2,
+          "exact_rate": 1.0,
+          "cost_per_question": 0.01891206,
+          "tokens_per_question": 10134.0,
+          "latency_ms": 8235.65
+        },
+        {
+          "seed": 20260710,
+          "questions": 2,
+          "exact_count": 2,
+          "exact_rate": 1.0,
+          "cost_per_question": 0.01861887,
+          "tokens_per_question": 10053.0,
+          "latency_ms": 18928.4
+        },
+        {
+          "seed": 20260711,
+          "questions": 2,
+          "exact_count": 2,
+          "exact_rate": 1.0,
+          "cost_per_question": 0.01821693,
+          "tokens_per_question": 9935.5,
+          "latency_ms": 6589.5
+        },
+        {
+          "seed": 20260712,
+          "questions": 2,
+          "exact_count": 2,
+          "exact_rate": 1.0,
+          "cost_per_question": 0.01833264,
+          "tokens_per_question": 9968.5,
+          "latency_ms": 8147.05
+        },
+        {
+          "seed": 20260713,
+          "questions": 2,
+          "exact_count": 2,
+          "exact_rate": 1.0,
+          "cost_per_question": 0.018450090000000002,
+          "tokens_per_question": 10000.5,
+          "latency_ms": 11443.95
+        }
+      ],
+      "exact_rate": {
+        "min": 1.0,
+        "mean": 1.0,
+        "max": 1.0
+      },
+      "cost_per_question": {
+        "min": 0.01821693,
+        "mean": 0.01850612,
+        "max": 0.01891206
+      },
+      "tokens_per_question": {
+        "min": 9935.5,
+        "mean": 10018.3,
+        "max": 10134.0
+      },
+      "latency_ms": {
+        "min": 6589.5,
+        "mean": 10668.91,
+        "max": 18928.4
+      }
+    }
+  }
+}

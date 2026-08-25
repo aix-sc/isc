@@ -1,0 +1,11 @@
+{
+  "question_set": "revision",
+  "limit": 2,
+  "context_docs": 128,
+  "models": ["deepseek-v4-pro"],
+  "modes": ["qsr"],
+  "timeout": 150,
+  "csv_out": "experiments/exp_BD_fireworks/out/cost_pro_qsr_context128_sample_scores.csv",
+  "jsonl_out": "experiments/exp_BD_fireworks/out/cost_pro_qsr_context128_sample_answers.jsonl",
+  "summary_out": "experiments/exp_BD_fireworks/out/cost_pro_qsr_context128_sample_summary.json"
+}

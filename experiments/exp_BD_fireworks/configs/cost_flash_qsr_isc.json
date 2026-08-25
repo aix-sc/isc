@@ -1,0 +1,10 @@
+{
+  "question_set": "revision",
+  "limit": 9,
+  "context_docs": 32,
+  "models": ["deepseek-v4-flash"],
+  "modes": ["qsr", "isc"],
+  "csv_out": "experiments/exp_BD_fireworks/out/cost_flash_qsr_isc_scores.csv",
+  "jsonl_out": "experiments/exp_BD_fireworks/out/cost_flash_qsr_isc_answers.jsonl",
+  "summary_out": "experiments/exp_BD_fireworks/out/cost_flash_qsr_isc_summary.json"
+}

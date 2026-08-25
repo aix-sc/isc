@@ -1,0 +1,23 @@
+{
+  "rows": 6,
+  "model_modes": {
+    "kimi-k2p7-code/qsr": {
+      "questions": 3,
+      "answer_accuracy": 0.6667,
+      "source_accuracy": 0.3333,
+      "revision_accuracy": 0.3333,
+      "mean_latency_ms": 8873.4,
+      "total_tokens": 24406,
+      "estimated_cost_usd": 0.03223505
+    },
+    "glm-5p2/qsr": {
+      "questions": 3,
+      "answer_accuracy": 1.0,
+      "source_accuracy": 0.6667,
+      "revision_accuracy": 0.6667,
+      "mean_latency_ms": 6424.3,
+      "total_tokens": 24472,
+      "estimated_cost_usd": 0.0415628
+    }
+  }
+}
