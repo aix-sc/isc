@@ -18,7 +18,6 @@ const pubs = computed(() => getPublications(locale.value as Locale))
       <v-col v-for="p in pubs" :key="p.id" cols="12" md="6">
         <v-card class="pa-4 pub" height="100%">
           <p class="badge">{{ p.badge }}</p>
-          <p v-if="p.award" class="award">&#127942; {{ p.award }}</p>
           <h3 class="pub-title serif">{{ p.title }}</h3>
           <p class="authors">{{ p.authors }}</p>
           <p class="venue">{{ p.venueLine }}</p>
@@ -41,7 +40,6 @@ const pubs = computed(() => getPublications(locale.value as Locale))
   font-family: var(--mono); font-size: .68rem; letter-spacing: .06em; text-transform: uppercase;
   color: var(--teal); margin-bottom: .4rem;
 }
-.award { font-size: .78rem; font-weight: 700; color: #B8860B; margin-bottom: .3rem; }
 .pub-title { font-size: 1.02rem; font-weight: 600; line-height: 1.35; margin-bottom: .45rem; }
 .authors { font-size: .8rem; color: var(--navy); margin-bottom: .15rem; }
 .venue { font-size: .74rem; color: var(--mute); margin-bottom: .6rem; }

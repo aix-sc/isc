@@ -4,7 +4,6 @@ export interface PubLink { label: string; href: string }
 export interface Publication {
   id: string
   badge: string
-  award?: string
   title: string
   authors: string
   venueLine: string
