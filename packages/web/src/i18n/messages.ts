@@ -181,6 +181,7 @@ export const en = {
   expD: {
     unit: 'answers out of 30 (5 seeds)',
     decompTitle: 'Where reconstruction fails: value recovery, not citation discipline',
+    zeroNote: '0 (none observed)',
     decompNote: 'Adversarial set, five seeds. The compiled path answered 30/30 with the source and revision cited verbatim from the stored row. Of the 29 QSR failures, zero had a correct value with a wrong citation — all 29 failed to recover the value at all.',
     rulesTitle: 'The governance rules resolved once at ingest (R1–R7)',
     rulesNote: 'Under QSR the model must re-apply all seven rules inside the context window on every read; under ISC they are applied once and the result is stored with provenance.',
@@ -407,6 +408,7 @@ export const ja: typeof en = {
   expD: {
     unit: '30問中の回答数（5シード）',
     decompTitle: '再構成はどこで失敗するか：引用規律ではなく値回復',
+    zeroNote: '0件（該当なし）',
     decompNote: '敵対的セット・5シード。コンパイル経路は30/30で正答し、出典と改訂を保存行から逐語引用。QSRの失敗29件のうち「値は正しいが引用を誤った」例は0件 — 全29件が値の回復自体に失敗。',
     rulesTitle: '取込時に一度だけ解決されるガバナンス規則（R1–R7）',
     rulesNote: 'QSRではモデルが読み取りのたびに7規則をコンテキスト内で再適用。ISCでは一度適用し、結果を来歴付きで保存。',

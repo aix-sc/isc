@@ -18,7 +18,10 @@ const config = computed<ChartConfiguration<'bar'>>(() => ({
     labels: [t('expD.bars.iscCited'), t('expD.bars.wrongCite'), t('expD.bars.noValue')],
     datasets: [{
       data: [30, 0, 29],
-      backgroundColor: ['#5BC2B5', '#B8860B', '#16263B'],
+      backgroundColor: ['#5BC2B5', 'rgba(184,134,11,0.12)', '#16263B'],
+      borderColor: ['transparent', '#B8860B', 'transparent'],
+      borderWidth: [0, 2, 0],
+      minBarLength: 6,
       borderRadius: 6,
       maxBarThickness: 46,
     }],
@@ -35,7 +38,27 @@ const config = computed<ChartConfiguration<'bar'>>(() => ({
   },
 }))
 
-onMounted(() => { if (canvas.value) chart = new Chart(canvas.value, config.value) })
+const zeroNote = {
+  id: 'zeroNote',
+  afterDatasetsDraw(ch: Chart) {
+    const meta = ch.getDatasetMeta(0)
+    const data = ch.data.datasets[0].data as number[]
+    const { ctx } = ch
+    ctx.save()
+    ctx.font = '700 12px ' + (getComputedStyle(document.documentElement).getPropertyValue('--mono') || 'monospace')
+    ctx.fillStyle = '#B8860B'
+    ctx.textBaseline = 'middle'
+    data.forEach((v, i) => {
+      if (v === 0 && meta.data[i]) {
+        const el = meta.data[i] as unknown as { x: number; y: number }
+        ctx.fillText(t('expD.zeroNote'), el.x + 10, el.y)
+      }
+    })
+    ctx.restore()
+  },
+}
+
+onMounted(() => { if (canvas.value) chart = new Chart(canvas.value, { ...config.value, plugins: [zeroNote] }) })
 onBeforeUnmount(() => chart?.destroy())
 </script>
 
