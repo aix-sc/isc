@@ -205,13 +205,16 @@ export const en = {
   footer: {
     title: 'Ingest-time Semantic Compilation',
     team: 'Project Team',
-    kyleRole: 'CTO, Endgame Labs, Inc., San Francisco, USA · Asia AI Institute, Tokyo, Japan',
+    kyleName: 'Kyle Wild',
+    kyleRole: 'CTO, Endgame Labs, Inc. (San Francisco) · Asia AI Institute (Tokyo)',
     kyleBio:
       'Originator of Ingest-time Semantic Compilation (ISC). Co-founder and former CEO of Keen IO (cloud event-data analytics), launched in 2012 in the first Techstars Cloud class, where he sits on the board; CTO at Endgame. An early member of the Google Analytics team, he went on to roles in product management, software engineering, game design, and distributed-systems scalability. An angel investor and startup advisor, he holds a BS in General Engineering from the University of Illinois at Urbana-Champaign.',
-    yusukeRole: 'Associate Professor, Faculty of Data Science, Musashino University',
+    yusukeName: 'Yusuke Takahashi, PhD',
+    yusukeRole: 'Associate Professor, Faculty of Data Science, Musashino University · Asia AI Institute (Tokyo)',
     yusukeBio:
       'Computer scientist. Serial entrepreneur. Co-founded AIx{\'{}\'}. He works on adaptive semantic substrates and knowledge bases built on orthogonalized semantic spaces. Earlier he founded software startups in Silicon Valley and Tokyo, with experience across product design, growth, and customer development. 500 Startups alumni. He holds a PhD in Media and Governance from Keio University.',
-    urakiRole: 'Asia AI Institute, Faculty of Data Science, Musashino University, Tokyo, Japan',
+    urakiName: 'Asako Uraki, PhD',
+    urakiRole: 'Associate Professor, Faculty of Data Science, Musashino University · Asia AI Institute (Tokyo)',
     urakiBio: 'PhD in Media and Governance, Keio University. Specializes in semantics-based data analysis, pursuing methodologies that bring expert experience and knowledge into analysis; advances the Semantic Microscope with Prof. Yasushi Kiyoki. Former member of Japan\'s national freestyle ski team and former FIS committee member; currently Information & Science staff for the Japanese Olympic Committee (JOC).',
     github: 'GitHub (OSS) ↗',
     cidr: 'CIDR 2027 ↗',
@@ -427,13 +430,16 @@ export const ja: typeof en = {
   footer: {
     title: 'Ingest-time Semantic Compilation',
     team: 'プロジェクトチーム',
+    kyleName: 'カイル・ワイルド　Kyle Wild',
     kyleRole: 'CTO, Endgame Labs, Inc.（サンフランシスコ）· Asia AI Institute（東京）',
     kyleBio:
       '取込時意味コンパイル（ISC）の提唱者。2012年に Techstars Cloud 第一期として共同創業したイベントデータ基盤 Keen IO の元 CEO・現取締役で、Endgame CTO。Google Analytics チームの初期メンバーとして開発に携わり、その後プロダクトマネジメント、ソフトウェアエンジニアリング、ゲームデザイン、分散システムのスケーラビリティに従事。エンジェル投資家／スタートアップアドバイザーでもあり、イリノイ大学アーバナ・シャンペーン校で General Engineering の学士号を取得。',
-    yusukeRole: '武蔵野大学データサイエンス学部 准教授',
+    yusukeName: '高橋雄介 博士(政策・メディア)　Yusuke Takahashi, PhD',
+    yusukeRole: '武蔵野大学データサイエンス学部 准教授 · Asia AI Institute（東京）',
     yusukeBio:
       '計算機科学者、シリアルアントレプレナー。AIx{\'{}\'} 共同創業者。直交化された意味空間を基盤に、適応的セマンティック基底と知識ベースを研究。以前はシリコンバレーと東京でソフトウェアスタートアップを創業し、プロダクトデザイン・グロース・顧客開発に従事。500 Startups 出身。博士（政策・メディア、慶應義塾大学）。',
-    urakiRole: 'Asia AI Institute, Faculty of Data Science, Musashino University, Tokyo, Japan',
+    urakiName: '浦木麻子 博士(政策・メディア)　Asako Uraki, PhD',
+    urakiRole: '武蔵野大学データサイエンス学部 准教授 · Asia AI Institute（東京）',
     urakiBio: '慶應義塾大学大学院政策・メディア研究科博士課程修了、博士（政策・メディア）。意味に基づくデータ分析を専門とし、専門家の経験や知識を分析に取り込む方法論を追究。「Semantic Microscope」を清木康教授と推進。元フリースタイルスキー日本代表・国際スキー連盟（FIS）委員を歴任し、現在は日本オリンピック委員会（JOC）情報・科学スタッフ。',
     github: 'GitHub (OSS) ↗',
     cidr: 'CIDR 2027 ↗',
