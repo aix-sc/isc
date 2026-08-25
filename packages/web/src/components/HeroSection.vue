@@ -26,7 +26,6 @@ const chips = computed(() => {
 
 <template>
   <section id="top" class="hero grid-bg">
-    <p class="kicker">{{ t('hero.kicker') }}</p>
     <h1 class="serif" v-html="t('hero.titleHtml')" />
     <p class="lede">{{ t('hero.lede') }}</p>
     <div class="chips">

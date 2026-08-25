@@ -13,7 +13,6 @@ export const en = {
   },
   lang: { label: 'Language', en: 'English', ja: '日本語' },
   hero: {
-    kicker: 'Reproducible research · Wild–Takahashi',
     titleHtml: 'Pay semantic labour <em>once.</em><br />Then just look it up.',
     lede:
       'An interactive companion to the ISC paper. Re-run the cost model, explore the incremental-maintenance results, inspect the data behind every number, and ask questions in plain language. Everything here is open source. By paying the semantic labour once at ingest instead of on every read, this line of work is expected to substantially cut computation, LLM token consumption — and ultimately energy use (measured so far: 21.6x fewer tokens per question).',
@@ -240,7 +239,6 @@ export const ja: typeof en = {
   },
   lang: { label: '言語', en: 'English', ja: '日本語' },
   hero: {
-    kicker: '再現可能な研究 · Wild–Takahashi',
     titleHtml: '意味の労働は<em>一度だけ。</em><br />あとは引くだけ。',
     lede:
       'ISC 論文のインタラクティブな副読本です。コストモデルを再実行し、増分保守の結果を探り、すべての数値の裏にあるデータを確認し、平易な言葉で質問できます。すべてオープンソースです。この研究により、計算量・LLMのトークン消費量、さらには電力消費量までも大幅に削減できると見込まれます（実測では1問あたりトークン21.6分の1）。',
