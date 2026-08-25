@@ -104,8 +104,8 @@ const HAS = ['Aprime', 'E', 'F', 'G', 'H', 'I']
 </template>
 
 <style scoped lang="scss">
-.fig-card { background: #fff; }
-.fig { width: 100%; height: auto; display: block; }
+.fig-card { background: #fff; border-left: 3px solid var(--line); }
+.fig { width: 100%; height: auto; display: block; filter: grayscale(1); opacity: .68; }
 .ax { stroke: var(--line); stroke-width: 2; }
 .lab { font-size: 13px; fill: var(--mute); }
 .small { font-size: 12.5px; fill: var(--mute); }
