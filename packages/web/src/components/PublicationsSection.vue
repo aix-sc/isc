@@ -15,7 +15,7 @@ const pubs = computed(() => getPublications(locale.value as Locale))
     <p class="lede">{{ t('pubs.lede') }}</p>
 
     <v-row dense>
-      <v-col v-for="p in pubs" :key="p.id" cols="12" md="4">
+      <v-col v-for="p in pubs" :key="p.id" cols="12" md="6">
         <v-card class="pa-4 pub" height="100%">
           <p class="badge">{{ p.badge }}</p>
           <p v-if="p.award" class="award">&#127942; {{ p.award }}</p>
@@ -24,6 +24,7 @@ const pubs = computed(() => getPublications(locale.value as Locale))
           <p class="venue">{{ p.venueLine }}</p>
           <p class="summary">{{ p.summary }}</p>
           <p class="links">
+            <a class="aix-link" :href="p.aixHref" target="_blank" rel="noopener noreferrer">{{ t('pubs.detail') }}</a>
             <a v-for="l in p.links" :key="l.href" :href="l.href" target="_blank" rel="noopener noreferrer">{{ l.label }}</a>
           </p>
         </v-card>
@@ -46,6 +47,7 @@ const pubs = computed(() => getPublications(locale.value as Locale))
 .venue { font-size: .74rem; color: var(--mute); margin-bottom: .6rem; }
 .summary { font-size: .84rem; line-height: 1.6; color: var(--ink); flex: 1; }
 .links {
+  .aix-link { font-weight: 700; }
   margin-top: .7rem;
   a { margin-right: .9rem; font-size: .82rem; color: var(--teal); text-decoration: none; font-family: var(--mono); }
   a:hover { text-decoration: underline; }
