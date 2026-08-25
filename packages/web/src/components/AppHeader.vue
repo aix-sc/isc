@@ -19,11 +19,13 @@ function toggleLocale() {
 
 <template>
   <v-app-bar flat height="58" class="nav" border>
-    <a href="#top" class="brand">
-      <img class="bmk" src="https://avatars.githubusercontent.com/u/289632491?s=400&u=99388cfe479cdadc79f93e0d846277f7eb18e490&v=4"
-           alt="AIx" width="32" height="32" />
-      <span class="bmt d-none d-sm-inline">{{ t('nav.brandTagline') }}</span>
-    </a>
+    <div class="brand">
+      <a href="https://aix.sc" target="_blank" rel="noopener noreferrer" aria-label="AIx" class="brand-logo">
+        <img class="bmk" src="https://avatars.githubusercontent.com/u/289632491?s=400&u=99388cfe479cdadc79f93e0d846277f7eb18e490&v=4"
+             alt="AIx" width="32" height="32" />
+      </a>
+      <a href="#top" class="brand-text bmt d-none d-sm-inline">{{ t('nav.brandTagline') }}</a>
+    </div>
     <v-spacer />
     <a v-for="l in links" :key="l.h" :href="l.h" class="nl d-none d-md-inline">{{ l.t }}</a>
     <button class="lang" :aria-label="t('lang.label')" :title="t('lang.label')" @click="toggleLocale">
@@ -50,4 +52,6 @@ function toggleLocale() {
 }
 .lang:hover span:not(.sep) { color: var(--teal); }
 .gh { font-family: var(--mono); font-size: .74rem; border: 1px solid var(--line); padding: .3rem .6rem; border-radius: 8px; color: var(--navy); text-decoration: none; margin-left: .4rem; }
+.brand-logo { display: inline-flex; line-height: 0; }
+.brand-text { text-decoration: none; color: inherit; }
 </style>
