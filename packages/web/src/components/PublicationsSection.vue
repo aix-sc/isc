@@ -17,12 +17,9 @@ const imgFailed = reactive<Record<string, boolean>>({})
 
     <div class="pub-list">
       <article v-for="p in pubs" :key="p.id" class="pub-row">
-        <div class="pub-top">
-          <h3 class="pub-title serif">{{ p.title }}</h3>
-          <span class="status">{{ p.status }}</span>
-        </div>
+        <h3 class="pub-title serif">{{ p.title }}</h3>
         <p class="venue">
-          {{ p.venue }}<template v-if="p.location"> · {{ p.location }}</template> · {{ p.date }}
+          {{ p.venue }}<template v-if="p.location"> · {{ p.location }}</template> · {{ p.date }} · {{ p.status }}
         </p>
         <div class="authors">
           <span v-for="a in p.authors" :key="a.name" class="author">
@@ -56,13 +53,7 @@ const imgFailed = reactive<Record<string, boolean>>({})
 .pub-list { display: flex; flex-direction: column; }
 .pub-row { padding: 1.3rem 0; border-top: 1px solid var(--line); }
 .pub-row:last-child { border-bottom: 1px solid var(--line); }
-.pub-top { display: flex; align-items: baseline; justify-content: space-between; gap: 1rem; flex-wrap: wrap; }
 .pub-title { font-size: 1.06rem; font-weight: 600; line-height: 1.4; color: var(--navy); margin: 0; max-width: 62rem; }
-.status {
-  flex: 0 0 auto; font-family: var(--mono); font-size: .66rem; letter-spacing: .05em; text-transform: uppercase;
-  color: var(--teal); background: var(--ts); border: 1px solid #BFE0DA; border-radius: 999px; padding: .22rem .7rem;
-  white-space: nowrap;
-}
 .venue { font-size: .8rem; color: var(--mute); margin: .35rem 0 .55rem; }
 .authors { display: flex; flex-wrap: wrap; gap: .45rem 1.1rem; margin-bottom: .6rem; }
 .author { display: inline-flex; align-items: center; gap: .45rem; }
@@ -81,5 +72,4 @@ const imgFailed = reactive<Record<string, boolean>>({})
   a:hover { text-decoration: underline; }
   .aix-link { font-weight: 700; }
 }
-@media (max-width: 640px) { .pub-top { flex-direction: column; gap: .3rem; } }
 </style>
