@@ -90,7 +90,7 @@ Following the ISC framing [4], total semantic-processing cost scales with corpus
 
 Purpose. The evaluation isolates two questions matched to this paper's phase: does query-time governance reconstruction exceed the reliable capability of an inexpensive model while the compiled substrate does not (failure asymmetry), and what per-question cost premium does QSR pay when both architectures succeed (cost asymmetry)? External validity on real corpora is explicitly out of scope and is planned follow-up work; the results below are controlled proof-of-concept evidence. All measurements in this paper stand independently of the maintenance results reported in [4].
 
-Harness. All runs use a Python harness against a commercial hosted API, with pinned model identifiers, JSON run configurations, and frozen result snapshots (CSV, JSONL, and manifests) dated July 8, 2026. Per-question cost is computed from logged prompt and completion tokens multiplied by the provider's published per-million-token prices as of that date (Table I); prices are recorded in the harness source for reproducibility. Corpus: a deterministic synthetic revision corpus (seed 20260708) of 80 entities, each with three slots (capital\_plan, risk\_owner, launch\_region) and three to five revisions per slot, augmented for the adversarial set with drafts, proposals, rejected rows, sandbox artifacts, future-dated rows, cross-row revocations, and deletion tombstones with effective dates. QSR conditions receive 64 (adversarial) or up to 128 (cost sweep) retrieved context rows containing the correct information plus stale revisions and distractors; ISC conditions receive the single compiled substrate row. Metric: an answer counts as exact only if the value, the cited source, and the cited revision all match. Every condition is rerun over five corpus seeds (20260709--20260713); tables report min/mean/max across seeds, and latency is the mean across seeds (latency is serving-dependent and reported for orientation only). S2 measurement: the rephrasing step is evaluated on two real passage sets --- 30 public Wikipedia passages (dense prose) and 25 valid Federal Reserve press-conference Q\&amp;A excerpts (verbose dialogue; 5 of 30 malformed model completions excluded) --- with DeepSeek V4 Flash as the rephrasing model, tokens counted by tiktoken cl100k\_base, and three metrics: token ratio, source-entailed fact rate, and passage-level QA-fidelity pass rate. Entailment and QA-fidelity are judged automatically by a hosted LLM judge under binary criteria recorded in the harness configuration --- a fact counts as source-entailed only if fully supported by its source passage, and a passage passes QA-fidelity only if questions answered from the facts match answers from the raw passage; malformed completions are excluded from these denominators and reported (5 of 30 on the dialogue set, 16.7\%). No human agreement study accompanies these automatic judgments yet; a double-annotated validation with chance-corrected agreement is planned follow-up work. The harness, run configurations, and frozen result snapshots are available at https://github.com/aix-sc/isc (tag data-freeze-2026-07-16).
+Harness. All runs use a Python harness against a commercial hosted API, with pinned model identifiers, JSON run configurations, and frozen result snapshots (CSV, JSONL, and manifests) dated July 8, 2026. Per-question cost is computed from logged prompt and completion tokens multiplied by the provider's published per-million-token prices as of that date (Table I); prices are recorded in the harness source for reproducibility. Corpus: a deterministic synthetic revision corpus (seed 20260708) of 80 entities, each with three slots (capital\_plan, risk\_owner, launch\_region) and three to five revisions per slot, augmented for the adversarial set with drafts, proposals, rejected rows, sandbox artifacts, future-dated rows, cross-row revocations, and deletion tombstones with effective dates. QSR conditions receive 64 (adversarial) or up to 128 (cost sweep) retrieved context rows containing the correct information plus stale revisions and distractors; ISC conditions receive the single compiled substrate row. Metric: an answer counts as exact only if the value, the cited source, and the cited revision all match. Every condition is rerun over five corpus seeds (20260709--20260713); tables report min/mean/max across seeds, and latency is the mean across seeds (latency is serving-dependent and reported for orientation only). S2 measurement: the rephrasing step is evaluated on two real passage sets --- 30 public Wikipedia passages (dense prose) and 25 valid Federal Reserve press-conference Q\&A excerpts (verbose dialogue; 5 of 30 malformed model completions excluded) --- with DeepSeek V4 Flash as the rephrasing model, tokens counted by tiktoken cl100k\_base, and three metrics: token ratio, source-entailed fact rate, and passage-level QA-fidelity pass rate. Entailment and QA-fidelity are judged automatically by a hosted LLM judge under binary criteria recorded in the harness configuration --- a fact counts as source-entailed only if fully supported by its source passage, and a passage passes QA-fidelity only if questions answered from the facts match answers from the raw passage; malformed completions are excluded from these denominators and reported (5 of 30 on the dialogue set, 16.7\%). No human agreement study accompanies these automatic judgments yet; a double-annotated validation with chance-corrected agreement is planned follow-up work. The harness, run configurations, and frozen result snapshots are available at https://github.com/aix-sc/isc (tag data-freeze-2026-07-16).
 
 \begin{table}[!t]
 \caption{Models and published prices used for cost accounting (July 8, 2026). Prices in \$ per million tokens.}
@@ -116,11 +116,11 @@ Table II reports the S2 measurement. On verbose dialogue, rephrasing halved the 
 \caption{S2 rephrasing on two real source styles (DeepSeek V4 Flash; tokens via tiktoken cl100k\_base).}
 \label{tab2}
 \centering
-\footnotesize\begin{tabular}{lrrrr}
+\footnotesize\setlength{\tabcolsep}{4pt}\begin{tabular}{lrrrr}
 \hline
-Source style & Passages & Token ratio & Entailed & QA fidelity \\
+Source style & Passages & \shortstack[r]{Token\\ratio} & Entailed & \shortstack[r]{QA\\fidelity} \\
 \hline
-Dialogue (Fed Q\&amp;A) & 25 & 0.49$\times$ & 97.6\% & 92.0\% \\
+Dialogue (Fed Q\&A) & 25 & 0.49$\times$ & 97.6\% & 92.0\% \\
 Dense prose (Wikipedia) & 30 & 1.03$\times$ & 100.0\% & 96.7\% \\
 \hline
 \end{tabular}
@@ -134,9 +134,9 @@ Six questions per seed require applying rules R1--R7 to noisy context. Table III
 \caption{Adversarial governance reconstruction with DeepSeek V4 Flash (6 questions $\times$ 5 seeds; 64 context rows for QSR). Exact as min--max across seeds; cost and latency as means.}
 \label{tab3}
 \centering
-\footnotesize\begin{tabular}{lrrr}
+\footnotesize\setlength{\tabcolsep}{4pt}\begin{tabular}{lrrr}
 \hline
-Condition & Exact (min--max) & Mean cost/q (\$) & Mean latency \\
+Condition & \shortstack[r]{Exact\\(min--max)} & \shortstack[r]{Mean cost/q\\(\$)} & \shortstack[r]{Mean\\latency} \\
 \hline
 Flash + QSR & 0/6--1/6 & 0.00131 & 8.87 s \\
 Flash + ISC & 6/6 all seeds & 0.00010 & 3.06 s \\
@@ -152,9 +152,9 @@ To test whether a stronger model can absorb the reconstruction burden at query t
 \caption{Heavier-model QSR spot check on the adversarial sample (3 questions $\times$ 5 seeds).}
 \label{tab4}
 \centering
-\footnotesize\begin{tabular}{lrrr}
+\footnotesize\setlength{\tabcolsep}{3pt}\begin{tabular}{@{}p{0.33\columnwidth}rrr@{}}
 \hline
-Condition & Exact (min--max) & Mean cost/q (\$) & Mean latency \\
+Condition & \shortstack[r]{Exact\\(min--max)} & \shortstack[r]{Mean cost/q\\(\$)} & \shortstack[r]{Mean\\latency} \\
 \hline
 Kimi K2.7 Code + QSR & 0/3--1/3 & 0.01086 & 7.45 s \\
 GLM 5.2 + QSR & 2/3--3/3 & 0.01389 & 7.48 s \\
@@ -170,9 +170,9 @@ On simple revision questions --- corrected facts, deletion tombstones, and ordin
 \caption{Cost sweep on simple revision tasks (9 questions $\times$ 5 seeds; Pro is a 2-question sample per seed). QSR uses 128 context rows. Costs and tokens as means across seeds.}
 \label{tab5}
 \centering
-\footnotesize\begin{tabular}{lrrrr}
+\footnotesize\setlength{\tabcolsep}{4pt}\begin{tabular}{lrrrr}
 \hline
-Condition & Acc. & Mean cost/q (\$) & Mean tok/q & Mean latency \\
+Condition & Acc. & \shortstack[r]{Mean cost/q\\(\$)} & \shortstack[r]{Mean\\tok/q} & \shortstack[r]{Mean\\latency} \\
 \hline
 Flash + ISC & all exact & 0.00010 & 453 & 3.30 s \\
 Flash + QSR & all exact & 0.00142 & 9,777 & 3.40 s \\
@@ -203,33 +203,33 @@ The authors used an AI assistant (Anthropic Claude) for language editing and fig
 
 \begin{thebibliography}{17}
 
-\bibitem{ref1} P. Lewis et al., \&quot;Retrieval-augmented generation for knowledge-intensive NLP tasks,\&quot; in Adv. Neural Inf. Process. Syst., vol. 33, 2020, pp. 9459--9474.
+\bibitem{ref1} P. Lewis et al., \''Retrieval-augmented generation for knowledge-intensive NLP tasks,\'' in Adv. Neural Inf. Process. Syst., vol. 33, 2020, pp. 9459--9474.
 
-\bibitem{ref2} Y. Gao et al., \&quot;Retrieval-augmented generation for large language models: A survey,\&quot; arXiv preprint arXiv:2312.10997, 2023.
+\bibitem{ref2} Y. Gao et al., \''Retrieval-augmented generation for large language models: A survey,\'' arXiv preprint arXiv:2312.10997, 2023.
 
-\bibitem{ref3} N. F. Liu et al., \&quot;Lost in the middle: How language models use long contexts,\&quot; Trans. Assoc. Comput. Linguist., vol. 12, pp. 157--173, 2024.
+\bibitem{ref3} N. F. Liu et al., \''Lost in the middle: How language models use long contexts,\'' Trans. Assoc. Comput. Linguist., vol. 12, pp. 157--173, 2024.
 
-\bibitem{ref4} Y. Takahashi, K. Wild, and A. Uraki, \&quot;Cost scales with change, not corpus size: Incrementally maintaining an evolving semantic substrate,\&quot; in Proc. Int. Electron. Symp. (IES-KCIC), Aug. 1--3, 2026, to appear. arXiv:2608.16621, doi: 10.48550/arXiv.2608.16621.
+\bibitem{ref4} Y. Takahashi, K. Wild, and A. Uraki, \''Cost scales with change, not corpus size: Incrementally maintaining an evolving semantic substrate,\'' in Proc. Int. Electron. Symp. (IES-KCIC), Aug. 1--3, 2026, to appear. arXiv:2608.16621, doi: 10.48550/arXiv.2608.16621.
 
-\bibitem{ref5} J. Johnson, M. Douze, and H. Jégou, \&quot;Billion-scale similarity search with GPUs,\&quot; IEEE Trans. Big Data, vol. 7, no. 3, pp. 535--547, 2021.
+\bibitem{ref5} J. Johnson, M. Douze, and H. Jégou, \''Billion-scale similarity search with GPUs,\'' IEEE Trans. Big Data, vol. 7, no. 3, pp. 535--547, 2021.
 
-\bibitem{ref6} F. Bang, \&quot;GPTCache: An open-source semantic cache for LLM applications,\&quot; in Proc. NLP-OSS Workshop, 2023, pp. 212--218.
+\bibitem{ref6} F. Bang, \''GPTCache: An open-source semantic cache for LLM applications,\'' in Proc. NLP-OSS Workshop, 2023, pp. 212--218.
 
-\bibitem{ref7} A. Gupta and I. S. Mumick, \&quot;Maintenance of materialized views: Problems, techniques, and applications,\&quot; IEEE Data Eng. Bull., vol. 18, no. 2, pp. 3--18, 1995.
+\bibitem{ref7} A. Gupta and I. S. Mumick, \''Maintenance of materialized views: Problems, techniques, and applications,\'' IEEE Data Eng. Bull., vol. 18, no. 2, pp. 3--18, 1995.
 
-\bibitem{ref8} D. Edge et al., \&quot;From local to global: A graph RAG approach to query-focused summarization,\&quot; arXiv preprint arXiv:2404.16130, 2024.
+\bibitem{ref8} D. Edge et al., \''From local to global: A graph RAG approach to query-focused summarization,\'' arXiv preprint arXiv:2404.16130, 2024.
 
-\bibitem{ref9} T. Chen et al., \&quot;Dense X retrieval: What retrieval granularity should we use?\&quot; in Proc. EMNLP, 2024, pp. 15159--15177.
+\bibitem{ref9} T. Chen et al., \''Dense X retrieval: What retrieval granularity should we use?\'' in Proc. EMNLP, 2024, pp. 15159--15177.
 
-\bibitem{ref10} S. Min et al., \&quot;FActScore: Fine-grained atomic evaluation of factual precision in long form text generation,\&quot; in Proc. EMNLP, 2023, pp. 12076--12100.
+\bibitem{ref10} S. Min et al., \''FActScore: Fine-grained atomic evaluation of factual precision in long form text generation,\'' in Proc. EMNLP, 2023, pp. 12076--12100.
 
 \bibitem{ref11} G. Salton and M. J. McGill, Introduction to Modern Information Retrieval. New York, NY, USA: McGraw-Hill, 1983.
 
-\bibitem{ref12} S. Deerwester, S. T. Dumais, G. W. Furnas, T. K. Landauer, and R. Harshman, \&quot;Indexing by latent semantic analysis,\&quot; J. Am. Soc. Inf. Sci., vol. 41, no. 6, pp. 391--407, 1990.
+\bibitem{ref12} S. Deerwester, S. T. Dumais, G. W. Furnas, T. K. Landauer, and R. Harshman, \''Indexing by latent semantic analysis,\'' J. Am. Soc. Inf. Sci., vol. 41, no. 6, pp. 391--407, 1990.
 
-\bibitem{ref13} Y. Kiyoki, T. Kitagawa, and T. Hayama, \&quot;A metadatabase system for semantic image search by a mathematical model of meaning,\&quot; ACM SIGMOD Record, vol. 23, no. 4, pp. 34--41, 1994.
+\bibitem{ref13} Y. Kiyoki, T. Kitagawa, and T. Hayama, \''A metadatabase system for semantic image search by a mathematical model of meaning,\'' ACM SIGMOD Record, vol. 23, no. 4, pp. 34--41, 1994.
 
-\bibitem{ref14} K. Ethayarajh, \&quot;How contextual are contextualized word representations? Comparing the geometry of BERT, ELMo, and GPT-2 embeddings,\&quot; in Proc. EMNLP-IJCNLP, 2019, pp. 55--65.
+\bibitem{ref14} K. Ethayarajh, \''How contextual are contextualized word representations? Comparing the geometry of BERT, ELMo, and GPT-2 embeddings,\'' in Proc. EMNLP-IJCNLP, 2019, pp. 55--65.
 
 \bibitem{ref15} R. Kimball and M. Ross, The Data Warehouse Toolkit: The Definitive Guide to Dimensional Modeling, 3rd ed. Indianapolis, IN, USA: Wiley, 2013.
 
