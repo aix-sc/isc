@@ -3,6 +3,29 @@
 This note closes the three camera-ready evidence/release tasks tracked in
 issues #7–#9. Reproduce the numeric results with:
 
+## Final submission receipt (reported 2026-08-29)
+
+Yusuke confirmed that the iCAST-ES camera-ready is **submitted and final**:
+PDF eXpress approved it, and EDAS now contains the final file. The work was
+finished two days before the September 1 deadline.
+
+- The abstract again says: “open source, MIT-licensed implementation and
+  experimental artifacts.”
+- The authoritative LaTeX source and submitted PDF are in
+  [`paper/icast2026-camera-ready/`](../paper/icast2026-camera-ready/). Tables
+  and Fig. 1 were retypeset to sit at column tops, and one malformed quote
+  character was corrected across the references.
+- No reported numerical result changed.
+- Yusuke plans to post the accepted version, with the IEEE copyright notice,
+  to arXiv under `cs.AI` in the next day or two. This is planned, not yet
+  recorded as uploaded.
+
+After Kyle returns from Burning Man, the remaining conference preparation is
+presenter registration and slides. Prior iCAST programs suggest a working
+format of a 10-minute talk plus 5 minutes for Q&A; confirm the assigned format
+when the conference provides it.
+
+
 ```sh
 uv run --with tiktoken python experiments/camera_ready_analysis.py
 ```
