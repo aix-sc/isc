@@ -4,6 +4,7 @@
 
 ## Papers
 
+- *Ingest-Time Fact Compilation for Cost-Efficient and Reliable Question Answering over Revised Corpora* — iCAST-ES 2026 ([camera-ready PDF](paper/icast2026-camera-ready/main.pdf), [presentation PowerPoint](paper/icast2026-presentation/icast-2026-kyle-wild.pptx), [presentation PDF](paper/icast2026-presentation/icast-2026-kyle-wild.pdf), [artifact review](https://github.com/aix-sc/isc/issues/4))
 - [*RAG Deserves an Index: Why Ingest-Time Compilation Beats Query-Time Interpretation*](https://arxiv.org/abs/2608.20845) ([PDF](https://arxiv.org/pdf/2608.20845), [DOI](https://doi.org/10.48550/arXiv.2608.20845))
 - [*Cost Scales with Change, Not Corpus Size: Incrementally Maintaining an Evolving Semantic Substrate*](https://arxiv.org/abs/2608.16621) ([PDF](https://arxiv.org/pdf/2608.16621), [DOI](https://doi.org/10.48550/arXiv.2608.16621))
 

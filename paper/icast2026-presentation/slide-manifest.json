@@ -1,0 +1,146 @@
+[
+  {
+    "slide": 1,
+    "title": "Compile once. Read the current fact.",
+    "section": "Opening",
+    "seconds": 20,
+    "appendix": false,
+    "source": "Camera-ready title and author block",
+    "notes": "Opening promise: what if we could preserve the interpretation of a source instead of asking a model to reconstruct it on every read? Start with an actual passage from the experiment. This is the fact-compilation paper, not the companion matrix-maintenance study or the MediaSum ISC-RAG retrieval paper. The main slides total ten minutes."
+  },
+  {
+    "slide": 2,
+    "title": "What does “it” mean when the passage is gone?",
+    "section": "Start with one sentence",
+    "seconds": 75,
+    "appendix": false,
+    "source": "S2 frozen run · FOMC, 29 Apr 2026 · passage fed_dialogue:20260429:17 · excerpts",
+    "notes": "Ask the audience to read the left excerpt. The question was whether policy was at the neutral rate. “I” is Chair Powell; “it” is his estimate of the neutral rate. The right sentence is an exact stored model output, not a fresh rewrite for this talk. The whole passage produced eight facts; only this one is displayed. Let the audience see the repaired references before naming atomic facts. Source excerpts are contiguous and exact, with the speaker label separated. Preserve personal-estimate language: this is an attributed statement, not a claim that the neutral rate is objectively known."
+  },
+  {
+    "slide": 3,
+    "title": "A fact is a portable, source-grounded claim.",
+    "section": "What we store",
+    "seconds": 50,
+    "appendix": false,
+    "source": "Definition: paper Method §III · claim example: S2 passage 17 · source association retained in frozen record",
+    "notes": "Here “fact” names a storage unit: a self-contained claim grounded in a source. It is not a philosophical guarantee of truth. Read the three layers: who said it, what they estimated, and where to check. The source/date shown are attached to the frozen passage-level result, not an invented per-fact provenance schema from S2. Another exact generated fact says that the neutral rate cannot be known with certainty. Say explicitly that compression must preserve qualifications and the difference between reporting a statement and asserting the world is that way."
+  },
+  {
+    "slide": 4,
+    "title": "Which launch decision is valid today?",
+    "section": "When the source changes",
+    "seconds": 60,
+    "appendix": false,
+    "source": "Synthetic test case · 3 owner records from 64 rows · as of 8 Jul 2026 · full fixture in examples.json",
+    "notes": "Bridge from the attributed statement on slide 3: a claim also needs to remain current when source records change. Imagine answering which launch-region decision is in force today. These are three actual owner value records from the synthetic fixture, not a real company or invented real region names. Higher revision numbers mean newer versions. Read the rule first: choose the latest approval still in force. Revision 5 remains approved and valid; revision 11 was approved but is explicitly revoked by a separate regulatory record; revision 14 is a draft. Ask the audience to choose, then pause before revealing slide 5. This is a reduced teaching example, not all 64 rows: imported and future-effective candidates and distractors are omitted here but preserved in examples.json. Full harness rules still determine the benchmark answer."
+  },
+  {
+    "slide": 5,
+    "title": "Revision 5 is still the valid decision.",
+    "section": "Resolve once",
+    "seconds": 45,
+    "appendix": false,
+    "source": "Same synthetic test case · readable summary of the resolved row; exact value and full source in appendix 13",
+    "notes": "Keep the three choices in the same left-to-right order so the answer requires no new decoding. Revision 5 is the latest approval still in force among these candidates. The newer approval was withdrawn; the newest version is only a draft. Highlight revision 5, then point to the saved source. The lower panel is a readable summary of the resolved row, not a verbatim model response or an invented launch region. The exact synthetic value is launch_region_governed_000; the full source is src/adversarial_project_000/launch_region/owner-approved-r5.md. Both appear in examples.json and the response appendix. In the experiment this resolved input is supplied from expected fields: it tests reading from a resolved record, not end-to-end compilation. Transition: after resolving this once, why make every new question do the same work again?"
+  },
+  {
+    "slide": 6,
+    "title": "Every new question should reuse that work.",
+    "section": "Move work from reads to changes",
+    "seconds": 55,
+    "appendix": false,
+    "source": "Architecture: paper §III · schematic, not an additional measured experiment",
+    "notes": "Walk across the top lane: find candidate evidence, reconstruct which rows govern, answer, then repeat for the next query. Bottom lane: normalize and resolve when a source changes, persist, and read the resulting current state. The database analogy is a maintained materialized view. This is not a cache of a previous answer: one stored fact can support different questions. Keep a boundary between the proposed end-to-end architecture and what is measured in the following two experiments. The raw-context comparison is this paper’s QSR baseline, not a claim about every RAG design."
+  },
+  {
+    "slide": 7,
+    "title": "We changed the reader’s job, not its model.",
+    "section": "The controlled test",
+    "seconds": 45,
+    "appendix": false,
+    "source": "Table III · DeepSeek V4 Flash · six repeated questions × five seeds; exact value + source + revision",
+    "notes": "The model is DeepSeek V4 Flash in both arms. Left gets 64 noisy typed rows and explicit governance rules. Right gets one reference-resolved row built from the generator’s expected value, source and revision. This is an input-condition contrast. The synthetic harness does not measure an end-to-end learned compiler, and a measured deterministic rule-filtering arm remains future work. Six question types repeat over five seeds; thirty runs do not imply thirty independently sampled tasks. The stricter success rule checks the value and exact source and revision. Both arms have a 1,024-token completion cap; failures must be interpreted in that setting."
+  },
+  {
+    "slide": 8,
+    "title": "Same model: 1/30 exact answers → 30/30.",
+    "section": "The result",
+    "seconds": 65,
+    "appendix": false,
+    "source": "Table III + Aug 20 log audit · synthetic governance test · six questions repeated across five seeds",
+    "notes": "Pause on the two counts before showing any cost figure. A filled circle is an exact parseable answer, not simply an attempted response. All 29 QSR failures reached the completion limit without a parseable final answer. Do not call them 29 confidently wrong factual answers. The observed result is that the low-cost reader can reliably finish this much simpler reference-resolved job under the tested budget. It is not a capability ceiling for QSR with longer completions or a better deterministic baseline. Table III also gives 12.89× lower mean read cost and latency 8.87 versus 3.06 seconds, reserved here for the appendix so the audience keeps one main takeaway."
+  },
+  {
+    "slide": 9,
+    "title": "When both were right, one read 21.6× fewer tokens.",
+    "section": "The recurring work shrinks",
+    "seconds": 55,
+    "appendix": false,
+    "source": "Table V · simple revisions · DeepSeek V4 Flash · nine questions × five seeds · mean total tokens/question",
+    "notes": "Now remove the failure case: simpler revision questions were answered exactly in both arms. The bars begin at zero and share the same scale. 9,777 versus 453 total tokens per question is a 21.6× difference. Interpret it as repeated reading and answering work saved in this controlled task. The corresponding mean cost ratio is 14.21, while mean latency was nearly unchanged at 3.40 versus 3.30 seconds. Do not equate token savings to latency or energy. Cost is marginal read cost only; full ingest and maintenance economics are not established here."
+  },
+  {
+    "slide": 10,
+    "title": "Not every corpus is equal.",
+    "section": "Human dialogue vs. Wikipedia",
+    "seconds": 45,
+    "appendix": false,
+    "source": "Table II · 25 Federal Reserve dialogue passages; 30 Wikipedia passages · aggregate token ratios",
+    "notes": "Return to the real dialogue shown at the start. We are comparing Human Dialogue, specifically Federal Reserve press-conference Q&A, with Wikipedia content. The source styles start in different places. Speech contains repetition, fillers and references that rely on surrounding context. Wikipedia has already been “compiled” in a useful editorial sense: human editors remove fluff and make language clear and self-contained. That analogy is our interpretation of the source-style result, not a measured causal effect of editing and not a claim that Wikipedia is a typed, governance-resolved fact store. The measured result is 49% of original tokens for dialogue versus 103% for Wikipedia after rephrasing: roughly half as much text versus no compression. These are aggregate ratios, not the ratio of the single opening quote or a claim about every dialogue/article. S2 is separate from the synthetic governance comparison. Automatic entailment rates are 97.6% and 100%; QA fidelity is 92.0% and 96.7%, retained in appendix 14. Transition: removing words is useful only if the claims that matter survive; the next slide shows an actual omission."
+  },
+  {
+    "slide": 11,
+    "title": "Shorter can still leave out the point.",
+    "section": "A real failure to learn from",
+    "seconds": 50,
+    "appendix": false,
+    "source": "S2 passage fed_dialogue:20260429:4 · source excerpt and two actual outputs; omission flagged by automatic judge",
+    "notes": "This second real example is from the same saved S2 run. The journalist states that the statement preserves the easing language. The generated list captures movement toward a neutral stance and other facts, but omits the key unchanged-language claim. Read the question aloud: “Did the statement change?” The concise fact list cannot reliably answer it from the omitted content. The original source remains available for audit. The automatic judge flagged this missing major claim; its separate year-related entailment criticism is not asserted as an independently validated error. This is a concrete reason to evaluate coverage as well as fidelity and to return to sources when needed."
+  },
+  {
+    "slide": 12,
+    "title": "Make reusable interpretation a durable asset.",
+    "section": "Takeaway",
+    "seconds": 35,
+    "appendix": false,
+    "source": "Wild, Takahashi & Uraki · iCAST-ES 2026 · paper #1571327482 · github.com/aix-sc/isc",
+    "notes": "Close by recalling the two examples: a sentence now names its speaker and subject; a revised record now carries the correct governing source. The results establish a controlled read-path advantage and a real-passage rephrasing result, separately. The promise is useful; the next milestone is a real revision stream with measured compilation, deterministic comparators and source audits. Do not claim that full system has already been validated. Invite questions after pointing to the open artifacts. Twelve main slides total ten minutes, followed by untimed appendices."
+  },
+  {
+    "slide": 13,
+    "title": "Appendix: the two recorded responses",
+    "section": "Evidence detail",
+    "seconds": 0,
+    "appendix": true,
+    "source": "adversarial_flash_seed_20260709_answers.jsonl · adversarial_project_000:launch_region · excerpts",
+    "notes": "This is one actual pair, not an aggregate. The QSR completion begins with the quoted sentence and ends without parseable final JSON at the 1,024-token cap. The complete output is archived in examples.json. ISC returned exact value, source and revision. The JSON shown omits rationale and abbreviates the source path for space, labelled explicitly; no token or latency values here should be confused with Table III aggregates."
+  },
+  {
+    "slide": 14,
+    "title": "Appendix: measurements behind the headline",
+    "section": "Numbers and scope",
+    "seconds": 0,
+    "appendix": true,
+    "source": "Camera-ready Tables II–V · frozen model/provider settings; ratios from unrounded means",
+    "notes": "This page groups the numerical results by experiment. No results are pooled between studies. Adversarial exactness is value/source/revision. Simple revision token totals include prompt plus completion. S2 token ratio compares original passage content against fact content. S2 costs are reconstructed from frozen text/tokenizer and exclude fidelity judging; no full empirical break-even. Latency difference on the simple tasks is small despite the large token gap."
+  },
+  {
+    "slide": 15,
+    "title": "Appendix: what remains to be tested",
+    "section": "Limits and comparison arms",
+    "seconds": 0,
+    "appendix": true,
+    "source": "Discussion; Tables IV–V; run.py build_messages() and make_adversarial_questions()",
+    "notes": "The reference-resolved arm uses generator expected fields. This isolates reading from governance reconstruction and does not validate an autonomous compiler. A query-time deterministic filter is an important unmeasured comparator once the input is typed. More output budget could change the observed QSR failure. Stronger-model spot checks use only three adversarial questions per seed and should not be treated as the same six-question comparison. Pro’s cost sweep uses two simple questions per seed. Real source S2 judgments are automatic; the quote demonstrations are not a human agreement study."
+  },
+  {
+    "slide": 16,
+    "title": "Appendix: where each example comes from",
+    "section": "Sources",
+    "seconds": 0,
+    "appendix": true,
+    "source": "See README.md and examples.json for full source paths, hashes, data and speaking notes",
+    "notes": "Do not conflate the three papers. This deck is the iCAST fact-compilation paper #1571327482. The companion maintenance study is cited context, not this talk’s experimental evidence. The separate ISC-RAG paper uses MediaSum results, which are not shown here. All example extracts are from archived records; full contexts and original outputs are preserved with hashes. Source URLs describe the archived experiment provenance, not newly collected measurements."
+  }
+]
