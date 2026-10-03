@@ -11,7 +11,11 @@ The experiment compares:
 
 ## Credentials
 
-The runner resolves Fireworks credentials in this order:
+By default the runner calls the exe.dev `fireworks` integration
+(`https://fireworks.int.exe.xyz/inference/v1`). The integration injects the
+key, so the VM needs none. To call Fireworks directly, set
+`FIREWORKS_BASE_URL=https://api.fireworks.ai/inference/v1`. The runner then
+resolves credentials in this order:
 
 1. `FIREWORKS_API_KEY`
 2. `LLM_GATEWAY_DEFAULT_FIREWORKS_API_KEY`

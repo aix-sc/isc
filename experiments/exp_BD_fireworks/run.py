@@ -13,7 +13,10 @@ Each model receives a shuffled retrieved context with current facts, stale
 revisions, deletion tombstones, and distractors. The model must reconstruct the
 current answer and cite the supporting source.
 
-Secrets are resolved in this order:
+By default requests go to the exe.dev `fireworks` integration
+(https://fireworks.int.exe.xyz/inference/v1), which injects the key, so none is
+needed. With FIREWORKS_BASE_URL set to another endpoint (e.g.
+https://api.fireworks.ai/inference/v1), secrets are resolved in this order:
 1. FIREWORKS_API_KEY
 2. LLM_GATEWAY_DEFAULT_FIREWORKS_API_KEY
 3. optional: op read <value passed via --op-ref>
@@ -48,7 +51,20 @@ from synthetic_revision import (
 
 
 OUT_DIR = Path(__file__).resolve().parent
-FIREWORKS_CHAT_URL = "https://api.fireworks.ai/inference/v1/chat/completions"
+# Default: the exe.dev `fireworks` integration, which injects the key at the
+# network edge, so no key is needed on the VM. FIREWORKS_BASE_URL overrides it
+# (e.g. FIREWORKS_DIRECT_BASE off exe.dev); a non-integration base needs a key
+# from the environment or --op-ref.
+FIREWORKS_INTEGRATION_BASE = "https://fireworks.int.exe.xyz/inference/v1"
+FIREWORKS_DIRECT_BASE = "https://api.fireworks.ai/inference/v1"
+
+
+def fireworks_base_url() -> str:
+    return (os.environ.get("FIREWORKS_BASE_URL", "").strip() or FIREWORKS_INTEGRATION_BASE).rstrip("/")
+
+
+def fireworks_uses_integration() -> bool:
+    return fireworks_base_url().startswith("https://fireworks.int.exe.xyz")
 DEFAULT_OP_REF = ""
 
 MODELS = {
@@ -81,6 +97,9 @@ class Question:
 
 
 def resolve_fireworks_api_key(op_ref: str | None, op_account: str | None) -> str:
+    if fireworks_uses_integration():
+        return ""  # the integration injects the key
+
     for env_name in ("FIREWORKS_API_KEY", "LLM_GATEWAY_DEFAULT_FIREWORKS_API_KEY"):
         value = os.environ.get(env_name, "").strip()
         if value:
@@ -582,10 +601,10 @@ def post_chat_completion(
         "response_format": {"type": "json_object"},
     }
     req = urllib.request.Request(
-        FIREWORKS_CHAT_URL,
+        fireworks_base_url() + "/chat/completions",
         data=json.dumps(body).encode("utf-8"),
         headers={
-            "Authorization": f"Bearer {api_key}",
+            **({"Authorization": f"Bearer {api_key}"} if api_key else {}),
             "Content-Type": "application/json",
             "Accept": "application/json",
         },

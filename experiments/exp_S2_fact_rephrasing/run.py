@@ -27,7 +27,20 @@ from pathlib import Path
 from typing import Any
 
 
-FIREWORKS_CHAT_URL = "https://api.fireworks.ai/inference/v1/chat/completions"
+# Default: the exe.dev `fireworks` integration, which injects the key at the
+# network edge, so no key is needed on the VM. FIREWORKS_BASE_URL overrides it
+# (e.g. FIREWORKS_DIRECT_BASE off exe.dev); a non-integration base needs a key
+# from the environment or --op-ref.
+FIREWORKS_INTEGRATION_BASE = "https://fireworks.int.exe.xyz/inference/v1"
+FIREWORKS_DIRECT_BASE = "https://api.fireworks.ai/inference/v1"
+
+
+def fireworks_base_url() -> str:
+    return (os.environ.get("FIREWORKS_BASE_URL", "").strip() or FIREWORKS_INTEGRATION_BASE).rstrip("/")
+
+
+def fireworks_uses_integration() -> bool:
+    return fireworks_base_url().startswith("https://fireworks.int.exe.xyz")
 DEFAULT_MODEL = "accounts/fireworks/models/deepseek-v4-flash"
 
 WIKIPEDIA_TITLES = [
@@ -91,6 +104,9 @@ class Passage:
 
 
 def resolve_fireworks_api_key(op_ref: str | None, op_account: str | None) -> str:
+    if fireworks_uses_integration():
+        return ""  # the integration injects the key
+
     for env_name in ("FIREWORKS_API_KEY", "LLM_GATEWAY_DEFAULT_FIREWORKS_API_KEY"):
         value = os.environ.get(env_name, "").strip()
         if value:
@@ -314,10 +330,10 @@ def post_chat_completion(
         "response_format": {"type": "json_object"},
     }
     req = urllib.request.Request(
-        FIREWORKS_CHAT_URL,
+        fireworks_base_url() + "/chat/completions",
         data=json.dumps(body).encode("utf-8"),
         headers={
-            "Authorization": f"Bearer {api_key}",
+            **({"Authorization": f"Bearer {api_key}"} if api_key else {}),
             "Content-Type": "application/json",
             "Accept": "application/json",
         },
@@ -684,7 +700,8 @@ Suggested manuscript sentence:
         "command": " ".join(sys.argv),
         "source_set": args.source_set,
         "outputs": ["passages.jsonl", "answers.jsonl", "scores.csv", "summary.json", "summary.md"],
-        "credential_source": "FIREWORKS_API_KEY, LLM_GATEWAY_DEFAULT_FIREWORKS_API_KEY, or --op-ref <1Password secret reference>",
+        "endpoint": fireworks_base_url(),
+        "credential_source": "exe.dev fireworks integration (key injected at the edge)" if fireworks_uses_integration() else "FIREWORKS_API_KEY, LLM_GATEWAY_DEFAULT_FIREWORKS_API_KEY, or --op-ref <1Password secret reference>",
     }
     (out_dir / "manifest.json").write_text(json.dumps(manifest, indent=2) + "\n")
 

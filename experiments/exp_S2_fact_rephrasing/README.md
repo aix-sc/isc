@@ -11,7 +11,11 @@ It records:
 - token compression from source passage to generated facts
 - model-judged source fidelity for generated facts
 
-The script reads Fireworks credentials from `FIREWORKS_API_KEY`.
+By default the script calls the exe.dev `fireworks` integration
+(`https://fireworks.int.exe.xyz/inference/v1`), which injects the key, so no
+key is needed on the VM. Off exe.dev, set
+`FIREWORKS_BASE_URL=https://api.fireworks.ai/inference/v1` and provide
+`FIREWORKS_API_KEY` (or `LLM_GATEWAY_DEFAULT_FIREWORKS_API_KEY`, or `--op-ref`).
 
 Example:
 
